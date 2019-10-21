@@ -1,0 +1,49 @@
+.box-fix {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.card-container {
+  height: 100vh;
+  width: 100vw;
+  background: grey;
+  padding: 0 20%;
+}
+
+.card {
+  position: fixed;
+  top: 2rem; bottom: 2rem;
+  left: 20%; right: 20%;
+  border-radius: 0.5rem;
+  transition: transform 0.3s linear;
+}
+
+.card-focused {
+  z-index: 0;
+}
+
+.card-first {
+  z-index: -1;
+  transform: translate(1rem, 0.5rem);
+}
+
+.card-second {
+  z-index: -2;
+  transform: translate(2rem, 1rem);
+}
+
+.card-third {
+  z-index: -3;
+  transform: translate(3rem, 1.5rem);
+}
+
+.card-hidden {
+  opacity: 0;
+  transform: translate(4rem, 2rem);
+}
+
+.card-finished {
+  z-index: 1;
+  transform: translate(-100vw, 0);
+}
