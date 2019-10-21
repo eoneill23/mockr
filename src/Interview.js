@@ -13,20 +13,35 @@ class Deck extends React.Component {
     this.setState({index: this.state.index + 1});
   }
 
+  prevCard = () => {
+    let nextIndex = this.state.index - 1;
+    if (nextIndex < 0) {
+      this.setState({index: 0});
+    } else {
+      this.setState({index: nextIndex});
+    }
+  }
+
   resetCards = () => {
     this.setState({index: 0});
   }
 
   render () {
+    let card1 = {question: 'What is your name?'};
+    let card2 = {question: 'What is your quest?'};
+    let card3 = {question: 'What is your favourite colour?'};
+    let card4 = {question: 'What is the average windspeed velocity of an unladen swallow?'};
+    let card5 = {question: ''};
     return (
       <div>
-        <Card index={this.state.index} color='blue' pos='0'/>
-        <Card index={this.state.index} color='red' pos='1'/>
-        <Card index={this.state.index} color='yellow' pos='2'/>
-        <Card index={this.state.index} color='green' pos='3'/>
-        <Card index={this.state.index} color='purple' pos='4'/>
+        <Card index={this.state.index} data={card1} pos='0'/>
+        <Card index={this.state.index} data={card2} pos='1'/>
+        <Card index={this.state.index} data={card3} pos='2'/>
+        <Card index={this.state.index} data={card4} pos='3'/>
+        <Card index={this.state.index} data={card5} pos='4'/>
         <button style={{position: 'fixed'}} onClick={this.nextCard}>Next</button>
-        <button style={{position: 'fixed', top: '2rem'}} onClick={this.resetCards}>Reset</button>
+        <button style={{position: 'fixed', top: '2rem'}} onClick={this.prevCard}>Back</button>
+        <button style={{position: 'fixed', top: '4rem'}} onClick={this.resetCards}>Reset</button>
       </div>
     );
   }
@@ -58,8 +73,8 @@ class Card extends React.Component {
 
   render () {
     return (
-      <div className={'card ' + this.whereAmI(this.props.index)} style={{background: this.props.color}}>
-
+      <div className={'card shadow ' + this.whereAmI(this.props.index)}>
+        <h1>Q: {this.props.data.question}</h1>
       </div>
     );
   }
