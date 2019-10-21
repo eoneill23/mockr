@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { UserContext } from '../../UserContext'
+import { login } from '../../util/apiCalls';
 import './LoginForm.css';
 
 export const LoginForm = () => {
+  const { user, setUser } = useContext(UserContext)
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const user = await login();
+    setUser(user)
     setEmailInput('');
     setPasswordInput('');
   }
