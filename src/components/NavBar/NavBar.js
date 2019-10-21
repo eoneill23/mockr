@@ -5,8 +5,8 @@ import './NavBar.css';
 export const NavBar = () => {
   return (
     <nav className='nav'>
-      <p>Mockr</p>
-      <Link>Log in/Sign up</Link>
+      <Link to='/'>Mockr</Link>
+      <Link to='/login'>Log in</Link>
     </nav>
   )
 }

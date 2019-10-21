@@ -8,7 +8,9 @@ export const App = () => {
   return (
     <main>
       <NavBar />
-      <HomePage />
+      <section>
+      <Route exact path='/'><HomePage /></Route>
+      </section>
     </main>
   );
 }
