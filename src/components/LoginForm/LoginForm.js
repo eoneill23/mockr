@@ -1,10 +1,11 @@
 import React, { useState, useContext } from 'react';
 import { UserContext } from '../../UserContext'
 import { login } from '../../util/apiCalls';
+import { Redirect } from 'react-router-dom';
 import './LoginForm.css';
 
 export const LoginForm = () => {
-  const { user, setUser } = useContext(UserContext)
+  const { user, setUser } = useContext(UserContext);
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
 
