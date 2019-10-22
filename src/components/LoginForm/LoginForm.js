@@ -1,11 +1,12 @@
 import React, { useState, useContext } from 'react';
-import { UserContext } from '../../UserContext'
-import { login } from '../../util/apiCalls';
-import { Redirect } from 'react-router-dom';
+import { UserContext } from '../../UserContext';
+import { InterviewsContext } from '../../InterviewsContext';
+import { login, getInterviews } from '../../util/apiCalls';
 import './LoginForm.css';
 
 export const LoginForm = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { setInterviews } = useContext(InterviewsContext);
+  const { setUser } = useContext(UserContext);
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
 
@@ -13,6 +14,8 @@ export const LoginForm = () => {
     e.preventDefault();
     const user = await login();
     setUser(user)
+    const interviews = await getInterviews();
+    setInterviews(interviews);
     setEmailInput('');
     setPasswordInput('');
   }

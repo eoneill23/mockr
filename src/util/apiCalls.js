@@ -7,3 +7,24 @@ export const login = async () => {
     role: 'student'
   }
 }
+
+export const getInterviews = async () => {
+  return [
+    {
+      id: 1,
+      score: 5,
+      summary: 'Great job',
+      studentId: 1,
+      interviewerId: 1,
+      questions: []
+    },
+    {
+      id: 2,
+      score: 4,
+      summary: 'Pretty good job',
+      studentId: 1,
+      interviewerId: 1,
+      questions: []
+    }
+  ]
+}

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { UserContext } from '../../UserContext';
 
 export const Dashboard = () => {
-  const { user } = useContext(UserContext)
+  const { user } = useContext(UserContext);
 
   return (
     <section>
