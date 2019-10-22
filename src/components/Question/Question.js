@@ -1,7 +1,8 @@
 import React from 'react';
+import './Question.css';
 
 export const Question = props => {
-  const whereAmI(index) {
+  const whereAmI = index => {
     let pos = parseInt(props.pos);
     if (pos < index) {
       return 'card-finished';
@@ -26,3 +27,5 @@ export const Question = props => {
     </div>
   );
 }
+
+export default Question;
