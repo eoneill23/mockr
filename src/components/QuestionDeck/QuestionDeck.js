@@ -2,6 +2,32 @@ import React, {useState} from 'react';
 import Card from '../Question/Question';
 import './QuestionDeck.css';
 
+import gql from 'graphql-tag';
+import {useQuery} from '@apollo/react-hooks';
+
+const PopulateCards = props => {
+  const QUERY = gql`
+    query {
+      questions {
+        id
+        body
+        active
+      }
+    }
+  `;
+
+  const {loading, error, data} = useQuery(QUERY);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error...</p>;
+
+  let i = -1;
+  return data.questions.map(({id, body}) => {
+    i++;
+    return <Card index={props.index} key={id} pos={i} question={body}/>
+  });
+}
+
 export const QuestionDeck = props => {
   const [index, setIndex] = useState(0);
 
@@ -22,17 +48,9 @@ export const QuestionDeck = props => {
     setIndex(0);
   }
 
-  let data = [{body: 'What is your name?'}, {body: 'What is your quest?'}, {body: 'What is your favourite colour?'}, {body: 'What is the average windspeed velocity of an unladen swallow?'}, {body: 'questuon'}, {body: 'Yet Another Question'}];
-
-  let i = -1;
-  const populateCards = data.map(data => {
-    i++;
-    return (<Card index={index} pos={i} question={data.body}/>);
-  });
-
   return (
     <div>
-      {populateCards}
+      <PopulateCards index={index}/>
       <button style={{position: 'fixed', top: '4rem'}} onClick={nextCard}>Next</button>
       <button style={{position: 'fixed', top: '6rem'}} onClick={prevCard}>Back</button>
       <button style={{position: 'fixed', top: '8rem'}} onClick={resetCards}>Reset</button>
