@@ -23,7 +23,7 @@ export const Question = props => {
 
   return (
     <div className={'card shadow ' + whereAmI(props.index)}>
-      <h1>Q: Something</h1>
+      <h1>Q: {props.question}</h1>
     </div>
   );
 }

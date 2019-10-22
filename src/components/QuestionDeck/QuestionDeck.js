@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Card from '../Question/Question';
 import './QuestionDeck.css';
 
-export const QuestionDeck = () => {
+export const QuestionDeck = props => {
   const [index, setIndex] = useState(0);
 
   const nextCard = () => {
@@ -22,19 +22,17 @@ export const QuestionDeck = () => {
     setIndex(0);
   }
 
-  let card1 = {question: 'What is your name?'};
-  let card2 = {question: 'What is your quest?'};
-  let card3 = {question: 'What is your favourite colour?'};
-  let card4 = {question: 'What is the average windspeed velocity of an unladen swallow?'};
-  let card5 = {question: ''};
+  let data = [{body: 'What is your name?'}, {body: 'What is your quest?'}, {body: 'What is your favourite colour?'}, {body: 'What is the average windspeed velocity of an unladen swallow?'}, {body: 'questuon'}, {body: 'Yet Another Question'}];
+
+  let i = -1;
+  const populateCards = data.map(data => {
+    i++;
+    return (<Card index={index} pos={i} question={data.body}/>);
+  });
 
   return (
     <div>
-      <Card index={index} data={card1} pos='0'/>
-      <Card index={index} data={card2} pos='1'/>
-      <Card index={index} data={card3} pos='2'/>
-      <Card index={index} data={card4} pos='3'/>
-      <Card index={index} data={card5} pos='4'/>
+      {populateCards}
       <button style={{position: 'fixed', top: '4rem'}} onClick={nextCard}>Next</button>
       <button style={{position: 'fixed', top: '6rem'}} onClick={prevCard}>Back</button>
       <button style={{position: 'fixed', top: '8rem'}} onClick={resetCards}>Reset</button>
