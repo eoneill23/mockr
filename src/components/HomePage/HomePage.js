@@ -1,6 +1,31 @@
 import React from 'react';
 import './HomePage.css';
 
+import gql from 'graphql-tag';
+import {useQuery} from '@apollo/react-hooks';
+
+const QueryResult = () => {
+  const QUESTIONS = gql`
+    query {
+      questions {
+        id
+        body
+        active
+      }
+    }
+  `;
+
+  const {loading, error, data} = useQuery(QUESTIONS);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error...</p>;
+
+  console.log(data);
+  return data.questions.map(({id, body}) => {
+    return <p key={id}>{body}</p>
+  });
+}
+
 export const HomePage = () => {
   return (
     <section className='welcome-info'>
@@ -13,6 +38,8 @@ export const HomePage = () => {
       <p>
         Click log in at the top right corner of the page to log in an begin the mock interview process!
       </p>
+
+      <QueryResult/>
     </section>
   )
 }
