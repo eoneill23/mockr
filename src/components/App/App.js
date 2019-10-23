@@ -3,12 +3,14 @@ import HomePage from '../HomePage/HomePage';
 import NavBar from '../NavBar/NavBar';
 import LoginForm from '../LoginForm/LoginForm';
 import Dashboard from '../Dashboard/Dashboard';
-import InterviewContainer from '../InterviewContainer/InterviewContainer';
+import StudentInterviewContainer from '../StudentInterviewContainer/StudentInterviewContainer';
 import { UserContext } from '../../UserContext';
 import { InterviewsContext } from '../../InterviewsContext';
 import { Route, Redirect } from 'react-router-dom';
-import QuestionDeck from '../QuestionDeck/QuestionDeck';
+import Interview from '../Interview/Interview/Interview';
 import './App.css';
+
+// Apollo
 import ApolloClient from 'apollo-boost';
 import {ApolloProvider} from '@apollo/react-hooks';
 const client = new ApolloClient({
@@ -31,8 +33,8 @@ export const App = () => {
             <Route exact path='/'><HomePage /></Route>
             <Route exact path='/login' render={() => user ? (<Redirect to='/dashboard'/>) : <LoginForm />}/>
             <Route exact path='/dashboard'><Dashboard /></Route>
-            <Route exact path='/interviews'><InterviewContainer /></Route>
-            <Route exact path='/questions'><QuestionDeck /></Route>
+            <Route exact path='/student-interviews'><StudentInterviewContainer /></Route>
+            <Route exact path='/interview'><Interview/></Route>
           </UserContext.Provider>
         </InterviewsContext.Provider>
       </main>

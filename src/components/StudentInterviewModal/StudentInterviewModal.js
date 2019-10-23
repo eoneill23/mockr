@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const InterviewModal = ({ id, summary }) => {
+export const StudentInterviewModal = ({ id, summary }) => {
   return (
     <>
     <div>{id}</div>
@@ -9,4 +9,4 @@ export const InterviewModal = ({ id, summary }) => {
   )
 }
 
-export default InterviewModal;
+export default StudentInterviewModal;
