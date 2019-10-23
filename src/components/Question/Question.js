@@ -2,6 +2,7 @@ import React from 'react';
 import './Question.css';
 
 export const Question = props => {
+  console.log('props', props)
   const whereAmI = index => {
     let pos = parseInt(props.pos);
     if (pos < index) {
