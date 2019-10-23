@@ -23,13 +23,15 @@ export const Question = props => {
   }
 
   return (
-    <div className={'card shadow ' + whereAmI(props.index)}>
+    <div className={'card shadow ' + whereAmI(props.cur)}>
       <h1 className='card-question'>Q: {props.question}</h1>
       <h1 className='card-position'>{props.pos}</h1>
 
       <form id={'card-response-' + props.pos}>
+        <h3 className='header-notes'>Notes:</h3>
         <textarea name='response' form={'card-response-' + props.pos} className='box-fix card-response'></textarea>
       </form>
+      <button className='card-next-btn shadow' onClick={props.fNext} value='🠚'/>
     </div>
   );
 }
