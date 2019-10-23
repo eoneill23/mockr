@@ -13,7 +13,7 @@ export const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const user = await login();
-    setUser(user)
+    setUser(user);
     const interviews = await getInterviews();
     setInterviews(interviews);
     setEmailInput('');
