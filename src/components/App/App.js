@@ -17,7 +17,7 @@ export const App = () => {
   const fetchedInterviews = useMemo(() => ({ interviews, setInterviews }), [interviews, setInterviews]);
 
   return (
-    <main>
+    <main className='main'>
       <InterviewsContext.Provider value={fetchedInterviews}>
         <UserContext.Provider value={userInfo}>
           <NavBar />
