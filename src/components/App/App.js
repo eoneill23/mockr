@@ -10,6 +10,8 @@ import { Route, Redirect } from 'react-router-dom';
 import QuestionDeck from '../QuestionDeck/QuestionDeck';
 import Interview from '../Interview/Interview';
 import './App.css';
+
+// Apollo
 import ApolloClient from 'apollo-boost';
 import {ApolloProvider} from '@apollo/react-hooks';
 const client = new ApolloClient({
