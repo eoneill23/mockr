@@ -5,19 +5,10 @@ import App from './components/App/App';
 import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
-// Apollo
-import ApolloClient from 'apollo-boost';
-import {ApolloProvider} from '@apollo/react-hooks';
-const client = new ApolloClient({
-  uri: 'https://thawing-wave-76846.herokuapp.com/graphql'
-});
-
 ReactDOM.render(
-  <ApolloProvider client={client}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </ApolloProvider>,
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
 document.getElementById('root')
 );
 
