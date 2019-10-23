@@ -40,7 +40,7 @@ export const QuestionDeck = props => {
     questions = data.questions.map(({ id, body }) => {
       i++;
       console.log('i is here', i)
-      return <Card index={index} key={id} pos={i} question={body} />
+      return <Card cur={cur} key={id} pos={i} question={body} />
     });
   }
 
