@@ -9,7 +9,7 @@ export const NavBar = () => {
   return (
     <nav className='nav shadow'>
       <Link to='/'>Mockr</Link>
-      {user && <><Link to='/interviews'>Interviews</Link> <Link to='/questions'>Questions</Link> <Link to='/' onClick={() => setUser('')}>Log out</Link></>}
+      {user && <><Link to='/student-interviews'>Interviews</Link> <Link to='/' onClick={() => setUser('')}>Log out</Link></>}
       {!user && <Link to='/login'>Log in</Link>}
     </nav>
   )
