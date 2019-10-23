@@ -11,8 +11,8 @@
   color: white;
   padding: 2rem;
 
-  position: fixed;
-  top: 6rem; bottom: 2rem;
+  position: absolute;
+  top: 2rem; bottom: 2rem;
   border-radius: 0.5rem;
   transition: transform 0.3s linear, opacity 0.3s linear;
 

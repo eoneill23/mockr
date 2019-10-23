@@ -8,7 +8,7 @@ import { UserContext } from '../../UserContext';
 import { InterviewsContext } from '../../InterviewsContext';
 import { Route, Redirect } from 'react-router-dom';
 import QuestionDeck from '../QuestionDeck/QuestionDeck';
-import InterviewEnd from '../InterviewEnd/InterviewEnd';
+import Interview from '../Interview/Interview';
 import './App.css';
 import ApolloClient from 'apollo-boost';
 import {ApolloProvider} from '@apollo/react-hooks';
@@ -34,7 +34,7 @@ export const App = () => {
             <Route exact path='/dashboard'><Dashboard /></Route>
             <Route exact path='/student-interviews'><StudentInterviewContainer /></Route>
             <Route exact path='/questions'><QuestionDeck /></Route>
-            <Route exact path='/ending'><InterviewEnd /></Route>
+            <Route exact path='/interview'><Interview/></Route>
           </UserContext.Provider>
         </InterviewsContext.Provider>
       </main>

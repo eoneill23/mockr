@@ -11,7 +11,12 @@
   top: 5rem; bottom: 2rem;
   left: 2rem; right: 2rem;
   background: grey;
-  border-radius: 2rem;
+  border-radius: 1rem;
+  transition: transform 0.5s linear;
+}
+
+.end-container-pre {
+  transform: translate(100vw, 0);
 }
 
 #header-final-remarks {
@@ -21,6 +26,7 @@
   position: absolute;
   bottom: calc(30% + 6rem); left: 2rem;
 }
+
 .interview-remarks {
   resize: none;
   font-size: 1.5rem;

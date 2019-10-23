@@ -7,7 +7,7 @@ import './QuestionDeck.css';
 import {Swipeable} from 'react-swipeable';
 
 export const QuestionDeck = props => {
-  const [cur, setCur] = useState(0);
+  const [cur, setCur] = useState(1);
   const { user } = useContext(UserContext);
 
   const populateCards = () => {
@@ -17,7 +17,7 @@ export const QuestionDeck = props => {
       });
     } else if (user.role === 1) {
       return props.data.questions.map(({id, body}, index) => {
-        return <Card cur={cur} key={id} pos={index - 1} question={body} fNext={nextCard}/>
+        return <Card cur={cur} key={id} pos={index + 1} question={body} fNext={nextCard}/>
       });
     }
   }
@@ -28,8 +28,8 @@ export const QuestionDeck = props => {
 
   const prevCard = () => {
     let nextCur = cur - 1;
-    if (nextCur < 0) {
-      setCur(0);
+    if (nextCur < 1) {
+      setCur(1);
     } else {
       setCur(nextCur);
     }
@@ -39,15 +39,18 @@ export const QuestionDeck = props => {
     setCur(0);
   }
 
+  const isFocused = () => {
+    if (props.focused) return ''
+    return ' question-container-post';
+  }
+
   if(user.role === 0) {
     return (
-      <section className='student-questions-container'>
-        {populateCards()}
-      </section>
-    )
+      <section className='student-questions-container'></section>
+    );
   } else if (user.role === 1) {
     return (
-      <div>
+      <div className={'question-container' + isFocused()}>
         <Swipeable onSwipedLeft={event => nextCard()} trackMouse={true} preventDefaultTouchmoveEvent={true}>
           {populateCards()}
         </Swipeable>

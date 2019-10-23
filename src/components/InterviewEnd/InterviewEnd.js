@@ -2,8 +2,13 @@ import React from 'react';
 import './InterviewEnd.css';
 
 export const InterviewEnd = props => {
+  const isFocused = () => {
+    if (props.focused) return '';
+    return ' end-container-pre';
+  }
+
   return (
-    <div className='end-container shadow'>
+    <div className={'end-container shadow' + isFocused()}>
       <div></div>
 
       <form id='interview-response'>
