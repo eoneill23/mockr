@@ -3,7 +3,8 @@ import { UserContext } from '../../UserContext';
 
 export const Dashboard = () => {
   const { user } = useContext(UserContext);
-
+  const buttonText = user.role === 0 ? 'Request interview access' : 'Request admin access'
+  
   return (
     <section>
       <section>
@@ -11,7 +12,7 @@ export const Dashboard = () => {
         <p>{user.first_name}</p>
         <p>{user.email}</p>
         <p>{user.email}</p>
-        <button>Request interviewer access</button>
+        <button>{buttonText}</button>
       </section>
     </section>
   )

@@ -4,7 +4,7 @@ export const login = async () => {
     first_name: 'Djavan',
     last_name: 'Munroe',
     email: 'djavan@gmail.com',
-    role: 'student'
+    role: 0
   }
 }
 
