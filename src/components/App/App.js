@@ -7,7 +7,7 @@ import StudentInterviewContainer from '../StudentInterviewContainer/StudentInter
 import { UserContext } from '../../UserContext';
 import { InterviewsContext } from '../../InterviewsContext';
 import { Route, Redirect } from 'react-router-dom';
-import Interview from '../Interview/Interview';
+import Interview from '../Interview/Interview/Interview';
 import './App.css';
 
 // Apollo
