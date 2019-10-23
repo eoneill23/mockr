@@ -10,7 +10,7 @@ import {useQuery} from '@apollo/react-hooks';
 import {Swipeable} from 'react-swipeable';
 
 export const QuestionDeck = props => {
-  const [index, setIndex] = useState(0);
+  const [cur, setCur] = useState(0);
   const { user } = useContext(UserContext);
   let questions;
 
@@ -45,20 +45,20 @@ export const QuestionDeck = props => {
   }
 
   const nextCard = () => {
-    setIndex(index + 1);
+    setCur(cur + 1);
   }
 
   const prevCard = () => {
-    let nextIndex = index - 1;
-    if (nextIndex < 0) {
-      setIndex(0);
+    let nextCur = cur - 1;
+    if (nextCur < 0) {
+      setCur(0);
     } else {
-      setIndex(nextIndex);
+      setCur(nextCur);
     }
   }
 
   const resetCards = () => {
-    setIndex(0);
+    setCur(0);
   }
 
   if(user.role === 0) {

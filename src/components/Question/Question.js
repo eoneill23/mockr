@@ -3,18 +3,18 @@ import './Question.css';
 
 export const Question = props => {
   console.log('props', props)
-  const whereAmI = index => {
+  const whereAmI = cur => {
     let pos = parseInt(props.pos);
-    if (pos < index) {
+    if (pos < cur) {
       return 'card-finished';
-    } else if (pos === index) {
+    } else if (pos === cur) {
       return 'card-focused';
     } else {
-      if (pos === (index + 1)) {
+      if (pos === (cur + 1)) {
         return 'card-first';
-      } else if (pos === (index + 2)) {
+      } else if (pos === (cur + 2)) {
         return 'card-second';
-      } else if (pos === (index + 3)) {
+      } else if (pos === (cur + 3)) {
         return 'card-third';
       } else {
         return 'card-hidden';
