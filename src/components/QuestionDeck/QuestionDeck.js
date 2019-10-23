@@ -4,44 +4,22 @@ import Card from '../Question/Question';
 import StudentQuestionCard from '../StudentQuestionCard/StudentQuestionCard';
 import './QuestionDeck.css';
 
-import gql from 'graphql-tag';
-import {useQuery} from '@apollo/react-hooks';
-
 import {Swipeable} from 'react-swipeable';
 
 export const QuestionDeck = props => {
   const [cur, setCur] = useState(0);
   const { user } = useContext(UserContext);
-  let questions;
 
-  const QUERY = gql`
-    query {
-      questions {
-        id
-        body
-        active
-      }
+  const populateCards = () => {
+    if(user.role === 0) {
+      return props.data.questions.map(({id, body}) => {
+        return <StudentQuestionCard body={body} />
+      });
+    } else if (user.role === 1) {
+      return props.data.questions.map(({id, body}, index) => {
+        return <Card cur={cur} key={id} pos={index - 1} question={body} fNext={nextCard}/>
+      });
     }
-  `;
-
-  const { loading, error, data } = useQuery(QUERY);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error...</p>;
-
-  if(user.role === 0) {
-    questions = data.questions.map(question => {
-      return <StudentQuestionCard body={question.body} />
-    });
-  }
-
-  if(user.role === 1) {
-    let i = -1;
-    questions = data.questions.map(({ id, body }) => {
-      i++;
-      console.log('i is here', i)
-      return <Card cur={cur} key={id} pos={i} question={body} />
-    });
   }
 
   const nextCard = () => {
@@ -64,14 +42,14 @@ export const QuestionDeck = props => {
   if(user.role === 0) {
     return (
       <section className='student-questions-container'>
-        {questions}
+        {populateCards()}
       </section>
     )
   } else if (user.role === 1) {
     return (
       <div>
         <Swipeable onSwipedLeft={event => nextCard()} trackMouse={true} preventDefaultTouchmoveEvent={true}>
-          {questions}
+          {populateCards()}
         </Swipeable>
         <button style={{ position: 'fixed', top: '4rem' }} onClick={nextCard}>Next</button>
         <button style={{ position: 'fixed', top: '6rem' }} onClick={prevCard}>Back</button>
