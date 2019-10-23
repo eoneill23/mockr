@@ -7,7 +7,13 @@ import InterviewContainer from '../InterviewContainer/InterviewContainer';
 import { UserContext } from '../../UserContext';
 import { InterviewsContext } from '../../InterviewsContext';
 import { Route, Redirect } from 'react-router-dom';
+import QuestionDeck from '../QuestionDeck/QuestionDeck';
 import './App.css';
+import ApolloClient from 'apollo-boost';
+import {ApolloProvider} from '@apollo/react-hooks';
+const client = new ApolloClient({
+  uri: 'https://thawing-wave-76846.herokuapp.com/graphql'
+});
 
 export const App = () => {
   const [user, setUser] = useState('');
@@ -17,17 +23,20 @@ export const App = () => {
   const fetchedInterviews = useMemo(() => ({ interviews, setInterviews }), [interviews, setInterviews]);
 
   return (
-    <main className='main'>
-      <InterviewsContext.Provider value={fetchedInterviews}>
-        <UserContext.Provider value={userInfo}>
-          <NavBar />
-          <Route exact path='/'><HomePage /></Route>
-          <Route exact path='/login' render={() => user ? (<Redirect to='/dashboard'/>) : <LoginForm />}/>
-          <Route exact path='/dashboard'><Dashboard /></Route>
-          <Route exact path='/interviews'><InterviewContainer /></Route>
-        </UserContext.Provider>
-      </InterviewsContext.Provider>
-    </main>
+    <ApolloProvider client={client}>
+      <main className='main'>
+        <InterviewsContext.Provider value={fetchedInterviews}>
+          <UserContext.Provider value={userInfo}>
+            <NavBar />
+            <Route exact path='/'><HomePage /></Route>
+            <Route exact path='/login' render={() => user ? (<Redirect to='/dashboard'/>) : <LoginForm />}/>
+            <Route exact path='/dashboard'><Dashboard /></Route>
+            <Route exact path='/interviews'><InterviewContainer /></Route>
+            <Route exact path='/questions'><QuestionDeck /></Route>
+          </UserContext.Provider>
+        </InterviewsContext.Provider>
+      </main>
+    </ApolloProvider>
   );
 }
 
