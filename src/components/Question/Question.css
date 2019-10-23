@@ -1,5 +1,11 @@
 .shadow {box-shadow: 0 16px 24px 2px rgba(0,0,0,0.15), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -7px rgba(0,0,0,0.2);}
 
+.box-fix {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 .card {
   background: #48a5a0;
   color: white;
@@ -7,16 +13,24 @@
 
   position: fixed;
   top: 6rem; bottom: 2rem;
-  left: 20%; right: 20%;
   border-radius: 0.5rem;
   transition: transform 0.3s linear, opacity 0.3s linear;
+
+  left: 5%; right: 5%; /* screen < 800px */
+}
+
+@media only screen and (min-width: 800px) {
+  .card {left: 20%; right: 20%;}
+}
+@media only screen and (min-width: 1400px) {
+  .card {left: 30%; right: 30%;}
 }
 
 .card-question {
   font-size: 3rem;
   font-weight: 300;
   width: 90%;
-  max-height: 40%;
+  max-height: 35%;
 }
 
 .card-position {
@@ -26,6 +40,15 @@
   position: absolute;
   top: 3rem;
   right: 3rem;
+}
+
+.card-response {
+  resize: none;
+
+  position: absolute;
+  bottom: 8rem; left: 2rem;
+  width: calc(100% - 8rem);
+  height: 30%;
 }
 
 

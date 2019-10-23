@@ -26,6 +26,10 @@ export const Question = props => {
     <div className={'card shadow ' + whereAmI(props.index)}>
       <h1 className='card-question'>Q: {props.question}</h1>
       <h1 className='card-position'>{props.pos}</h1>
+
+      <form id={'card-response-' + props.pos}>
+        <textarea name='response' form={'card-response-' + props.pos} className='box-fix card-response'></textarea>
+      </form>
     </div>
   );
 }

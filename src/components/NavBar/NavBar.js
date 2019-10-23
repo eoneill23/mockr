@@ -7,7 +7,7 @@ export const NavBar = () => {
   const { user, setUser } = useContext(UserContext);
 
   return (
-    <nav className='nav'>
+    <nav className='nav shadow'>
       <Link to='/'>Mockr</Link>
       {user && <><Link to='/interviews'>Interviews</Link> <Link to='/questions'>Questions</Link> <Link to='/' onClick={() => setUser('')}>Log out</Link></>}
       {!user && <Link to='/login'>Log in</Link>}
