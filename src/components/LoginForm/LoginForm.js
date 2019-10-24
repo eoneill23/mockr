@@ -39,6 +39,14 @@ export const LoginForm = () => {
           placeholder='Password'
         >
         </input>
+        <div className='rb-container'>
+          Role:
+          <input name='role' type='radio' />Admin
+          <input name='role' type='radio' />Interviewer 1
+          <input name='role' type='radio' />Interviewer 2
+          <input name='role' type='radio' />Student 1
+          <input name='role' type='radio' />Student 2
+        </div>
         <button
           onClick={(e) => handleSubmit(e)}
         >

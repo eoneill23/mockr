@@ -1,0 +1,38 @@
+.dashboard-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.profile-container {
+  background-color: rebeccapurple;
+  height: 100%;
+  width: 50%;
+}
+
+.pending-approvals {
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+}
+
+.approvals-container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+
+.pending-interviewer-approvals {
+  background-color: red;
+  height: 100%;
+  width: 50%;
+}
+
+.pending-admin-approvals {
+  background-color: blue;
+  height: 100%;
+  width: 50%;
+}

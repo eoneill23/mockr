@@ -1,10 +1,14 @@
+import gql from 'graphql-tag';
+import { useQuery } from '@apollo/react-hooks';
+
+
 export const login = async () => {
   return {
     id: 1,
     first_name: 'Djavan',
     last_name: 'Munroe',
     email: 'djavan@gmail.com',
-    role: 0
+    role: 1
   }
 }
 
