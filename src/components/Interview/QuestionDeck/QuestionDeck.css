@@ -1,3 +1,5 @@
+.shadow {box-shadow: 0 16px 24px 2px rgba(0,0,0,0.15), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -7px rgba(0,0,0,0.2);}
+
 .box-fix {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -14,3 +16,19 @@
 .question-container-post {
   transform: translate(-100vw, 0);
 }
+
+.back-btn {
+  position: fixed;
+  bottom: 3rem;
+  height: 2rem; width: 2rem;
+  background: #f03750;
+  border-radius: 1rem;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  z-index: 2;
+}
+.back-btn:focus {outline: 0;}
+@media only screen and (max-width: 800px) {.back-btn {display: none;}}
+@media only screen and (min-width: 800px) {.back-btn {left: calc(20% - 4rem);}}
+@media only screen and (min-width: 1400px) {.back-btn {left: calc(30% - 4rem);}}

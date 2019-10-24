@@ -38,16 +38,23 @@
 
   position: absolute;
   bottom: 2rem; left: 2rem;
-  width: calc(100% - 12rem);
+  width: calc(100% - 13rem);
   height: 40%;
 }
 .interview-remarks:hover {background: rgba(255,255,255,0.1);}
 .interview-remarks:focus {outline: none; background: rgba(50,50,50,0.2);}
 
+.interview-score {
+  color: white;
+  position: absolute;
+  bottom: 7rem; right: 1.5rem;
+  top: calc(40% + 7.5rem);
+}
+
 .interview-submit {
   position: absolute;
-  left: calc(100% - 8rem);
-  bottom: 3rem;
+  left: 2rem;
+  bottom: -5rem;
   width: 5rem; height: 5rem;
   background: #f03750;
   border: 0;

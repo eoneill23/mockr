@@ -36,12 +36,10 @@ export const QuestionDeck = props => {
 
   return (
     <div className={'question-container' + isFocused()}>
-      <Swipeable onSwipedLeft={event => nextCard()} trackMouse={true} preventDefaultTouchmoveEvent={true}>
+      <Swipeable onSwipedLeft={event => nextCard()} onSwipedRight={event => prevCard()} trackMouse={true} preventDefaultTouchmoveEvent={true}>
         {populateCards()}
       </Swipeable>
-      <button style={{ position: 'fixed', top: '4rem' }} onClick={nextCard}>Next</button>
-      <button style={{ position: 'fixed', top: '6rem' }} onClick={prevCard}>Back</button>
-      <button style={{ position: 'fixed', top: '8rem' }} onClick={resetCards}>Reset</button>
+      <button className='back-btn shadow' onClick={prevCard}>🠘</button>
     </div>
   );
 }

@@ -56,11 +56,22 @@
 
   position: absolute;
   bottom: 2rem; left: 2rem;
-  width: calc(100% - 4rem);
+  width: calc(100% - 20rem);
   height: 40%;
 }
 .card-response:hover {background: rgba(255,255,255,0.1);}
 .card-response:focus {outline: none; background: rgba(50,50,50,0.2);}
+
+.card-score {
+  font-size: 1.2rem;
+
+  position: absolute;
+  bottom: 10rem; right: 1.5rem;
+  height: calc(40% - 8rem);
+}
+.card-score input {
+  background: transparent;
+}
 
 .card-next-btn {
   position: absolute;
@@ -77,10 +88,11 @@
 
   display: none;
 }
+.card-next-btn:focus {outline: 0;}
 
 @media only screen and (min-width: 800px) {
   .card {left: 20%; right: 20%;}
-  .card-response {width: calc(100% - 12rem);}
+  .card-response {width: calc(100% - 13rem);}
   .card-next-btn {display: block;}
 }
 @media only screen and (min-width: 1400px) {
