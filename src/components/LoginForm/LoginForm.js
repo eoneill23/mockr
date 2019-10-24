@@ -1,9 +1,10 @@
 import React, { useState, useContext } from 'react';
-import { InterviewsContext, UserContext } from '../../Context';
-import { login, getInterviews } from '../../util/apiCalls';
+import { InterviewsContext, UserContext, QuestionsContext } from '../../Context';
+import { login, getInterviews, getQuestions } from '../../util/apiCalls';
 import './LoginForm.css';
 
 export const LoginForm = () => {
+  const { setQuestions } = useContext(QuestionsContext)
   const { setInterviews } = useContext(InterviewsContext);
   const { setUser } = useContext(UserContext);
   const [emailInput, setEmailInput] = useState('');
@@ -15,8 +16,8 @@ export const LoginForm = () => {
     setUser(user);
     const interviews = await getInterviews();
     setInterviews(interviews);
-    setEmailInput('');
-    setPasswordInput('');
+    const questions = await getQuestions();
+    setQuestions(questions);
   }
 
   return (
