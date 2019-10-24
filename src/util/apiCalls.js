@@ -28,3 +28,20 @@ export const getInterviews = async () => {
     }
   ]
 }
+
+export const getQuestions = async () => {
+  return [
+    {
+      id: 1,
+      body: 'What is France?',
+      score: 4,
+      notes: 'Great answer'
+    },
+    {
+      id: 2,
+      body: 'What is life?',
+      score: 2,
+      notes: 'Bad answer'
+    }
+  ]
+}

@@ -14,9 +14,3 @@
 .question-container-post {
   transform: translate(-100vw, 0);
 }
-
-.student-questions-container {
-  background-color: lightblue;
-  height: 100%;
-  width: 50%;
-}

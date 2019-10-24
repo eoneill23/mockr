@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { InterviewsContext } from '../../InterviewsContext';
+import { InterviewsContext } from '../../Context';
 import StudentInterviewModal from '../StudentInterviewModal/StudentInterviewModal';
 import StudentInterview from '../StudentInterview/StudentInterview';
 import './StudentInterviewContainer.css';
