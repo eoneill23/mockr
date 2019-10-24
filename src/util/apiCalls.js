@@ -8,7 +8,7 @@ export const login = async () => {
     first_name: 'Djavan',
     last_name: 'Munroe',
     email: 'djavan@gmail.com',
-    role: 1
+    role: 2
   }
 }
 

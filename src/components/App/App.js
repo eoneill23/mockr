@@ -40,6 +40,7 @@ export const App = () => {
               <Route exact path='/student-questions'><StudentQuestionContainer></StudentQuestionContainer></Route>
               <Route exact path='/interview'><Interview/></Route>
               <Route exact path='/students'></Route>
+              <Route exact path='/all-questions'></Route>
             </UserContext.Provider>
           </InterviewsContext.Provider>
         </QuestionsContext.Provider>

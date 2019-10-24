@@ -17,6 +17,7 @@ export const NavBar = () => {
       {user.role === 2 && <>
       <Link to='/dashboard'>Mockr</Link>
       <Link to='/students'>View all students</Link>
+      <Link to='/all-questions'>View all questions</Link>
       <Link to='/' onClick={() => setUser('')}>Log out</Link></>}
     </nav>
   )
