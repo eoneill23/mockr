@@ -8,7 +8,7 @@ import { UserContext } from '../../../Context';
 
 export const Interview = props => {
   const [focus, setFocus] = useState(0);
-  const { user } = useContext(UserContext);
+  const [notes] = useState({});
 
   const QUERY = gql`
     query {
@@ -25,7 +25,24 @@ export const Interview = props => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error...</p>;
 
+  const updateNote = (id, body) => {
+    if (notes[id]) {
+      notes[id].body = body;
+    } else {
+      notes[id] = {body: body, score: 0};
+    }
+  }
+
+  const updateScore = (id, score) => {
+    if (notes[id]) {
+      notes[id].score = score;
+    } else {
+      notes[id] = {body: '', score: score};
+    }
+  }
+
   const endInterview = () => {
+    console.log(notes);
     setFocus(1);
   }
 
@@ -35,7 +52,7 @@ export const Interview = props => {
 
   return (
     <div>
-      <QuestionDeck data={data} focused={focus === 0}/>
+      <QuestionDeck data={data} fs={{note: updateNote, score: updateScore}} focused={focus === 0}/>
       <InterviewEnd focused={focus === 1}/>
       <button style={{position: 'fixed', top: '10rem'}} onClick={endInterview}>End</button>
       <button style={{position: 'fixed', top: '12rem'}} onClick={neverMind}>Nope</button>

@@ -8,7 +8,7 @@ export const QuestionDeck = props => {
 
   const populateCards = () => {
     return props.data.questions.map(({id, body}, index) => {
-      return <Card cur={cur} key={id} pos={index + 1} question={body} fNext={nextCard}/>
+      return <Card cur={cur} id={id} key={id} pos={index + 1} question={body} fs={{...props.fs, next: nextCard}}/>
     });
   }
 
@@ -26,7 +26,7 @@ export const QuestionDeck = props => {
   }
 
   const resetCards = () => {
-    setCur(0);
+    setCur(1);
   }
 
   const isFocused = () => {

@@ -2,7 +2,6 @@ import React from 'react';
 import './Question.css';
 
 export const Question = props => {
-  console.log('props', props)
   const whereAmI = cur => {
     let pos = parseInt(props.pos);
     if (pos < cur) {
@@ -27,11 +26,11 @@ export const Question = props => {
       <h1 className='card-question'>Q: {props.question}</h1>
       <h1 className='card-position'>{props.pos}</h1>
 
-      <form id={'card-response-' + props.pos}>
+      <form id={'card-response-' + props.id}>
         <h3 className='header-notes'>Notes:</h3>
-        <textarea name='response' form={'card-response-' + props.pos} className='box-fix card-response'></textarea>
+        <textarea name='response' form={'card-response-' + props.pos} className='box-fix card-response' onChange={event => props.fs.note(props.id, event.target.value)}></textarea>
       </form>
-      <button className='card-next-btn shadow' onClick={props.fNext} value='🠚'/>
+      <button className='card-next-btn shadow' onClick={props.fs.next} value='🠚'/>
     </div>
   );
 }
