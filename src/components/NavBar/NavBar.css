@@ -3,14 +3,13 @@
 .nav {
   align-items: center;
   background: #48a5a0;
-  color: white;
   display: flex;
   height: 3rem;
   justify-content: space-between;
 }
 
 .nav a {
-  color: white;
+  color: #056473;
   font-size: 2rem;
   margin: 0 2rem;
   text-decoration: none;
