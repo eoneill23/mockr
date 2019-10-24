@@ -37,7 +37,7 @@ export const StudentQuestionContainer = () => {
           {questionList}
         </section>
         <section className='student-question-modal-container'>
-          <StudentQuestionModal body={foundQuestion.body}/>
+          <StudentQuestionModal body={foundQuestion.body} collapseModal={collapseModal} collapsed={collapsed}/>
         </section>
       </section>
     )
