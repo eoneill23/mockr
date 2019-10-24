@@ -52,10 +52,9 @@ export const Interview = props => {
 
   return (
     <div>
-      <QuestionDeck data={data} fs={{note: updateNote, score: updateScore}} focused={focus === 0}/>
+      <QuestionDeck data={data} fs={{note: updateNote, score: updateScore, end: endInterview}} focused={focus === 0}/>
       <InterviewEnd fs={{note: updateNote, score: updateScore}} focused={focus === 1}/>
-      <button style={{position: 'fixed', top: '10rem'}} onClick={endInterview}>End</button>
-      <button style={{position: 'fixed', top: '12rem'}} onClick={neverMind}>Nope</button>
+      <button style={{position: 'fixed', top: '4rem'}} onClick={neverMind}>Nope</button>
     </div>
   );
 }
