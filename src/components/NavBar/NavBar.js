@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { UserContext } from '../../UserContext'
+import { UserContext } from '../../Context';
 import './NavBar.css';
 
 export const NavBar = () => {
@@ -9,7 +9,10 @@ export const NavBar = () => {
   return (
     <nav className='nav shadow'>
       <Link to='/'>Mockr</Link>
-      {user && <><Link to='/student-interviews'>Interviews</Link> <Link to='/' onClick={() => setUser('')}>Log out</Link></>}
+      {user && <>
+      <Link to='/student-interviews'>Interviews</Link> 
+      <Link to='/student-questions'>Questions</Link>
+      <Link to='/' onClick={() => setUser('')}>Log out</Link></>}
       {!user && <Link to='/login'>Log in</Link>}
     </nav>
   )

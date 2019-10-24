@@ -4,10 +4,10 @@ import NavBar from '../NavBar/NavBar';
 import LoginForm from '../LoginForm/LoginForm';
 import Dashboard from '../Dashboard/Dashboard';
 import StudentInterviewContainer from '../StudentInterviewContainer/StudentInterviewContainer';
-import { UserContext } from '../../UserContext';
-import { InterviewsContext } from '../../InterviewsContext';
+import { InterviewsContext, UserContext } from '../../Context';
 import { Route, Redirect } from 'react-router-dom';
 import Interview from '../Interview/Interview/Interview';
+import StudentQuestionContainer from '../StudentQuestionContainer/StudentQuestionContainer';
 import './App.css';
 
 // Apollo
@@ -34,6 +34,7 @@ export const App = () => {
             <Route exact path='/login' render={() => user ? (<Redirect to='/dashboard'/>) : <LoginForm />}/>
             <Route exact path='/dashboard'><Dashboard /></Route>
             <Route exact path='/student-interviews'><StudentInterviewContainer /></Route>
+            <Route exact path='/student-questions'><StudentQuestionContainer></StudentQuestionContainer></Route>
             <Route exact path='/interview'><Interview/></Route>
           </UserContext.Provider>
         </InterviewsContext.Provider>

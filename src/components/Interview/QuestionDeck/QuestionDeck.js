@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import Card from '../Question/Question';
 import './QuestionDeck.css';
-
 import {Swipeable} from 'react-swipeable';
 
 export const QuestionDeck = props => {

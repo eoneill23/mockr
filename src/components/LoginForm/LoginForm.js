@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { UserContext } from '../../UserContext';
-import { InterviewsContext } from '../../InterviewsContext';
+import { InterviewsContext, UserContext } from '../../Context';
 import { login, getInterviews } from '../../util/apiCalls';
 import './LoginForm.css';
 

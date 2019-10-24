@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const StudentQuestionCard = ({ body }) => {
+export const StudentQuestionCard = ({ body }) => {  
   return (
     <section className='student-question'>
       <p>{body}</p>
