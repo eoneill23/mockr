@@ -27,7 +27,7 @@ export const Interview = props => {
 
   const updateNote = (id, body) => {
     if (notes[id]) {
-      notes[id].body = body;
+      notes[id] = {...notes[id], body: body};
     } else {
       notes[id] = {body: body, score: 0};
     }
@@ -35,7 +35,7 @@ export const Interview = props => {
 
   const updateScore = (id, score) => {
     if (notes[id]) {
-      notes[id].score = score;
+      notes[id] = {...notes[id], score: score};
     } else {
       notes[id] = {body: '', score: score};
     }
@@ -53,7 +53,7 @@ export const Interview = props => {
   return (
     <div>
       <QuestionDeck data={data} fs={{note: updateNote, score: updateScore}} focused={focus === 0}/>
-      <InterviewEnd focused={focus === 1}/>
+      <InterviewEnd fs={{note: updateNote, score: updateScore}} focused={focus === 1}/>
       <button style={{position: 'fixed', top: '10rem'}} onClick={endInterview}>End</button>
       <button style={{position: 'fixed', top: '12rem'}} onClick={neverMind}>Nope</button>
     </div>
