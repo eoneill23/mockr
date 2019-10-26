@@ -1,20 +1,29 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import {UserContext} from '../../../Context';
 import {Swipeable} from 'react-swipeable';
 import InterviewEnd from '../InterviewEnd/InterviewEnd';
 import Question from '../Question/Question';
 import {useQuery, useMutation} from '@apollo/react-hooks';
-import {ALL_QUESTIONS, ADD_NOTE, FINALISE_INTERVIEW} from '../../utils/apiCalls';
+import {ALL_QUESTIONS, CREATE_INTERVIEW, ADD_NOTE, FINALISE_INTERVIEW} from '../../../util/apiCalls';
 import './Interview.css';
 
 export const Interview = props => {
+  const {user} = useContext(UserContext);
   const [focus, setFocus] = useState(0);
   const [cur, setCur] = useState(1);
   const [notes] = useState({});
 
-  const interviewData = {interviewId: 1, studentId: 9000, interviewerId: 9002};
+  const [createInterview, {interviewResponse}] = useMutation(CREATE_INTERVIEW);
+  // const {interviewResponse} = createInterview({variables: {studentId: user.currentStudent.id, interviewerId: user.id}});
+  createInterview({variables: {studentId: 9000, interviewerId: 9004}});
+  console.log(interviewResponse);
 
-  const {loading, error, data} = useQuery(QUERY);
-  const [addQuestion] = useMutation(ADD_NOTE);
+  // const interviewData = {interviewId: interviewResponse.id, studentId: user.currentStudent.id, interviewerId: user.id};
+  const interviewData = {interviewId: interviewResponse.id, studentId: 9000, interviewerId: user.id};
+
+  const {loading, error, data} = useQuery(ALL_QUESTIONS);
+  const [addNote] = useMutation(ADD_NOTE);
+  const [finaliseInterview] = useMutation(FINALISE_INTERVIEW);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error...</p>;
@@ -64,7 +73,7 @@ export const Interview = props => {
   }
 
   const endInterview = () => {
-    console.log(notes);
+    // finaliseInterview({variables: {..}});
     setFocus(1);
   }
 

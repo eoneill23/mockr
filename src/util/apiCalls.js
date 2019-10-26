@@ -100,9 +100,25 @@ export const questionsQuery = gql `
   }
 `;
 
+export const CREATE_INTERVIEW = gql`
+  mutation CreateInterview($studentId: Int!, $interviewerId: Int!) {
+    addInterview(studentId: $studentId, interviewerId: $interviewerId) {
+      id
+    }
+  }
+`;
+
 export const ADD_NOTE = gql`
   mutation AddNote($score: Int!, $body: String!, $questionId: Int!, $interviewId: Int!, $studentId: Int!, $interviewerId: Int!) {
     addNote(score: $score, body: $body, questionId: $questionId, interviewId: $interviewId, studentId: $studentId, interviewerId: $interviewerId) {
+      id
+    }
+  }
+`;
+
+export const FINALISE_INTERVIEW = gql`
+  mutation FinaliseInterview($id: Int!, $score: Int!, $body: String!) {
+    finalizeInterview(id: $id, score: $score, summary: $body) {
       id
     }
   }
