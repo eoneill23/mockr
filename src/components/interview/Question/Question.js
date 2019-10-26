@@ -35,7 +35,7 @@ export const Question = props => {
         <input type='radio' name='score' value='3'/>Good<br/>
         <input type='radio' name='score' value='4'/>Exceptional<br/>
       </form>
-      <button className='card-next-btn shadow' onClick={props.fs.next}>🠚</button>
+      <button className='card-next-btn shadow' onClick={event => props.fs.next(props.id)}>🠚</button>
     </div>
   );
 }
