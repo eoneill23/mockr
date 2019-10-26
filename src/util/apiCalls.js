@@ -98,13 +98,12 @@ export const questionsQuery = gql `
       active
     }
   }
-`
+`;
 
-export const ADD_QUESTION = gql `
-  mutation AddQuestion($body: String!) {
-    addQuestion(body:$body) {
+export const ADD_NOTE = gql`
+  mutation AddNote($score: Int!, $body: String!, $questionId: Int!, $interviewId: Int!, $studentId: Int!, $interviewerId: Int!) {
+    addNote(score: $score, body: $body, questionId: $questionId, interviewId: $interviewId, studentId: $studentId, interviewerId: $interviewerId) {
       id
-      body
     }
   }
-  `
+`;
