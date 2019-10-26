@@ -1,6 +1,4 @@
 import gql from 'graphql-tag';
-import { useQuery } from '@apollo/react-hooks';
-
 
 export const login = async () => {
   return {
@@ -8,7 +6,7 @@ export const login = async () => {
     first_name: 'Djavan',
     last_name: 'Munroe',
     email: 'djavan@gmail.com',
-    role: 2
+    role: 1
   }
 }
 
@@ -49,3 +47,44 @@ export const getQuestions = async () => {
     }
   ]
 }
+
+export const userQuery = gql`
+  query {
+    user(id: 9002) {
+      id
+      firstName
+      lastName
+      email
+      role
+      interviews {
+        id
+        users {
+          firstName
+          lastName
+          role
+        }
+        notes {
+          id
+          body
+          score
+          question {
+            body
+          }
+        }
+      }
+    }
+  }
+  `;
+
+  export const studentsQuery = gql `
+    query {
+      users(role: 0) {
+        id
+        firstName
+        lastName
+        email
+        program
+        cohort
+      }
+    }
+  `

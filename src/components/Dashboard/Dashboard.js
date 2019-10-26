@@ -4,15 +4,14 @@ import './Dashboard.css';
 
 export const Dashboard = () => {
   const { user } = useContext(UserContext);
-  const buttonText = user.role === 0 ? 'Request interview access' : 'Request admin access'
+  const buttonText = user.role === 0 ? 'Request interview access' : 'Request admin access';
   
   if(user.role === 0 || user.role === 1) {
     return (
       <section>
         <section>
           <h3>Profile</h3>
-          <p>{user.first_name}</p>
-          <p>{user.email}</p>
+          <p>{user.firstName}</p>
           <p>{user.email}</p>
           <button>{buttonText}</button>
         </section>
