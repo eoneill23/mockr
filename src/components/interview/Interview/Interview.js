@@ -4,12 +4,14 @@ import InterviewEnd from '../InterviewEnd/InterviewEnd';
 import Question from '../Question/Question';
 import './Interview.css';
 import gql from 'graphql-tag';
-import {useQuery} from '@apollo/react-hooks';
-import { UserContext } from '../../../Context';
+import {useQuery, useMutation} from '@apollo/react-hooks';
 
 export const Interview = props => {
   const [focus, setFocus] = useState(0);
+  const [cur, setCur] = useState(1);
   const [notes] = useState({});
+
+  const interviewData = {interviewId: 1, studentId: 9000, interviewerId: 9002};
 
   const QUERY = gql`
     query {
@@ -21,7 +23,16 @@ export const Interview = props => {
     }
   `;
 
+  const ADD_NOTE = gql`
+    mutation AddNote($score: Int!, $body: String!, $questionId: Int!, $interviewId: Int!, $studentId: Int!, $interviewerId: Int!) {
+      addNote(score: $score, body: $body, questionId: $questionId, interviewId: $interviewId, studentId: $studentId, interviewerId: $interviewerId) {
+        id
+      }
+    }
+  `;
+
   const {loading, error, data} = useQuery(QUERY);
+  const [addQuestion] = useMutation(ADD_NOTE);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error...</p>;
@@ -33,6 +44,7 @@ export const Interview = props => {
   }
 
   const nextCard = id => {
+    addNote({...notes[id], ...interviewData, questionId: id});
     setCur(cur + 1);
   }
 
@@ -59,6 +71,17 @@ export const Interview = props => {
     } else {
       notes[id] = {body: '', score: parseInt(score)};
     }
+  }
+
+  const addNote = data => {
+    addQuestion({variables: {
+      score: data.score,
+      body: data.body,
+      questionId: data.questionId,
+      interviewId: data.interviewId,
+      studentId: data.studentId,
+      interviewerId: data.interviewerId
+    }});
   }
 
   const endInterview = () => {
