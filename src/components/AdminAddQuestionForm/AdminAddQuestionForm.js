@@ -5,12 +5,15 @@ import { ADD_QUESTION } from '../../util/apiCalls';
 
 export const AdminAddQuestionForm = () => {
   const [questionInput, setQuestionInput] = useState('');
+  const [addQuestion, { data }] = useMutation(ADD_QUESTION);
   // const [addQuestion] = useMutation(ADD_QUESTION);
   // console.log(addQuestion)
 
   const createQuestion = (e) => {
     e.preventDefault();
-    // console.log(addQuestion(questionInput));
+    addQuestion({ variables: { body: questionInput }});
+    setQuestionInput('');
+    console.log(data);
   }
 
   return (
