@@ -1,27 +1,30 @@
 import React, { useState } from 'react';
 import './StudentProgramSearchForm.css';
 
-export const StudentProgramSearchForm = ({ students }) => {
-  const [collapsed, collapseDropdown] = useState(true);
+export const StudentProgramSearchForm = ({ students, collapsed, collapseModal, identifyStudent }) => {
+  const [collapsedDropdown, collapseDropdown] = useState(true);
   const [cohortInput, setCohortInput] = useState('');
   const [selectedProgram, setSelectedProgram] = useState('');
 
   const filterStudents = (cohort, program, students) => {
-    console.log(program, cohort)
     if (!cohort && !program) {
       return students.map(student => {
         return (
-          <li>{student.firstName}</li>
+          <li
+          onClick={() => {collapseModal(!collapsed); identifyStudent(student.id)}}
+          >{student.firstName}</li>
         )
       });
     }
 
     if (!program && cohort) {
       return students.filter(student => {
-        return student.cohort == cohort
+        return student.cohort.toString().includes(cohort)
       }).map(student => {
         return (
-          <li>{student.firstName}</li>
+          <li
+          onClick={() => { collapseModal(!collapsed); identifyStudent(student.id) }}
+          >{student.firstName}</li>
         )
       });
     }
@@ -31,17 +34,21 @@ export const StudentProgramSearchForm = ({ students }) => {
         return student.program === program
       }).map(student => {
         return (
-          <li>{student.firstName}</li>
+          <li
+          onClick={() => { collapseModal(!collapsed); identifyStudent(student.id) }}
+          >{student.firstName}</li>
         )
       });
     }
 
     if (cohort && program) {
       return students.filter(student => {
-        return student.program === program && student.cohort == cohort
+        return student.program === program && student.cohort.toString().includes(cohort)
       }).map(student => {
         return (
-          <li>{student.firstName}</li>
+          <li
+          onClick={() => { collapseModal(!collapsed); identifyStudent(student.id) }}
+          >{student.firstName}</li>
         )
       });
     }
@@ -49,13 +56,12 @@ export const StudentProgramSearchForm = ({ students }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    collapseDropdown(!collapsed);
+    collapseDropdown(!collapsedDropdown);
   }
 
   let studentList = filterStudents(cohortInput, selectedProgram, students);
 
-  if (collapsed) {
-    console.log(selectedProgram, cohortInput)
+  if (collapsedDropdown) {
     return (
       <form>
         <div className='dropdown-container'>

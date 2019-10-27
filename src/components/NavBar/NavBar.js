@@ -18,8 +18,8 @@ export const NavBar = () => {
       {user.role === 1 && <>
         <Link to='/dashboard'>Mockr</Link>
         <Link to='/select-student'>Interview a student</Link>
-        <Link to='/student-interviews'>Interviews</Link>
-        <Link to='/student-questions'>Questions</Link>
+        {/* <Link to='/student-interviews'>Interviews</Link>
+        <Link to='/student-questions'>Questions</Link> */}
         <Link to='/' onClick={() => setUser('')}>Log out</Link></>
       }
       {user.role === 2 && <>
