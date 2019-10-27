@@ -6,7 +6,7 @@ export const login = async () => {
     first_name: 'Djavan',
     last_name: 'Munroe',
     email: 'djavan@gmail.com',
-    role: 2
+    role: 2,
   }
 }
 
@@ -99,3 +99,11 @@ export const questionsQuery = gql `
     }
   }
 `
+
+// export const ADD_QUESTION = gql `
+//   mutation AddQuestion($id: Int!, $body: String!, active: Bool!) {
+//     addQuestion(id: id, body: body, active: active) {
+//       id
+//     }
+//   }
+// `
