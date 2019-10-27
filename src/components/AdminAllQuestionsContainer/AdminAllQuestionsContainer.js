@@ -12,9 +12,8 @@ export const AdminAllQuestionsContainer = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error...</p>;
   if(data) {
-    console.log(data)
     questionsList = data.questions.map(question => {
-      return <AdminSingleQuestion key={question.id} id={question.id} body={question.body} active={question.active}/>
+      return <AdminSingleQuestion key={question.id} props={{...question}}/>
     });
   }
 

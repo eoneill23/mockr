@@ -1,6 +1,7 @@
 import React from 'react';
 
-export const AdminSingleQuestion = ({ id, body, active }) => {
+export const AdminSingleQuestion = ({ props }) => {
+  const { id, body, active } = props;
   let buttonText = active ? 'Deactivate' : 'Activate'
 
   return (
