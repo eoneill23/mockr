@@ -100,12 +100,10 @@ export const questionsQuery = gql `
   }
 `
 
-export const ADD_QUESTION = (body) => {
-  return gql`
-  mutation AddQuestion($id: Int!, $body: String!, active: Bool!) {
-    addQuestion(body:${body}) {
+export const ADD_QUESTION = gql `
+  mutation AddQuestion($body: String!) {
+    addQuestion(body:$body) {
       id
     }
   }
   `
-};
