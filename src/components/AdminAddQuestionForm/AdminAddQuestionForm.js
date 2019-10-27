@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import './AdminAddQuestionForm.css';
 import { useMutation } from '@apollo/react-hooks';
-// import { ADD_QUESTION } from '../../util/apiCalls';
+import { ADD_QUESTION } from '../../util/apiCalls';
 
 export const AdminAddQuestionForm = () => {
   const [questionInput, setQuestionInput] = useState('');
   // const [addQuestion] = useMutation(ADD_QUESTION);
+  // console.log(addQuestion)
 
   const createQuestion = (e) => {
     e.preventDefault();
+    // console.log(addQuestion(questionInput));
   }
 
   return (
