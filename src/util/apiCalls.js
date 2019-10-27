@@ -76,15 +76,26 @@ export const userQuery = gql`
   }
   `;
 
-  export const studentsQuery = gql `
-    query {
-      users(role: 0) {
-        id
-        firstName
-        lastName
-        email
-        program
-        cohort
-      }
+export const studentsQuery = gql `
+  query {
+    users(role: 0) {
+      id
+      firstName
+      lastName
+      email
+      program
+      cohort
     }
-  `
+  }
+`
+
+export const questionsQuery = gql `
+  query {
+    questions
+    {
+      id
+      body
+      active
+    }
+  }
+`
