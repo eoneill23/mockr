@@ -8,14 +8,13 @@ import {RANDOM_QUESTIONS, ADD_NOTE, FINALISE_INTERVIEW} from '../../util/apiCall
 
 export const Interview = props => {
   const {user} = useContext(UserContext);
-  // const user = {id: 9002, currentInterview: {id: 1, student: 9000}};
   const [focus, setFocus] = useState(0);
   const [cur, setCur] = useState(1);
   const [notes] = useState({});
   const [ended, setEnded] = useState(false);
   const [push, setPush] = useState(false);
-
-  const interviewData = {interviewId: user.currentInterview.id, studentId: user.currentInterview.student, interviewerId: user.id};
+  const interviewData = user.currentInterview;
+  // const interviewData = {interviewId: user.currentInterview.id, studentId: user.currentInterview.studentId, interviewerId: user.id};
 
   const {loading, error, data} = useQuery(RANDOM_QUESTIONS);
   const [addNote] = useMutation(ADD_NOTE);
