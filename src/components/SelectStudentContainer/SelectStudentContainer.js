@@ -3,7 +3,6 @@ import { useQuery } from '@apollo/react-hooks';
 import { studentsQuery } from '../../util/apiCalls';
 import StudentProgramSearchForm from '../StudentProgramSearchForm/StudentProgramSearchForm';
 import SelectedStudentModal from '../SelectedStudentModal/SelectedStudentModal';
-import './SelectStudentContainer.css';
 
 export const SelectStudentContainer = () => {
   const QUERY = studentsQuery;
