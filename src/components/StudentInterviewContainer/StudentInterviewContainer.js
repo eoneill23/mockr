@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { InterviewsContext } from '../../Context';
 import StudentInterviewModal from '../StudentInterviewModal/StudentInterviewModal';
 import StudentInterview from '../StudentInterview/StudentInterview';
-import './StudentInterviewContainer.css';
+
 
 export const StudentInterviewContainer = () => {
   const { interviews } = useContext(InterviewsContext);
