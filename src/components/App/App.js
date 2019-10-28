@@ -44,7 +44,7 @@ export const App = () => {
               <Route exact path='/interview'><Interview/></Route>
               <Route exact path='/students'><AdminSearchStudentContainer /></Route>
               <Route exact path='/all-questions'><AdminAllQuestionsContainer /></Route>
-              <Route exact path='/select-student'><SelectStudentContainer /></Route>
+              <Route exact path='/select-student' render={() => user.currentInterview ? (<Redirect to='/interview'/>) : <SelectStudentContainer />}/>
             </UserContext.Provider>
           </InterviewsContext.Provider>
         </QuestionsContext.Provider>
