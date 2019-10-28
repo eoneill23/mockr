@@ -1,0 +1,17 @@
+.admin-questions {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.admin-all-questions {
+  background-color: lightblue;
+  width: 50%;
+}
+
+.admin-add-question-container {
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}

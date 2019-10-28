@@ -3,6 +3,7 @@ import AdminAddQuestionForm from '../AdminAddQuestionForm/AdminAddQuestionForm';
 import AdminSingleQuestion from '../AdminSingleQuestion/AdminSingleQuestion';
 import { ALL_QUESTIONS } from '../../util/apiCalls';
 import { useQuery } from '@apollo/react-hooks';
+import './AdminAllQuestionsContainer.css';
 
 export const AdminAllQuestionsContainer = () => {
   const [questions, setQuestions] = useState([]);
