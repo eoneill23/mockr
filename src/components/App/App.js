@@ -11,7 +11,7 @@ import { InterviewsContext, UserContext, QuestionsContext } from '../../Context'
 import { Route, Redirect } from 'react-router-dom';
 import Interview from '../Interview/Interview';
 import StudentQuestionContainer from '../StudentQuestionContainer/StudentQuestionContainer';
-import './App.css';
+
 
 // Apollo
 import ApolloClient from 'apollo-boost';
