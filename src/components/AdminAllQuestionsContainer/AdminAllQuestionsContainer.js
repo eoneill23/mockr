@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import AdminAddQuestionForm from '../AdminAddQuestionForm/AdminAddQuestionForm';
 import AdminSingleQuestion from '../AdminSingleQuestion/AdminSingleQuestion';
-import { questionsQuery } from '../../util/apiCalls';
+import { ALL_QUESTIONS } from '../../util/apiCalls';
 import { useQuery } from '@apollo/react-hooks';
 import './AdminAllQuestionsContainer.css';
 
 export const AdminAllQuestionsContainer = () => {
   const [questions, setQuestions] = useState([]);
 
-  const QUERY = questionsQuery;
-  const { loading, error, data } = useQuery(QUERY);
+  const { loading, error, data } = useQuery(ALL_QUESTIONS);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error...</p>;
   if(data && !questions.length) {

@@ -89,7 +89,7 @@ export const studentsQuery = gql `
   }
 `
 
-export const questionsQuery = gql `
+export const ALL_QUESTIONS = gql `
   query {
     questions
     {
@@ -98,13 +98,46 @@ export const questionsQuery = gql `
       active
     }
   }
-`
+`;
 
-export const ADD_QUESTION = gql `
+export const ADD_QUESTION = gql`
   mutation AddQuestion($body: String!) {
-    addQuestion(body:$body) {
+    addQuestion(body: $body) {
       id
       body
     }
   }
-  `
+`;
+
+export const RANDOM_QUESTIONS = gql`
+  query {
+    randomQuestions {
+      id
+      body
+    }
+  }
+`;
+
+export const CREATE_INTERVIEW = gql`
+  mutation CreateInterview($studentId: Int!, $interviewerId: Int!) {
+    addInterview(studentId: $studentId, interviewerId: $interviewerId) {
+      id
+    }
+  }
+`;
+
+export const ADD_NOTE = gql`
+  mutation AddNote($score: Int!, $body: String!, $questionId: Int!, $interviewId: Int!, $studentId: Int!, $interviewerId: Int!) {
+    addNote(score: $score, body: $body, questionId: $questionId, interviewId: $interviewId, studentId: $studentId, interviewerId: $interviewerId) {
+      id
+    }
+  }
+`;
+
+export const FINALISE_INTERVIEW = gql`
+  mutation FinaliseInterview($id: Int!, $score: Int!, $body: String!) {
+    finalizeInterview(id: $id, score: $score, summary: $body) {
+      id
+    }
+  }
+`;
