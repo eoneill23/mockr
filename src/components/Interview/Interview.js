@@ -13,8 +13,7 @@ export const Interview = props => {
   const [notes] = useState({});
   const [ended, setEnded] = useState(false);
   const [push, setPush] = useState(false);
-  const interviewData = user.currentInterview;
-  // const interviewData = {interviewId: user.currentInterview.id, studentId: user.currentInterview.studentId, interviewerId: user.id};
+  const interviewData = {interviewId: user.currentInterview.id, studentId: user.currentInterview.student, interviewerId: user.id};
 
   const {loading, error, data} = useQuery(RANDOM_QUESTIONS);
   const [addNote] = useMutation(ADD_NOTE);
