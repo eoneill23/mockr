@@ -15,14 +15,24 @@ export const AdminAllQuestionsContainer = () => {
     setQuestions(data.questions);
   };
 
-  let questionsList = questions.map(question => {
-    return <AdminSingleQuestion key={question.id} props={{...question}}/>
-  });
+  const toggleQuestionActiveStatus = id => {
+    setQuestions((questions) => questions.map(question => {
+      if(question.id === id) {
+        return {...question, active: !question.active}
+      } else {
+        return question;
+      }
+    }));
+  }
 
   const createNewQuestion = (newQuestion) => {
     setQuestions((questions) => [...questions, newQuestion]);
   }
   
+  let questionsList = questions.map(question => {
+    return <AdminSingleQuestion key={question.id} props={{ ...question }} toggleQuestionActiveStatus={toggleQuestionActiveStatus}/>
+  });
+
   return (
     <section className='admin-questions'>
       <section className='admin-all-questions'>
