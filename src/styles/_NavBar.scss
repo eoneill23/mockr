@@ -2,14 +2,15 @@
 
 .nav {
   align-items: center;
-  background: #48a5a0;
+  background: $card-bg;
   display: flex;
   height: 3rem;
   justify-content: space-between;
+  z-index: 999;
 }
 
 .nav a {
-  color: #056473;
+  color: $card-fg;
   font-size: 2rem;
   margin: 0 2rem;
   text-decoration: none;

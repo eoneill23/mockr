@@ -1,7 +1,10 @@
 .welcome-info {
-  background-color: gray;
-  height: 200px;
+  color: $card-fg;
+  background-color: $card-bg;
+  font: $font;
+  height: auto;
   margin: 100px auto;
   padding: 1em;
+  border-radius: 1rem;
   width: 65%;
 }

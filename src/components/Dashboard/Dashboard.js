@@ -25,14 +25,15 @@ export const Dashboard = () => {
         <p>{user.email}</p>
       </section>
       <section className='pending-approvals'>
-        <h2>Pending approvals:</h2>
+        <h2 id='pending-approvals-header'>Pending approvals:</h2>
         <div className='approvals-container'>
-          <section className='pending-interviewer-approvals'>
-            <h3>Pending interviewer approvals</h3>
-          </section>
-          <section className='pending-admin-approvals'>
-            <h3>Pending admin approvals</h3>
-          </section>
+          <div className='approvals-interviewer-card'>
+            <h4>I am an Interviewer!</h4>
+          </div>
+
+          <div className='approvals-admin-card'>
+
+          </div>
         </div>
       </section>
     </section>

@@ -18,7 +18,7 @@
 }
 
 .deck-btn-panel {
-  background: #48a5a0;
+  background: $card-bg;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
 
@@ -33,10 +33,10 @@
 
 .back-btn {
   height: 2rem; width: 2rem;
-  background: #f03750;
+  background: $accent-bg;
   border-radius: 1rem;
   border: 0;
-  color: #9b0528;
+  color: $accent-fg;
   font-size: 1.5rem;
   cursor: pointer;
   margin-right: 1rem;
@@ -45,10 +45,10 @@
 
 .end-btn {
   height: 2rem;
-  background: #faaf05;
+  background: $accent-bg;
   border-radius: 0.2rem;
   border: 0;
-  color: #965f0a;
+  color: $accent-fg;
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -58,7 +58,7 @@
   position: fixed;
   top: 5rem; bottom: 2rem;
   left: 2rem; right: 2rem;
-  background: #48a5a0;
+  background: $card-bg;
   border-radius: 1rem;
   transition: transform 0.5s linear;
 }
@@ -68,7 +68,7 @@
 }
 
 #header-final-remarks {
-  color: white;
+  color: $card-fg;
   font-size: 2rem;
   font-weight: 300;
   position: absolute;
@@ -78,7 +78,7 @@
 .interview-remarks {
   resize: none;
   font-size: 1.5rem;
-  color: white;
+  color: $card-fg;
   background: transparent;
   border-top: 0.2rem solid white;
   border-bottom: 0.2rem solid white;
@@ -93,7 +93,7 @@
 .interview-remarks:focus {outline: none; background: rgba(50,50,50,0.2);}
 
 .interview-score {
-  color: white;
+  color: $card-fg;
   position: absolute;
   bottom: 7rem; right: 1.5rem;
   top: calc(40% + 7.5rem);
@@ -104,10 +104,10 @@
   left: 2rem;
   bottom: -5rem;
   width: 5rem; height: 5rem;
-  background: #f03750;
+  background: $accent-bg;
   border: 0;
   border-radius: 5rem;
-  color: #9b0528;
+  color: $accent-fg;
   font-size: 4.5rem;
   line-height: 2rem;
   margin: 0; padding: 0;
