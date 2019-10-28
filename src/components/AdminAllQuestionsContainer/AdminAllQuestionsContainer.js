@@ -7,28 +7,30 @@ import './AdminAllQuestionsContainer.css';
 
 export const AdminAllQuestionsContainer = () => {
   const [questions, setQuestions] = useState([]);
-  let questionsList;
+
   const QUERY = questionsQuery;
   const { loading, error, data } = useQuery(QUERY);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error...</p>;
-  if(data) {
-    questionsList = data.questions.map(question => {
-      return <AdminSingleQuestion key={question.id} props={{...question}}/>
-    });
-  }
+  if(data && !questions.length) {
+    setQuestions(data.questions);
+  };
+
+  let questionsList = questions.map(question => {
+    return <AdminSingleQuestion key={question.id} props={{...question}}/>
+  });
 
   const createNewQuestion = (newQuestion) => {
-    data.questions = [...data.questions, newQuestion]
+    setQuestions((questions) => [...questions, newQuestion]);
   }
-
+  
   return (
     <section className='admin-questions'>
       <section className='admin-all-questions'>
         {questionsList}
       </section>
       <section className='admin-add-question-container'>
-        <AdminAddQuestionForm setQuestions={setQuestions} questions={questions}/>
+        <AdminAddQuestionForm createNewQuestion={createNewQuestion}/>
       </section>
     </section>
   )
