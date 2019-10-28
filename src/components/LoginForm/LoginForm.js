@@ -3,7 +3,7 @@ import { InterviewsContext, UserContext, QuestionsContext } from '../../Context'
 import { login, getInterviews, getQuestions, userQuery } from '../../util/apiCalls';
 import gql from 'graphql-tag';
 import { useLazyQuery } from '@apollo/react-hooks';
-import './LoginForm.css';
+
 
 export const LoginForm = () => {
   const { setQuestions } = useContext(QuestionsContext)
