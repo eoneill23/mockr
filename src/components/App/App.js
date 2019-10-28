@@ -9,7 +9,7 @@ import SelectStudentContainer from '../SelectStudentContainer/SelectStudentConta
 import AdminAllQuestionsContainer from '../AdminAllQuestionsContainer/AdminAllQuestionsContainer';
 import { InterviewsContext, UserContext, QuestionsContext } from '../../Context';
 import { Route, Redirect } from 'react-router-dom';
-import Interview from '../interview/Interview/Interview';
+import Interview from '../Interview/Interview';
 import StudentQuestionContainer from '../StudentQuestionContainer/StudentQuestionContainer';
 import './App.css';
 

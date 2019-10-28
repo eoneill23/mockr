@@ -1,10 +1,10 @@
 import React, {useState, useContext} from 'react';
 import {Redirect} from 'react-router';
-import {UserContext} from '../../../Context';
+import {UserContext} from '../../Context';
 import {Swipeable} from 'react-swipeable';
 import Question from '../Question/Question';
 import {useQuery, useMutation} from '@apollo/react-hooks';
-import {ALL_QUESTIONS, ADD_NOTE, FINALISE_INTERVIEW} from '../../../util/apiCalls';
+import {RANDOM_QUESTIONS, ADD_NOTE, FINALISE_INTERVIEW} from '../../util/apiCalls';
 import './Interview.css';
 
 export const Interview = props => {
@@ -18,7 +18,7 @@ export const Interview = props => {
 
   const interviewData = {interviewId: user.currentInterview.id, studentId: user.currentInterview.student, interviewerId: user.id};
 
-  const {loading, error, data} = useQuery(ALL_QUESTIONS);
+  const {loading, error, data} = useQuery(RANDOM_QUESTIONS);
   const [addNote] = useMutation(ADD_NOTE);
   const [finaliseInterview] = useMutation(FINALISE_INTERVIEW);
 
