@@ -3,17 +3,19 @@ import './AdminAddQuestionForm.css';
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_QUESTION } from '../../util/apiCalls';
 
-export const AdminAddQuestionForm = ({ setQuestions, questions }) => {
+export const AdminAddQuestionForm = ({ createNewQuestion }) => {
   const [questionInput, setQuestionInput] = useState('');
-  const [addQuestion, { data }] = useMutation(ADD_QUESTION);
+  const [addQuestion] = useMutation(ADD_QUESTION);
 
   const createQuestion = async (e) => {
     e.preventDefault();
     const response = await addQuestion({ variables: { body: questionInput }});
-    console.log(response.data.addQuestion.body)
-    setQuestions([...questions, response.data.addQuestion.body])
+    const newQuestion = response.data.addQuestion;
+    createNewQuestion(newQuestion)
     setQuestionInput('');
-  }
+  };
+
+  const isDisabled = !questionInput;
 
   return (
     <form className='admin-add-question-form'>
@@ -25,6 +27,7 @@ export const AdminAddQuestionForm = ({ setQuestions, questions }) => {
         placeholder='Enter your question...'
       />
       <button
+        disabled={isDisabled}
         onClick={(e) => createQuestion(e)}
       >Add Question</button>
     </form>
