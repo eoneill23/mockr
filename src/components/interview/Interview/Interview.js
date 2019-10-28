@@ -4,7 +4,7 @@ import {UserContext} from '../../../Context';
 import {Swipeable} from 'react-swipeable';
 import Question from '../Question/Question';
 import {useQuery, useMutation} from '@apollo/react-hooks';
-import {ALL_QUESTIONS, CREATE_INTERVIEW, ADD_NOTE, FINALISE_INTERVIEW} from '../../../util/apiCalls';
+import {ALL_QUESTIONS, ADD_NOTE, FINALISE_INTERVIEW} from '../../../util/apiCalls';
 import './Interview.css';
 
 export const Interview = props => {
@@ -15,13 +15,7 @@ export const Interview = props => {
   const [notes] = useState({});
   const [ended, setEnded] = useState(false);
 
-  const [createInterview, {interviewResponse}] = useMutation(CREATE_INTERVIEW);
-  // const {interviewResponse} = createInterview({variables: {studentId: user.currentStudent.id, interviewerId: user.id}});
-  createInterview({variables: {studentId: 9000, interviewerId: 9004}});
-  console.log(interviewResponse);
-
-  // const interviewData = {interviewId: interviewResponse.id, studentId: user.currentStudent.id, interviewerId: user.id};
-  const interviewData = {interviewId: interviewResponse.id, studentId: 9000, interviewerId: user.id};
+  const interviewData = {interviewId: user.currentInterview.id, studentId: user.currentInterview.student, interviewerId: user.id};
 
   const {loading, error, data} = useQuery(ALL_QUESTIONS);
   const [addNote] = useMutation(ADD_NOTE);
@@ -37,11 +31,6 @@ export const Interview = props => {
   }
 
   const nextCard = id => {
-    if (notes[id]) {
-      addNote({variables: {...notes[id], ...interviewData, questionId: id}});
-    } else {
-      addNote({variables: {body: '', score: 0, ...interviewData, questionId: id}});
-    }
     setCur(cur + 1);
   }
 
@@ -71,7 +60,7 @@ export const Interview = props => {
   }
 
   const skipQuestion = id => {
-    notes[id] = {body: '', score: 0};
+    delete notes.id
   }
 
   const endCard = () => {
@@ -83,6 +72,11 @@ export const Interview = props => {
   }
 
   const endInterview = (event) => {
+    const formData = new FormData(event.target);
+    for (let id in notes) {
+      addNote({variables: {...notes[id], ...interviewData, questionId: id}});
+    }
+    finaliseInterview({variables: {id: interviewData.interviewId, score: formData.get('score'), body: formData.get('remarks')}});
     setEnded(true);
   }
 
