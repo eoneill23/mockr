@@ -15,3 +15,14 @@
   justify-content: center;
   width: 50%;
 }
+
+.filter-container {
+  align-items: center;
+  background-color: white;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 10px;
+  width: 100%;
+}
