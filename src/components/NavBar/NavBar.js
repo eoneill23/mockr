@@ -8,12 +8,26 @@ export const NavBar = () => {
 
   return (
     <nav className='nav shadow'>
-      <Link to='/'>Mockr</Link>
-      {user && <>
-      <Link to='/student-interviews'>Interviews</Link> 
-      <Link to='/student-questions'>Questions</Link>
-      <Link to='/' onClick={() => setUser('')}>Log out</Link></>}
-      {!user && <Link to='/login'>Log in</Link>}
+      {!user && <><Link to='/'>Mockr</Link> <Link to='/login'>Log in</Link></>}
+      {user.role === 0  && <>
+        <Link to='/dashboard'>Mockr</Link>
+        <Link to='/student-interviews'>Interviews</Link> 
+        <Link to='/student-questions'>Questions</Link>
+        <Link to='/' onClick={() => setUser('')}>Log out</Link></>
+      }
+      {user.role === 1 && <>
+        <Link to='/dashboard'>Mockr</Link>
+        <Link to='/select-student'>Interview a student</Link>
+        {/* <Link to='/student-interviews'>Interviews</Link>
+        <Link to='/student-questions'>Questions</Link> */}
+        <Link to='/' onClick={() => setUser('')}>Log out</Link></>
+      }
+      {user.role === 2 && <>
+        <Link to='/dashboard'>Mockr</Link>
+        <Link to='/students'>View all students</Link>
+        <Link to='/all-questions'>View all questions</Link>
+        <Link to='/' onClick={() => setUser('')}>Log out</Link></>
+      }
     </nav>
   )
 }

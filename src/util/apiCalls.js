@@ -1,10 +1,12 @@
+import gql from 'graphql-tag';
+
 export const login = async () => {
   return {
     id: 1,
     first_name: 'Djavan',
     last_name: 'Munroe',
     email: 'djavan@gmail.com',
-    role: 0
+    role: 1
   }
 }
 
@@ -45,3 +47,44 @@ export const getQuestions = async () => {
     }
   ]
 }
+
+export const userQuery = gql`
+  query {
+    user(id: 9002) {
+      id
+      firstName
+      lastName
+      email
+      role
+      interviews {
+        id
+        users {
+          firstName
+          lastName
+          role
+        }
+        notes {
+          id
+          body
+          score
+          question {
+            body
+          }
+        }
+      }
+    }
+  }
+  `;
+
+  export const studentsQuery = gql `
+    query {
+      users(role: 0) {
+        id
+        firstName
+        lastName
+        email
+        program
+        cohort
+      }
+    }
+  `
