@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { studentsQuery } from '../../util/apiCalls';
 import StudentProgramSearchForm from '../StudentProgramSearchForm/StudentProgramSearchForm';
 import AdminSelectedStudentModal from '../AdminSelectedStudentModal/AdminSelectedStudentModal';
-import './AdminSearchStudentContainer.css';
+
 
 //THIS IS FOR ADMIN TO VIEW ALL STUDENTS. DOES THE SAME THING AS SELECT STUDENT CONTAINER. SEE IF YOU CAN DELETE THIS
 
