@@ -8,8 +8,8 @@ import {RANDOM_QUESTIONS, ADD_NOTE, FINALISE_INTERVIEW} from '../../util/apiCall
 import './Interview.css';
 
 export const Interview = props => {
-  // const {user} = useContext(UserContext);
-  const user = {id: 9002, currentInterview: {id: 1, student: 9000}};
+  const {user} = useContext(UserContext);
+  // const user = {id: 9002, currentInterview: {id: 1, student: 9000}};
   const [focus, setFocus] = useState(0);
   const [cur, setCur] = useState(1);
   const [notes] = useState({});
