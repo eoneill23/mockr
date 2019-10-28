@@ -2,11 +2,11 @@ import gql from 'graphql-tag';
 
 export const login = async () => {
   return {
-    id: 1,
-    first_name: 'Djavan',
-    last_name: 'Munroe',
-    email: 'djavan@gmail.com',
-    role: 2,
+    id: 9002,
+    firstName: 'Ian',
+    lastName: 'Douglas',
+    email: 'iandouglas@turing.io',
+    role: 1,
   }
 }
 
@@ -76,7 +76,7 @@ export const userQuery = gql`
   }
   `;
 
-export const studentsQuery = gql `
+export const studentsQuery = gql`
   query {
     users(role: 0) {
       id
@@ -89,7 +89,7 @@ export const studentsQuery = gql `
   }
 `
 
-export const ALL_QUESTIONS = gql `
+export const ALL_QUESTIONS = gql`
   query {
     questions
     {
@@ -122,6 +122,11 @@ export const CREATE_INTERVIEW = gql`
   mutation CreateInterview($studentId: Int!, $interviewerId: Int!) {
     addInterview(studentId: $studentId, interviewerId: $interviewerId) {
       id
+      users {
+        id
+        firstName
+        lastName
+      }
     }
   }
 `;
