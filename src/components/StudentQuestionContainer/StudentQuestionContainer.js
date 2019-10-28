@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import StudentQuestionModal from '../StudentQuestionModal/StudentQuestionModal';
 import StudentQuestionCard from '../StudentQuestionCard/StudentQuestionCard';
 import { QuestionsContext } from '../../Context';
+import './StudentQuestionContainer.css';
 
 export const StudentQuestionContainer = () => {
   const { questions } = useContext(QuestionsContext);
