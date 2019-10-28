@@ -14,6 +14,7 @@ export const Interview = props => {
   const [cur, setCur] = useState(1);
   const [notes] = useState({});
   const [ended, setEnded] = useState(false);
+  const [push, setPush] = useState(false);
 
   const interviewData = {interviewId: user.currentInterview.id, studentId: user.currentInterview.student, interviewerId: user.id};
 
@@ -26,7 +27,9 @@ export const Interview = props => {
 
   const populateCards = () => {
     return data.questions.map(({id, body}, index) => {
-      return <Question cur={cur} id={id} key={id} pos={index + 1} question={body} fs={{note: updateNote, score: updateScore, next: nextCard}}/>
+      let scored = false;
+      if (notes[id]) {scored = notes[id].score >= 1};
+      return <Question cur={cur} id={id} key={id} pos={index + 1} question={body} scored={scored} fs={{note: updateNote, score: updateScore, next: nextCard, skip: skipCard}}/>
     });
   }
 
@@ -57,10 +60,17 @@ export const Interview = props => {
     } else {
       notes[id] = {body: '', score: parseInt(score)};
     }
+    setPush(!push);
   }
 
-  const skipQuestion = id => {
-    delete notes.id
+  const skipCard = id => {
+    let form = document.getElementById('score-form-' + id);
+    let btns = form.elements;
+    for (let i = 0; i < btns.length; i++) {
+      btns[i].checked = false;
+    };
+    notes[id] = {body: '', score: 0};
+    setCur(cur + 1);
   }
 
   const endCard = () => {

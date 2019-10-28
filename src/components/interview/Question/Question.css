@@ -91,10 +91,35 @@
 }
 .card-next-btn:focus {outline: 0;}
 
+.card-skip-btn {
+  position: absolute;
+  left: calc(100% - 8rem);
+  bottom: 3rem;
+  width: 5rem; height: 5rem;
+  background: #f03750;
+  border: 0;
+  border-radius: 5rem;
+  color: #9b0528;
+  font-size: 4.5rem;
+  line-height: 2rem;
+  margin: 0; padding: 0;
+  cursor: pointer;
+  transition: transform 0.3s linear, scale 0.3s linear;
+
+  display: none;
+}
+.card-skip-btn:focus {outline: 0;}
+
+.card-skip-scored {
+  transform: translateY(-5rem) scale(0.5, 0.5);
+}
+
+
 @media only screen and (min-width: 800px) {
   .card {left: 20%; right: 20%;}
   .card-response {width: calc(100% - 13rem);}
   .card-next-btn {display: block;}
+  .card-skip-btn {display: block;}
 }
 @media only screen and (min-width: 1400px) {
   .card {left: 30%; right: 30%;}
