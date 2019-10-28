@@ -6,7 +6,7 @@ export const login = async () => {
     first_name: 'Djavan',
     last_name: 'Munroe',
     email: 'djavan@gmail.com',
-    role: 1
+    role: 2,
   }
 }
 
@@ -76,15 +76,35 @@ export const userQuery = gql`
   }
   `;
 
-  export const studentsQuery = gql `
-    query {
-      users(role: 0) {
-        id
-        firstName
-        lastName
-        email
-        program
-        cohort
-      }
+export const studentsQuery = gql `
+  query {
+    users(role: 0) {
+      id
+      firstName
+      lastName
+      email
+      program
+      cohort
     }
+  }
+`
+
+export const questionsQuery = gql `
+  query {
+    questions
+    {
+      id
+      body
+      active
+    }
+  }
+`
+
+export const ADD_QUESTION = gql `
+  mutation AddQuestion($body: String!) {
+    addQuestion(body:$body) {
+      id
+      body
+    }
+  }
   `

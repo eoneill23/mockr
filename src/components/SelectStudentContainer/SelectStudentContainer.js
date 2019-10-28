@@ -41,7 +41,6 @@ export const SelectStudentContainer = () => {
     </section>
     )
   }
-
 }
 
 export default SelectStudentContainer;

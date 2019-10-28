@@ -4,8 +4,9 @@ import NavBar from '../NavBar/NavBar';
 import LoginForm from '../LoginForm/LoginForm';
 import Dashboard from '../Dashboard/Dashboard';
 import StudentInterviewContainer from '../StudentInterviewContainer/StudentInterviewContainer';
-import StudentContainer from '../StudentContainer/StudentContainer';
+import AdminSearchStudentContainer from '../AdminSearchStudentContainer/AdminSearchStudentContainer';
 import SelectStudentContainer from '../SelectStudentContainer/SelectStudentContainer';
+import AdminAllQuestionsContainer from '../AdminAllQuestionsContainer/AdminAllQuestionsContainer';
 import { InterviewsContext, UserContext, QuestionsContext } from '../../Context';
 import { Route, Redirect } from 'react-router-dom';
 import Interview from '../Interview/Interview/Interview';
@@ -41,8 +42,8 @@ export const App = () => {
               <Route exact path='/student-interviews'><StudentInterviewContainer /></Route>
               <Route exact path='/student-questions'><StudentQuestionContainer></StudentQuestionContainer></Route>
               <Route exact path='/interview'><Interview/></Route>
-              <Route exact path='/students'><StudentContainer /></Route>
-              <Route exact path='/all-questions'></Route>
+              <Route exact path='/students'><AdminSearchStudentContainer /></Route>
+              <Route exact path='/all-questions'><AdminAllQuestionsContainer /></Route>
               <Route exact path='/select-student'><SelectStudentContainer /></Route>
             </UserContext.Provider>
           </InterviewsContext.Provider>
