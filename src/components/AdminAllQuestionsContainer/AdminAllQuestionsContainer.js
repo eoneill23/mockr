@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import AdminAddQuestionForm from '../AdminAddQuestionForm/AdminAddQuestionForm';
 import AdminSingleQuestion from '../AdminSingleQuestion/AdminSingleQuestion';
 import { questionsQuery } from '../../util/apiCalls';
@@ -6,6 +6,7 @@ import { useQuery } from '@apollo/react-hooks';
 import './AdminAllQuestionsContainer.css';
 
 export const AdminAllQuestionsContainer = () => {
+  const [questions, setQuestions] = useState([]);
   let questionsList;
   const QUERY = questionsQuery;
   const { loading, error, data } = useQuery(QUERY);
@@ -17,13 +18,17 @@ export const AdminAllQuestionsContainer = () => {
     });
   }
 
+  const createNewQuestion = (newQuestion) => {
+    data.questions = [...data.questions, newQuestion]
+  }
+
   return (
     <section className='admin-questions'>
       <section className='admin-all-questions'>
         {questionsList}
       </section>
       <section className='admin-add-question-container'>
-        <AdminAddQuestionForm />
+        <AdminAddQuestionForm setQuestions={setQuestions} questions={questions}/>
       </section>
     </section>
   )

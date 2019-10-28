@@ -104,6 +104,7 @@ export const ADD_QUESTION = gql `
   mutation AddQuestion($body: String!) {
     addQuestion(body:$body) {
       id
+      body
     }
   }
   `
