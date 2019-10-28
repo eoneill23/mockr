@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './StudentProgramSearchForm.css';
 
 export const StudentProgramSearchForm = ({ students, collapsed, collapseModal, identifyStudent }) => {
   const [collapsedDropdown, collapseDropdown] = useState(true);

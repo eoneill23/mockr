@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../../Context';
-import './Dashboard.css';
+
 
 export const Dashboard = () => {
   const { user } = useContext(UserContext);

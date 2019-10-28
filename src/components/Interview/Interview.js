@@ -5,7 +5,6 @@ import {Swipeable} from 'react-swipeable';
 import Question from '../Question/Question';
 import {useQuery, useMutation} from '@apollo/react-hooks';
 import {RANDOM_QUESTIONS, ADD_NOTE, FINALISE_INTERVIEW} from '../../util/apiCalls';
-import './Interview.css';
 
 export const Interview = props => {
   const {user} = useContext(UserContext);

@@ -1,5 +1,4 @@
 import React from 'react';
-import './Question.css';
 
 export const Question = props => {
   const whereAmI = cur => {
