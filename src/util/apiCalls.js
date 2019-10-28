@@ -100,6 +100,15 @@ export const questionsQuery = gql `
   }
 `;
 
+export const RANDOM_QUESTIONS = gql`
+  query {
+    randomQuestions {
+      id
+      body
+    }
+  }
+`;
+
 export const CREATE_INTERVIEW = gql`
   mutation CreateInterview($studentId: Int!, $interviewerId: Int!) {
     addInterview(studentId: $studentId, interviewerId: $interviewerId) {

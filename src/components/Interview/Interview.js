@@ -9,7 +9,7 @@ import './Interview.css';
 
 export const Interview = props => {
   // const {user} = useContext(UserContext);
-  const user = {id: 9004, currentInterview: {id: 9007, student: 9000}};
+  const user = {id: 9002, currentInterview: {id: 1, student: 9000}};
   const [focus, setFocus] = useState(0);
   const [cur, setCur] = useState(1);
   const [notes] = useState({});
@@ -26,7 +26,7 @@ export const Interview = props => {
   if (error) return <p>Error...</p>;
 
   const populateCards = () => {
-    return data.questions.map(({id, body}, index) => {
+    return data.randomQuestions.map(({id, body}, index) => {
       let scored = false;
       if (notes[id]) {scored = notes[id].score >= 1};
       return <Question cur={cur} id={id} key={id} pos={index + 1} question={body} scored={scored} fs={{note: updateNote, score: updateScore, next: nextCard, skip: skipCard}}/>
@@ -84,9 +84,9 @@ export const Interview = props => {
   const endInterview = (event) => {
     const formData = new FormData(event.target);
     for (let id in notes) {
-      addNote({variables: {...notes[id], ...interviewData, questionId: id}});
+      addNote({variables: {...notes[id], ...interviewData, questionId: parseInt(id)}});
     }
-    finaliseInterview({variables: {id: interviewData.interviewId, score: formData.get('score'), body: formData.get('remarks')}});
+    finaliseInterview({variables: {id: interviewData.interviewId, score: parseInt(formData.get('score')), body: formData.get('remarks')}});
     setEnded(true);
   }
 
