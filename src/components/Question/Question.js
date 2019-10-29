@@ -39,8 +39,15 @@ export const Question = props => {
         <input type='radio' name='score' value='3'/>Good<br/>
         <input type='radio' name='score' value='4'/>Exceptional<br/>
       </form>
-      <button className='card-next-btn shadow' onClick={event => props.fs.next(props.id)}>🠚</button>
-      <button className={'card-skip-btn' + skipBtnScored()} onClick={event => props.fs.skip(props.id)}>↷</button>
+      <button className='card-next-btn shadow' onClick={event => props.fs.next(props.id)}>
+        🠚
+        <div className='question-btn-guide-next'>Next</div>
+      </button>
+      <button className={'card-skip-btn' + skipBtnScored()} onClick={event => props.fs.skip(props.id)}>
+        ↷
+        <div className='question-btn-guide-skip'>Skip</div>
+      </button>
+
     </div>
   );
 }

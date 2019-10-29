@@ -90,6 +90,18 @@
   display: none;
 }
 .card-next-btn:focus {outline: 0;}
+.card-next-btn:hover {background: $accent-hover;}
+.card-next-btn:hover .question-btn-guide-next {
+  display: block;
+}
+
+.question-btn-guide-next {
+  display: none;
+
+  position: absolute;
+  top: 5rem; left: 1.25rem;
+  font-size: 1.2rem;
+}
 
 .card-skip-btn {
   position: absolute;
@@ -109,10 +121,23 @@
   display: none;
 }
 .card-skip-btn:focus {outline: 0;}
+.card-skip-btn:hover {background: $accent-hover;}
+.card-skip-btn:hover .question-btn-guide-skip {
+  display: block;
+}
+
+.question-btn-guide-skip {
+  display: none;
+
+  position: absolute;
+  top: 5rem; left: 1.5rem;
+  font-size: 1.2rem;
+}
 
 .card-skip-scored {
   transform: translateY(-5rem) scale(0.5, 0.5);
 }
+.card-skip-scored .question-btn-guide-skip {font-size: 2rem; left: 0.75rem;}
 
 
 @media only screen and (min-width: 800px) {
