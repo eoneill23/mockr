@@ -19,7 +19,6 @@ export const AdminSearchStudentContainer = () => {
 
   if (identifiedStudentId) {
     foundStudent = data.users.find(student => student.id === identifiedStudentId);
-    console.log(foundStudent, 'FOUNDSTUDENT')
   }
 
   if (collapsed) {

@@ -146,3 +146,21 @@ export const FINALISE_INTERVIEW = gql`
     }
   }
 `;
+
+export const ACTIVATE_QUESTION = gql`
+    mutation ActivateQuestion($id: Int!, $active: Boolean!) {
+      activateQuestion(id: $id, active: $active) {
+        id
+        active
+      }
+    }
+`;
+
+export const DEACTIVATE_QUESTION = gql`
+    mutation ActivateQuestion($id: Int!, $active: Boolean!) {
+      activateQuestion(id: $id, active: $active) {
+        id
+        active
+      }
+    }
+`;

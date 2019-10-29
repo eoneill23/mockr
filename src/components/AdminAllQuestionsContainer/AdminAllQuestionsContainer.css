@@ -1,0 +1,28 @@
+.admin-questions {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.admin-all-questions {
+  background-color: lightblue;
+  width: 50%;
+}
+
+.admin-add-question-container {
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+.filter-container {
+  align-items: center;
+  background-color: white;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 10px;
+  width: 100%;
+}
