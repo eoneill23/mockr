@@ -8,8 +8,8 @@
 
 .question-container {
   position: fixed;
+  top: $nav-height; bottom: 0;
   width: 100vw;
-  height: calc(100vh - 3rem);
   transition: transform 0.5s linear;
 }
 
