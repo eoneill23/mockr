@@ -4,9 +4,6 @@ import { studentsQuery } from '../../util/apiCalls';
 import StudentProgramSearchForm from '../StudentProgramSearchForm/StudentProgramSearchForm';
 import AdminSelectedStudentModal from '../AdminSelectedStudentModal/AdminSelectedStudentModal';
 
-
-//THIS IS FOR ADMIN TO VIEW ALL STUDENTS. DOES THE SAME THING AS SELECT STUDENT CONTAINER. SEE IF YOU CAN DELETE THIS
-
 export const AdminSearchStudentContainer = () => {
   const QUERY = studentsQuery;
   const { loading, error, data } = useQuery(QUERY);

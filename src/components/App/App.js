@@ -12,7 +12,6 @@ import { Route, Redirect } from 'react-router-dom';
 import Interview from '../Interview/Interview';
 import StudentQuestionContainer from '../StudentQuestionContainer/StudentQuestionContainer';
 
-
 // Apollo
 import ApolloClient from 'apollo-boost';
 import {ApolloProvider} from '@apollo/react-hooks';

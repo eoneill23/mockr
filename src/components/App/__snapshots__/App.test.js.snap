@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should match the snapshot with all data passed in correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <main
+        class="main"
+      >
+        <nav
+          class="nav shadow"
+        >
+          <a
+            href="/"
+          >
+            Mockr
+          </a>
+           
+          <a
+            href="/login"
+          >
+            Log in
+          </a>
+        </nav>
+        <section
+          class="welcome-info"
+        >
+          <p>
+            Welcome to Mockr! Mockr is an app that facilitates mock interviews between interviewers and interviewees. Its intuitive design allows an interviewer to ask questions commonly asked in an interview and rate the interviewee's response on a scale from 1-5.
+          </p>
+          <p>
+            It also allows interviewers to email interviewees with their notes from the interview to provide a record of their feedback.
+          </p>
+          <p>
+            Click log in at the top right corner of the page to log in an begin the mock interview process!
+          </p>
+        </section>
+      </main>
+    </div>
+  </body>,
+  "container": <div>
+    <main
+      class="main"
+    >
+      <nav
+        class="nav shadow"
+      >
+        <a
+          href="/"
+        >
+          Mockr
+        </a>
+         
+        <a
+          href="/login"
+        >
+          Log in
+        </a>
+      </nav>
+      <section
+        class="welcome-info"
+      >
+        <p>
+          Welcome to Mockr! Mockr is an app that facilitates mock interviews between interviewers and interviewees. Its intuitive design allows an interviewer to ask questions commonly asked in an interview and rate the interviewee's response on a scale from 1-5.
+        </p>
+        <p>
+          It also allows interviewers to email interviewees with their notes from the interview to provide a record of their feedback.
+        </p>
+        <p>
+          Click log in at the top right corner of the page to log in an begin the mock interview process!
+        </p>
+      </section>
+    </main>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
