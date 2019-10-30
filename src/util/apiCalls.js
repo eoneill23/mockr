@@ -79,6 +79,37 @@ export const userQuery = gql`
   }
   `;
 
+  export const loginQuery = gql`
+  query Login($email: String!, $password: String!){
+    login(email: $email, password: $password) {
+      id
+      firstName
+      lastName
+      email
+      role
+      interviews {
+        id
+        score
+        summary
+        users {
+          firstName
+          lastName
+          role
+        }
+        notes {
+          id
+          body
+          score
+          question {
+            id
+            body
+          }
+        }
+      }
+    }
+  }
+  `;
+
 export const ALL_STUDENTS = gql`
   query {
     users(role: 0) {
