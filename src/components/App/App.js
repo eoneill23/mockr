@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import HomePage from '../HomePage/HomePage';
 import NavBar from '../NavBar/NavBar';
 import LoginForm from '../LoginForm/LoginForm';
@@ -26,6 +26,10 @@ export const App = () => {
   const userInfo = useMemo(() => ({ user, setUser }), [user, setUser]);
   const fetchedInterviews = useMemo(() => ({ interviews, setInterviews }), [interviews, setInterviews]);
   const fetchedQuestions = useMemo(() => ({ questions, setQuestions }), [questions, setQuestions]);
+
+  useEffect(() => {
+    if (sessionStorage.getItem('user')) {setUser(JSON.parse(sessionStorage.getItem('user')));}
+  }, []);
 
   return (
     <ApolloProvider client={client}>
