@@ -1,14 +1,41 @@
+h3 {
+  text-align: center;
+  color: black;
+}
+
 .question-card {
-  background: $card-bg;
   padding: 1rem;
-  border-radius: 1rem;
+  border-radius: .2rem;
+  border: .5px solid black;
   margin-top: 2rem;
   cursor: pointer;
+  box-shadow: -1px 4px 5px 0px rgba(0,0,0,0.75);
+}
+
+.question-card:hover {
+  background: $card-bg;
+}
+
+.question-card:hover > h3 {
+  color: #FFFFFF;
 }
 
 .details {
+  transition: .3s ease-in, opacity .2s ease-in;
   display: none;
+  color: #FFFFFF;
 }
+
 .details.shown {
   display: block;
+  background: $card-bg;
+  color: #FFFFFF;
+}
+
+.shown {
+  background: $card-bg;
+}
+
+.shown > h3 {
+  color: #FFFFFF;
 }
