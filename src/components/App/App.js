@@ -36,14 +36,15 @@ export const App = () => {
             <UserContext.Provider value={userInfo}>
               <NavBar />
               <Route exact path='/'><HomePage /></Route>
-              <Route exact path='/login' render={() => user ? (<Redirect to='/dashboard'/>) : <LoginForm />}/>
-              <Route exact path='/dashboard'><Dashboard /></Route>
-              <Route exact path='/student-interviews'><StudentInterviewContainer /></Route>
-              <Route exact path='/student-questions'><StudentQuestionContainer></StudentQuestionContainer></Route>
-              <Route exact path='/interview'><Interview/></Route>
-              <Route exact path='/students'><AdminSearchStudentContainer /></Route>
-              <Route exact path='/all-questions'><AdminAllQuestionsContainer /></Route>
-              <Route exact path='/select-student' render={() => user.currentInterview ? (<Redirect to='/interview'/>) : <SelectStudentContainer />}/>
+              <Route exact path='/login' render={() => user ? (<Redirect to='/dashboard'/>) : <LoginForm /> } />
+              <Route exact path='/dashboard' render={() => !user ? (<Redirect to='/login'/>) : <Dashboard /> } />
+              <Route exact path='/student-interviews' render={() => !user ? (<Redirect to='/login'/>) : <StudentInterviewContainer /> } />
+              <Route exact path='/student-questions' render={() => !user ? (<Redirect to='/login'/>) : <StudentQuestionContainer /> } />
+              <Route exact path='/interview' render={() => !user.currentInterview ? (<Redirect to='/login'/>) : <Interview /> } />
+              <Route exact path='/students' render={() => user.role !== 2 ? (<Redirect to='/login'/>) : <AdminSearchStudentContainer />} />
+              <Route exact path='/all-questions' render={() => !user ? (<Redirect to='/login'/>) : <AdminAllQuestionsContainer /> } />
+              <Route exact path='/select-student' render={() => user.currentInterview ? (<Redirect to='/interview'/>) : 
+                !user ? (<Redirect to='/login'/>) : <SelectStudentContainer /> }/>
             </UserContext.Provider>
           </InterviewsContext.Provider>
         </QuestionsContext.Provider>

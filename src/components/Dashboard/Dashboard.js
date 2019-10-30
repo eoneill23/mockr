@@ -4,7 +4,6 @@ import { UserContext } from '../../Context';
 export const Dashboard = () => {
   const { user } = useContext(UserContext);
   const buttonText = user.role === 0 ? 'Request interview access' : 'Request admin access';
-  
   if(user.role === 0 || user.role === 1) {
     return (
       <section>

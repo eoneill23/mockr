@@ -12,22 +12,20 @@ export const LoginForm = () => {
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
 
-  // const QUERY = userQuery;
-  // const [getUser, { loading, error, data }] = useLazyQuery(QUERY);
-  // if (loading) return <p>Loading...</p>;
-  // if (error) return <p>Error...</p>;
-  // if(data) {
-  //   setUser(data.user);
-  // }
+  const [getUser, { loading, error, data }] = useLazyQuery(userQuery);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error...</p>;
+  if(data) {
+    setUser(data.user);
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = await login();
-    setUser(user);
-    const interviews = await getInterviews();
-    setInterviews(interviews);
-    const questions = await getQuestions();
-    setQuestions(questions);
+    await getUser( { variables: { id: 9000 } });
+    // const interviews = await getInterviews();
+    // setInterviews(interviews);
+    // const questions = await getQuestions();
+    // setQuestions(questions);
   }
 
   return (

@@ -7,7 +7,7 @@ import {useQuery, useMutation} from '@apollo/react-hooks';
 import {RANDOM_QUESTIONS, ADD_NOTE, FINALISE_INTERVIEW} from '../../util/apiCalls';
 
 export const Interview = props => {
-  const {user} = useContext(UserContext);
+  const {user, setUser} = useContext(UserContext);
   const [focus, setFocus] = useState(0);
   const [cur, setCur] = useState(1);
   const [notes] = useState({});
@@ -98,13 +98,14 @@ export const Interview = props => {
   }
 
   if (ended) {
+    setUser({...user, currentInterview: null})
     return <Redirect to='/dashboard'/>;
   } else {
     return (
       <div>
         <div>
           <div className={'question-container' + isFocusedQuestions()}>
-            <Swipeable onSwipedLeft={event => nextCard()} onSwipedRight={event => prevCard()} trackMouse={true} preventDefaultTouchmoveEvent={true}>
+            <Swipeable onSwipedLeft={event => nextCard()} onSwipedRight={event => prevCard()} preventDefaultTouchmoveEvent={true}>
               {populateCards()}
             </Swipeable>
             <div className='deck-btn-panel shadow'>

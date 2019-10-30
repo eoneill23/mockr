@@ -49,8 +49,8 @@ export const getQuestions = async () => {
 }
 
 export const userQuery = gql`
-  query {
-    user(id: 9002) {
+  query User($id: Int!){
+    user(id: $id) {
       id
       firstName
       lastName
@@ -58,6 +58,8 @@ export const userQuery = gql`
       role
       interviews {
         id
+        score
+        summary
         users {
           firstName
           lastName
@@ -68,6 +70,7 @@ export const userQuery = gql`
           body
           score
           question {
+            id
             body
           }
         }
