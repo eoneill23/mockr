@@ -12,7 +12,7 @@ export const StudentInterviewContainer = () => {
   const showDetails = id => {setCur(id);}
 
   const interviewList = interviews.map(interview => {
-    return <StudentInterview key={interview.id} summary={interview.summary} id={interview.id} showDetails={showDetails} detailed={(cur === interview.id)}/>
+    return <StudentInterview key={interview.id} interview={interview} id={interview.id} showDetails={showDetails} detailed={(cur === interview.id)}/>
   });
   let foundInterview;
 
