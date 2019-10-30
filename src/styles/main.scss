@@ -3,7 +3,7 @@
 @import "NavBar";
 @import "Dashboard";
 @import "HomePage";
-@import "AdminAllQuestionsContainer";
+@import "AdminQuestions";
 @import "AdminAddQuestionForm";
 @import "AdminSearchStudentContainer";
 @import "LoginForm";
@@ -17,7 +17,6 @@
 @import "StudentInterviewModal";
 @import "Question";
 @import "StudentQuestionContainer";
-@import "StudentQuestionModal";
 
 body {background: grey; font-family: $font}
 
