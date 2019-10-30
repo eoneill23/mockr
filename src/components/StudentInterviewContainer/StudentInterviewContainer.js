@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { InterviewsContext } from '../../Context';
+import { UserContext } from '../../Context';
 import StudentInterviewModal from '../StudentInterviewModal/StudentInterviewModal';
 import StudentInterview from '../StudentInterview/StudentInterview';
 
 
 export const StudentInterviewContainer = () => {
-  const { interviews } = useContext(InterviewsContext);
+  const { user } = useContext(UserContext)
+  const { interviews } = user;
   const [ collapsed, collapseModal ] = useState(true);
   const [ identifiedInterviewId, identifyInterview ] = useState(null);
 
