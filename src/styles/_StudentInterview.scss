@@ -1,6 +1,15 @@
-.student-interview {
-  background-color: red;
-  height: 100px;
-  width: 100px;
+.interview-card {
+  background: $card-bg;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.details {
+  display: none;
+}
+.details.shown {
+  display: block;
 }
 
