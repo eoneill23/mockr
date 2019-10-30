@@ -29,3 +29,10 @@ export const StudentInterview = ({ interview, id, showDetails, detailed }) => {
 }
 
 export default StudentInterview;
+
+StudentInterview.propTypes = {
+  interview: PropTypes.object,
+  id: PropTypes.number,
+  showDetails: PropTypes.func,
+  detailed: PropTypes.bool
+}
