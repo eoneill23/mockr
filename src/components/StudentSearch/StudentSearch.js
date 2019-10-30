@@ -8,22 +8,22 @@ export const StudentSearch = ({ students, collapsed, collapseModal, identifyStud
 
   const filterStudents = (cohort, program, students) => {
     if (!cohort && !program) {
-      return students.map(student => <FoundStudent student={student}/>);
+      return students.map(student => <FoundStudent key={student.id} student={student}/>);
     }
     if (!program && cohort) {
       return students.filter(student => {
         return student.cohort.toString().includes(cohort)
-      }).map(student => <FoundStudent student={student}/>);
+      }).map(student => <FoundStudent key={student.id} student={student}/>);
     }
     if (!cohort && program) {
       return students.filter(student => {
         return student.program === program
-      }).map(student => <FoundStudent student={student}/>);
+      }).map(student => <FoundStudent key={student.id} student={student}/>);
     }
     if (cohort && program) {
       return students.filter(student => {
         return student.program === program && student.cohort.toString().includes(cohort)
-      }).map(student => <FoundStudent student={student}/>);
+      }).map(student => <FoundStudent key={student.id} student={student}/>);
     }
   }
 
