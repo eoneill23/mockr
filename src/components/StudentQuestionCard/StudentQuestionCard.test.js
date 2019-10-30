@@ -1,20 +1,20 @@
 import React from 'react';
-import { MemoryRouter } from 'react-router';
 import { render } from '@testing-library/react';
-import App from './App';
+import StudentQuestionCard from './StudentQuestionCard';
+import { MockedProvider } from '@apollo/react-testing';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
-describe('App', () => {
+describe('StudentQuestionCard', () => {
   let wrapper;
 
   beforeEach(() => {
     wrapper = render(
-      <MemoryRouter intialEntries={['/']}>
-        <App />
-      </MemoryRouter>
+      <MockedProvider addTypeName={false}>
+        <StudentQuestionCard body={'Great job'} notes={'Great job'} id={1} collapseModal={jest.fn()} identifyQuestion={jest.fn()} collapsed={true}/>
+      </MockedProvider>
     );
   });
 

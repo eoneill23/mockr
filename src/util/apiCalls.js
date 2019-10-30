@@ -6,7 +6,7 @@ export const login = async () => {
     firstName: 'Ian',
     lastName: 'Douglas',
     email: 'iandouglas@turing.io',
-    role: 1,
+    role: 2,
   }
 }
 
