@@ -30,8 +30,6 @@ export const App = () => {
   return (
     <ApolloProvider client={client}>
       <main className='main'>
-        <QuestionsContext.Provider value={fetchedQuestions}>
-          <InterviewsContext.Provider value={fetchedInterviews}>
             <UserContext.Provider value={userInfo}>
               <NavBar />
               <Route exact path='/'><HomePage /></Route>
@@ -44,8 +42,6 @@ export const App = () => {
               <Route exact path='/all-questions' render={() => !user ? (<Redirect to='/login'/>) : <AdminQuestions /> } />
               <Route exact path='/select-student' render={() => user.currentInterview ? (<Redirect to='/interview'/>) : <StudentSearch />}/>
             </UserContext.Provider>
-          </InterviewsContext.Provider>
-        </QuestionsContext.Provider>
       </main>
     </ApolloProvider>
   );
