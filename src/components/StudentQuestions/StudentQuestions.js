@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import StudentQuestionModal from '../StudentQuestionModal/StudentQuestionModal';
 import Question from '../Question/Question';
 import { QuestionsContext } from '../../Context';
 
