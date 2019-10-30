@@ -6,7 +6,7 @@ import profilePic from './profile.jpg';
 export const Dashboard = () => {
   const { user } = useContext(UserContext);
   const buttonText = user.role === 0 ? 'Become an Interviewer' : 'Become an Admin';
-
+  console.log(user)
   return (
   <section className='main-container'>
     <section className='profile-container'>
