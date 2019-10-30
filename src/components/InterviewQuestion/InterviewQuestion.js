@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const Question = props => {
   const whereAmI = cur => {
@@ -53,3 +54,7 @@ export const Question = props => {
 }
 
 export default Question;
+
+Question.propTypes = {
+  student: PropTypes.object
+}
