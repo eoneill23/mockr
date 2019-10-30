@@ -11,8 +11,7 @@ export const StudentQuestions = () => {
   const showDetails = id => {setCur(id);}
 
   const questionList = questions.map(question => {
-    console.log(cur === question.id);
-    return <Question key={question.id} body={question.body} notes={question.notes} id={question.id} showDetails={showDetails} detailed={(cur === question.id)}/>
+    return <Question key={question.id} details={question} id={question.id} showDetails={showDetails} detailed={(cur === question.id)}/>
   });
   let foundQuestion;
 
