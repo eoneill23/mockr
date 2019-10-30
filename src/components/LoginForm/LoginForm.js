@@ -1,35 +1,30 @@
 import React, { useState, useContext } from 'react';
-import { InterviewsContext, UserContext, QuestionsContext } from '../../Context';
-import { login, getInterviews, getQuestions, userQuery } from '../../util/apiCalls';
-import gql from 'graphql-tag';
+import { UserContext } from '../../Context';
+import { LOGIN } from '../../util/apiCalls';
 import { useLazyQuery } from '@apollo/react-hooks';
 
 
 export const LoginForm = () => {
-  const { setQuestions } = useContext(QuestionsContext)
-  const { setInterviews } = useContext(InterviewsContext);
   const { setUser } = useContext(UserContext);
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
 
-  const [getUser, { loading, error, data }] = useLazyQuery(userQuery);
+  const [loginUser, { loading, error, data }] = useLazyQuery(LOGIN);
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error...</p>;
   if(data) {
-    setUser(data.user);
+    setUser(data.login);
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await getUser( { variables: { id: 9000 } });
-    // const interviews = await getInterviews();
-    // setInterviews(interviews);
-    // const questions = await getQuestions();
-    // setQuestions(questions);
+    await loginUser( { variables: { email: emailInput, password: passwordInput } });
+    setEmailInput('');
+    setPasswordInput('');
   }
 
   return (
     <section className='login-form-container'>
+      {error && <p>There was an issue with your email or password.</p>}
       <form className='login-form'>
         <input
           type='text'
