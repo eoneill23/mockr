@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_QUESTION } from '../../util/apiCalls';
+import PropTypes from 'prop-types';
 
 export const AdminAddQuestionForm = ({ createNewQuestion }) => {
   const [questionInput, setQuestionInput] = useState('');
@@ -34,3 +35,7 @@ export const AdminAddQuestionForm = ({ createNewQuestion }) => {
 }
 
 export default AdminAddQuestionForm;
+
+AdminAddQuestionForm.propTypes = {
+  createNewQuestion: PropTypes.func
+}
