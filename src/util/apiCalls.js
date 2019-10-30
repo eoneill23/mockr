@@ -79,7 +79,7 @@ export const userQuery = gql`
   }
   `;
 
-export const studentsQuery = gql`
+export const ALL_STUDENTS = gql`
   query {
     users(role: 0) {
       id
