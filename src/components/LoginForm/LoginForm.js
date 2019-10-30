@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { UserContext } from '../../Context';
-import { loginQuery } from '../../util/apiCalls';
+import { LOGIN } from '../../util/apiCalls';
 import { useLazyQuery } from '@apollo/react-hooks';
 
 
@@ -9,7 +9,7 @@ export const LoginForm = () => {
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
 
-  const [loginUser, { loading, error, data }] = useLazyQuery(loginQuery);
+  const [loginUser, { loading, error, data }] = useLazyQuery(LOGIN);
   if (loading) return <p>Loading...</p>;
   if(data) {
     setUser(data.login);

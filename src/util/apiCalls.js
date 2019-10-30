@@ -79,7 +79,7 @@ export const userQuery = gql`
   }
   `;
 
-  export const loginQuery = gql`
+  export const LOGIN = gql`
   query Login($email: String!, $password: String!){
     login(email: $email, password: $password) {
       id
