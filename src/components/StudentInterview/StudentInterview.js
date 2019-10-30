@@ -2,26 +2,28 @@ import React from 'react';
 
 export const StudentInterview = ({ interview, id, showDetails, detailed }) => {
   const interviewer = interview.users.find(user => user.role !== 0)
-  const isDetailed = () => {if (detailed) {return ' shown'} else {return ''}}
+  const isDetailed = detailed ? 'shown' : '';
 
-  let rubric = ['Skipped', 'Unsatisfactory', 'Needs Work', 'Good', 'Exceptional']
+  const rubric = ['Skipped 🤡', 'Unsatisfactory 🥺', 'Needs Work 🤨', 'Good 😁', 'Exceptional 🥳'];
   let eachNote = []
-  eachNote = interview.notes.map(note => {
+  eachNote = interview.notes.filter(note => note.score).map(note => {
     return (
-      <div key={note.noteId}>
-        <p>Score: {rubric[note.score]} </p>
-        <p>Summary: {note.summary} </p>
-        <p>Interviewer: {note.interviewer} </p>
+      <div className='note-summary' key={note.noteId}>
+        <p>Question: <br />{note.question.body}</p>
+        <p>Score: <br />{rubric[note.score]} </p>
+        <p>Summary: <br />{note.body} </p>
       </div>
     )
   });
 
   return (
-    <section className='interview-card' onClick={e => showDetails(id)}>
+    <section className={`interview-card ${isDetailed}`} onClick={e => showDetails(id)}>
       <h3>On {interview.createdAt.split('T')[0]} with {interviewer.firstName} {interviewer.lastName}</h3>
-      <div className={'details' + isDetailed()}>
-        {interview.summary}<br/><br/><br/>
+      <div className={`details ${isDetailed}`}>
+        <p className='takeaways' >Score: {rubric[interview.score]} <br/> Takeaways: <br/> {interview.summary}</p><br/>
+       <div className='note-container'>
         {eachNote}
+       </div> 
       </div>
     </section>
   )
