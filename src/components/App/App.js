@@ -4,7 +4,7 @@ import NavBar from '../NavBar/NavBar';
 import LoginForm from '../LoginForm/LoginForm';
 import Dashboard from '../Dashboard/Dashboard';
 import StudentInterviewContainer from '../StudentInterviewContainer/StudentInterviewContainer';
-import AdminSearchStudentContainer from '../AdminSearchStudentContainer/AdminSearchStudentContainer';
+import StudentSearch from '../StudentSearch/StudentSearch';
 import InterviewSetup from '../InterviewSetup/InterviewSetup';
 import AdminQuestions from '../AdminQuestions/AdminQuestions';
 import { InterviewsContext, UserContext, QuestionsContext } from '../../Context';
@@ -41,7 +41,7 @@ export const App = () => {
               <Route exact path='/student-interviews' render={() => !user ? (<Redirect to='/login'/>) : <StudentInterviewContainer /> } />
               <Route exact path='/student-questions' render={() => !user ? (<Redirect to='/login'/>) : <StudentQuestions /> } />
               <Route exact path='/interview' render={() => !user.currentInterview ? (<Redirect to='/login'/>) : <Interview /> } />
-              <Route exact path='/students' render={() => user.role !== 2 ? (<Redirect to='/login'/>) : <AdminSearchStudentContainer />} />
+              <Route exact path='/students' render={() => user.role !== 2 ? (<Redirect to='/login'/>) : <StudentSearch />} />
               <Route exact path='/all-questions' render={() => !user ? (<Redirect to='/login'/>) : <AdminQuestions /> } />
               <Route exact path='/select-student' render={() => user.currentInterview ? (<Redirect to='/interview'/>) : <InterviewSetup />}/>
             </UserContext.Provider>
