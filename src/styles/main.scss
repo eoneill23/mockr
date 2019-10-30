@@ -7,18 +7,31 @@
 @import "AdminAddQuestionForm";
 @import "AdminSearchStudentContainer";
 @import "AdminSingleQuestion";
-@import "Interview";
-@import "InterviewEnd";
 @import "LoginForm";
-@import "Question";
+@import "Interview";
+@import "InterviewQuestion";
 @import "InterviewSetup";
 @import "StudentSearch";
 @import "FoundStudent";
 @import "StudentInterview";
 @import "StudentInterviewContainer";
 @import "StudentInterviewModal";
-@import "StudentQuestionCard";
+@import "Question";
 @import "StudentQuestionContainer";
 @import "StudentQuestionModal";
 
 body {background: grey; font-family: $font}
+
+.main-container {
+  color: white;
+  position: fixed;
+  top: $nav-height; bottom: 0;
+  width: 100vw;
+}
+
+.side-margins {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 20%; right: 20%;
+}
+
