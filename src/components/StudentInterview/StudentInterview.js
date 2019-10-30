@@ -18,7 +18,7 @@ export const StudentInterview = ({ interview, id, showDetails, detailed }) => {
 
   return (
     <section className='interview-card' onClick={e => showDetails(id)}>
-      <h3>On 13/1/99 with {interviewer.firstName} {interviewer.lastName}</h3>
+      <h3>On {interview.createdAt} with {interviewer.firstName} {interviewer.lastName}</h3>
       <div className={'details' + isDetailed()}>
         {interview.summary}<br/><br/><br/>
         {eachNote}

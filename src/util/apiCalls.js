@@ -60,6 +60,7 @@ export const userQuery = gql`
         id
         score
         summary
+        createdAt
         users {
           firstName
           lastName
