@@ -1,9 +1,11 @@
 import React, { useContext, useState } from 'react';
 import Question from '../Question/Question';
 import { QuestionsContext } from '../../Context';
+import { UserContext } from '../../Context';
 
 export const StudentQuestions = () => {
-  const { questions } = useContext(QuestionsContext);
+  // const { questions } = useContext(QuestionsContext);
+  const { user } = useContext(UserContext);
   const [cur, setCur] = useState(0);
   const [identifiedQuestionId, identifyQuestion] = useState(null);
 

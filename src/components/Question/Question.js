@@ -37,7 +37,7 @@ export const Question = ({ id, role, fs, details, showDetails, detailed }) => {
     <section className='question-card' onClick={e => showDetails(id)}>
       <h3>{body}</h3>
       <div className={'details' + isDetailed()}>
-        <p>{eachNote}</p>
+        {eachNote}
       </div>
       {(user.role === 2) && <button onClick={(e) => toggleQuestion(e)}>{activeBtn}</button>}
     </section>
