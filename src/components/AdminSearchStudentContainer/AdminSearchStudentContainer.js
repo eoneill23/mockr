@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { studentsQuery } from '../../util/apiCalls';
-import StudentProgramSearchForm from '../StudentProgramSearchForm/StudentProgramSearchForm';
+import StudentSearch from '../StudentSearch/StudentSearch';
 import AdminSelectedStudentModal from '../AdminSelectedStudentModal/AdminSelectedStudentModal';
 
 export const AdminSearchStudentContainer = () => {
@@ -22,7 +22,7 @@ export const AdminSearchStudentContainer = () => {
     return (
       <section className='admin-interview-student-container'>
         <section className='admin-student-search-container'>
-          <StudentProgramSearchForm students={data.users} collapsed={collapsed} collapseModal={collapseModal} identifyStudent={identifyStudent} />
+          <StudentSearch students={data.users} collapsed={collapsed} collapseModal={collapseModal} identifyStudent={identifyStudent} />
         </section>
         <section className='admin-selected-student-modal-container'>
         </section>
@@ -32,7 +32,7 @@ export const AdminSearchStudentContainer = () => {
     return (
       <section className='admin-interview-student-container'>
         <section className='admin-student-search-container'>
-          <StudentProgramSearchForm students={data.users} collapsed={collapsed} collapseModal={collapseModal} identifyStudent={identifyStudent} />
+          <StudentSearch students={data.users} collapsed={collapsed} collapseModal={collapseModal} identifyStudent={identifyStudent} />
         </section>
         <section className='admin-selected-student-modal-container'>
           <AdminSelectedStudentModal name={foundStudent.firstName} id={foundStudent.id} collapsed={collapsed} collapseModal={collapseModal} />

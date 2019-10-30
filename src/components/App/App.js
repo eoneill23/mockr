@@ -10,7 +10,7 @@ import AdminAllQuestionsContainer from '../AdminAllQuestionsContainer/AdminAllQu
 import { InterviewsContext, UserContext, QuestionsContext } from '../../Context';
 import { Route, Redirect } from 'react-router-dom';
 import Interview from '../Interview/Interview';
-import StudentQuestionContainer from '../StudentQuestionContainer/StudentQuestionContainer';
+import StudentQuestions from '../StudentQuestions/StudentQuestions';
 
 // Apollo
 import ApolloClient from 'apollo-boost';

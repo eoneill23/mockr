@@ -8,7 +8,7 @@ export const Dashboard = () => {
   const buttonText = user.role === 0 ? 'Become an Interviewer' : 'Become an Admin';
 
   return (
-  <section className='dashboard-container'>
+  <section className='main-container'>
     <section className='profile-container'>
       <img id='profile-pic' src={profilePic} alt='Profile Picture'/>
       <h3 id='first-name'>{user.firstName}</h3> <i id='last-name'>{user.lastName}</i>

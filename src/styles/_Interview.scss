@@ -54,6 +54,7 @@
   cursor: pointer;
 }
 .end-btn:focus {outline: 0;}
+.end-btn:hover {background: $highlight-hover;}
 
 .end-container {
   position: fixed;
