@@ -9,7 +9,33 @@ export const StudentQuestions = () => {
 
   const showDetails = id => {setCur(id);}
 
-  const questionList = questions.map(question => {
+  const questions = user.interviews.reduce((acc, interview) => {
+    interview.notes.forEach(note => {
+      if(!acc.map(q => q.id).includes(note.question.id)) {
+        acc.push(note.question)
+      }
+    })
+    return acc;
+  }, []);
+  const questionNotes = questions.map(question => {
+    let notes = user.interviews.reduce((acc, interview) => {
+      interview.notes.forEach(note => {
+        if(note.question.id === question.id) {
+          let questionNote = {
+            noteId: note.id,
+            summary: note.body,
+            score: note.score,
+            interviewer: `${interview.users[1].firstName} ${interview.users[1].lastName[0]}.`
+          }
+          acc.push(questionNote)
+        }
+      })
+      return acc;
+    }, [])
+    return  { ...question, notes: [...notes.reverse()] };
+  });
+
+  const questionList = questionNotes.map(question => {
     return <Question key={question.id} details={question} id={question.id} showDetails={showDetails} detailed={(cur === question.id)}/>
   });
   let foundQuestion;

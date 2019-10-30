@@ -21,12 +21,23 @@ export const Question = ({ id, role, fs, details, showDetails, detailed }) => {
     }
   }
 
+  let rubric = ['Skipped', 'Unsatisfactory', 'Needs Work', 'Good', 'Exceptional']
+  let eachNote = notes.map(note => {
+    return (
+      <div key={note.noteId}>
+        <p>Score: {rubric[note.score]} </p>
+        <p>Summary: {note.summary} </p>
+        <p>Interviewer: {note.interviewer} </p>
+      </div>
+    )
+  });
+
   const isDetailed = () => {if (detailed) {return ' shown'} else {return ''}}
   return (
     <section className='question-card' onClick={e => showDetails(id)}>
       <h3>{body}</h3>
       <div className={'details' + isDetailed()}>
-        <p>{notes}</p>
+        <p>{eachNote}</p>
       </div>
       {(user.role === 2) && <button onClick={(e) => toggleQuestion(e)}>{activeBtn}</button>}
     </section>
