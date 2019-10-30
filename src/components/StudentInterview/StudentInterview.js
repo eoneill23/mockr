@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const StudentInterview = ({ interview, id, showDetails, detailed }) => {
   const interviewer = interview.users.find(user => user.role !== 0)
