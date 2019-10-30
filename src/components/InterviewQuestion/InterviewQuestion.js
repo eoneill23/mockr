@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const Question = props => {
   const whereAmI = cur => {
@@ -26,7 +27,7 @@ export const Question = props => {
   }
 
   return (
-    <div className={'interview-card shadow ' + whereAmI(props.cur)}>
+    <div className={'interview-question-card shadow ' + whereAmI(props.cur)}>
       <h1 className='interview-card-question'>Q: {props.question}</h1>
       <h1 className='interview-card-position'>{props.pos}</h1>
 
@@ -53,3 +54,7 @@ export const Question = props => {
 }
 
 export default Question;
+
+Question.propTypes = {
+  student: PropTypes.object
+}

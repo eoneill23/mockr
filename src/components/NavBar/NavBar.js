@@ -27,7 +27,7 @@ export const NavBar = () => {
         <Link to='/all-questions'>All Questions</Link>
       </>
       }
-      {user && <Link to='/' onClick={() => setUser('')}>Log Out</Link>}
+      {user && <Link to='/' onClick={() => {setUser(''); sessionStorage.clear();}}>Log Out</Link>}
     </nav>
   )
 }

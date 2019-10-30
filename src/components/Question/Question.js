@@ -2,8 +2,9 @@ import React, {useContext} from 'react';
 import { UserContext } from '../../Context';
 import { useMutation } from '@apollo/react-hooks';
 import { ACTIVATE_QUESTION, DEACTIVATE_QUESTION } from '../../util/apiCalls';
+import PropTypes from 'prop-types';
 
-export const Question = ({ id, role, fs, details, showDetails, detailed }) => {
+export const Question = ({ id, fs, details, showDetails, detailed }) => {
   let {body, notes, active} = details;
   const { user } = useContext(UserContext);
   const [activateQuestion] = useMutation(ACTIVATE_QUESTION);
@@ -19,26 +20,25 @@ export const Question = ({ id, role, fs, details, showDetails, detailed }) => {
       const response = await activateQuestion({ variables: { id: id, active: !active } });
       fs.toggleActive(response.data.activateQuestion.id);
     }
-  }
+  };
 
-
-  let rubric = ['Skipped', 'Unsatisfactory', 'Needs Work', 'Good', 'Exceptional']
-  let eachNote = []
+  const rubric = ['Skipped', 'Unsatisfactory', 'Needs Work', 'Good', 'Exceptional'];
+  let eachNote = [];
   if (user.role === 0) {
-    eachNote = notes.map(note => {
+    eachNote = notes.filter(note => note.score).map(note => {
       return (
-        <div key={note.noteId}>
+        <div key={note.noteId} className="note-summary">
           <p>Score: {rubric[note.score]} </p>
           <p>Summary: {note.summary} </p>
           <p>Interviewer: {note.interviewer} </p>
         </div>
       )
     });
-  }
+  };
 
   const isDetailed = () => {if (detailed) {return ' shown'} else {return ''}}
   return (
-    <section className='question-card' onClick={e => showDetails(id)}>
+    <section className={`question-card ${isDetailed()}`} onClick={e => showDetails(id)}>
       <h3>{body}</h3>
       {(user.role === 0) && <div className={'details' + isDetailed()}>
         {eachNote}
@@ -49,3 +49,11 @@ export const Question = ({ id, role, fs, details, showDetails, detailed }) => {
 }
 
 export default Question;
+
+Question.propTypes = {
+  id: PropTypes.number,
+  fs: PropTypes.object,
+  details: PropTypes.object,
+  showDetails: PropTypes.func,
+  detailed: PropTypes.bool
+}

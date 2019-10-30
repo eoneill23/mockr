@@ -6,7 +6,7 @@ import InterviewQuestion from '../InterviewQuestion/InterviewQuestion';
 import {useQuery, useMutation} from '@apollo/react-hooks';
 import {RANDOM_QUESTIONS, ADD_NOTE, FINALISE_INTERVIEW} from '../../util/apiCalls';
 
-export const Interview = props => {
+export const Interview = () => {
   const {user, setUser} = useContext(UserContext);
   const [focus, setFocus] = useState(0);
   const [cur, setCur] = useState(1);

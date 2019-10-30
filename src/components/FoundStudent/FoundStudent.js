@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { UserContext } from '../../Context';
 import { useMutation } from '@apollo/react-hooks';
 import { CREATE_INTERVIEW } from '../../util/apiCalls';
+import PropTypes from 'prop-types';
 
 export const FoundStudent = ({ student }) => {
   const { user, setUser } = useContext(UserContext);
@@ -23,3 +24,7 @@ export const FoundStudent = ({ student }) => {
 }
 
 export default FoundStudent;
+
+FoundStudent.propTypes = {
+  student: PropTypes.object
+}
