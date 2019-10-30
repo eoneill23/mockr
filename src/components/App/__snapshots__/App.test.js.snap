@@ -9,9 +9,11 @@ Object {
         class="main"
       >
         <nav
-          class="nav shadow"
+          class="nav"
         >
           <a
+            aria-current="page"
+            class="active"
             href="/"
           >
             Mockr
@@ -45,9 +47,11 @@ Object {
       class="main"
     >
       <nav
-        class="nav shadow"
+        class="nav"
       >
         <a
+          aria-current="page"
+          class="active"
           href="/"
         >
           Mockr
