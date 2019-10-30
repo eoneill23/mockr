@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
+import { useQuery } from '@apollo/react-hooks';
+import { ALL_STUDENTS } from '../../util/apiCalls';
 import FoundStudent from '../FoundStudent/FoundStudent';
 
-export const StudentSearch = ({ students, collapsed, collapseModal, identifyStudent }) => {
+export const StudentSearch = () => {
+  const { loading, error, data } = useQuery(ALL_STUDENTS);
   const [cohortDropdown, toggleCohortDropdown] = useState(false);
   const [cohortInput, setCohortInput] = useState('');
   const [selectedProgram, setSelectedProgram] = useState('');
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error...</p>;
+
+  let students = data.users;
 
   const filterStudents = (cohort, program, students) => {
     if (!cohort && !program) {
@@ -40,29 +48,31 @@ export const StudentSearch = ({ students, collapsed, collapseModal, identifyStud
   let studentList = filterStudents(cohortInput, selectedProgram, students);
 
   return (
-    <div>
-      <div className='dropdown-container'>
-        <form>
-          <button className='select-program-btn' onClick={(e) => handleClick(e)}>Select Program</button>
-          <input
-            type='number'
-            name='cohortInput'
-            className='cohort-search'
-            value={cohortInput}
-            onChange={e => setCohortInput(e.target.value)}
-            placeholder='cohort'
-          />
-        </form>
-        <div className={'cohort-dropdown' + isFocused()}>
-          <ul>
-            <li name='FE' onClick={(e) => { handleClick(e); setSelectedProgram('FE')}}>FE</li>
-            <li name='BE' onClick={(e) => { handleClick(e); setSelectedProgram('BE')}}>BE</li>
-          </ul>
+    <div className='main-container'>
+      <div className='side-margins'>
+        <div className='dropdown-container'>
+          <form>
+            <button className='select-program-btn' onClick={(e) => handleClick(e)}>Select Program</button>
+            <input
+              type='number'
+              name='cohortInput'
+              className='cohort-search'
+              value={cohortInput}
+              onChange={e => setCohortInput(e.target.value)}
+              placeholder='cohort'
+            />
+          </form>
+          <div className={'cohort-dropdown' + isFocused()}>
+            <ul>
+              <li name='FE' onClick={(e) => { handleClick(e); setSelectedProgram('FE')}}>FE</li>
+              <li name='BE' onClick={(e) => { handleClick(e); setSelectedProgram('BE')}}>BE</li>
+            </ul>
+          </div>
         </div>
+        <ul>
+          {studentList}
+        </ul>
       </div>
-      <ul>
-        {studentList}
-      </ul>
     </div>
   );
 }

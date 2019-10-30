@@ -5,7 +5,6 @@ import LoginForm from '../LoginForm/LoginForm';
 import Dashboard from '../Dashboard/Dashboard';
 import StudentInterviewContainer from '../StudentInterviewContainer/StudentInterviewContainer';
 import StudentSearch from '../StudentSearch/StudentSearch';
-import InterviewSetup from '../InterviewSetup/InterviewSetup';
 import AdminQuestions from '../AdminQuestions/AdminQuestions';
 import { InterviewsContext, UserContext, QuestionsContext } from '../../Context';
 import { Route, Redirect } from 'react-router-dom';
@@ -43,7 +42,7 @@ export const App = () => {
               <Route exact path='/interview' render={() => !user.currentInterview ? (<Redirect to='/login'/>) : <Interview /> } />
               <Route exact path='/students' render={() => user.role !== 2 ? (<Redirect to='/login'/>) : <StudentSearch />} />
               <Route exact path='/all-questions' render={() => !user ? (<Redirect to='/login'/>) : <AdminQuestions /> } />
-              <Route exact path='/select-student' render={() => user.currentInterview ? (<Redirect to='/interview'/>) : <InterviewSetup />}/>
+              <Route exact path='/select-student' render={() => user.currentInterview ? (<Redirect to='/interview'/>) : <StudentSearch />}/>
             </UserContext.Provider>
           </InterviewsContext.Provider>
         </QuestionsContext.Provider>
