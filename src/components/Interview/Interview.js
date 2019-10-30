@@ -2,7 +2,7 @@ import React, {useState, useContext} from 'react';
 import {Redirect} from 'react-router';
 import {UserContext} from '../../Context';
 import {Swipeable} from 'react-swipeable';
-import Question from '../Question/Question';
+import InterviewQuestion from '../InterviewQuestion/InterviewQuestion';
 import {useQuery, useMutation} from '@apollo/react-hooks';
 import {RANDOM_QUESTIONS, ADD_NOTE, FINALISE_INTERVIEW} from '../../util/apiCalls';
 
@@ -26,7 +26,7 @@ export const Interview = props => {
     return data.randomQuestions.map(({id, body}, index) => {
       let scored = false;
       if (notes[id]) {scored = notes[id].score >= 1};
-      return <Question cur={cur} id={id} key={id} pos={index + 1} question={body} scored={scored} fs={{note: updateNote, score: updateScore, next: nextCard, skip: skipCard}}/>
+      return <InterviewQuestion cur={cur} id={id} key={id} pos={index + 1} question={body} scored={scored} fs={{note: updateNote, score: updateScore, next: nextCard, skip: skipCard}}/>
     });
   }
 

@@ -1,23 +1,33 @@
 @import "variables";
 @import "App";
+@import "NavBar";
 @import "Dashboard";
 @import "HomePage";
-@import "AdminAllQuestionsContainer";
+@import "AdminQuestions";
 @import "AdminAddQuestionForm";
-@import "AdminSearchStudentContainer";
-@import "AdminSingleQuestion";
-@import "Interview";
-@import "InterviewEnd";
 @import "LoginForm";
-@import "NavBar";
-@import "Question";
-@import "QuestionDeck";
-@import "SelectedStudentModal";
-@import "SelectStudentContainer";
+@import "Interview";
+@import "InterviewQuestion";
+@import "StudentSearch";
+@import "FoundStudent";
 @import "StudentInterview";
 @import "StudentInterviewContainer";
 @import "StudentInterviewModal";
-@import "StudentProgramSearchForm";
-@import "StudentQuestionCard";
+@import "Question";
 @import "StudentQuestionContainer";
-@import "StudentQuestionModal";
+
+body {background: grey; font-family: $font}
+
+.main-container {
+  color: white;
+  position: fixed;
+  top: $nav-height; bottom: 0;
+  width: 100vw;
+}
+
+.side-margins {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 20%; right: 20%;
+}
+

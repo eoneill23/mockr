@@ -4,13 +4,12 @@ import NavBar from '../NavBar/NavBar';
 import LoginForm from '../LoginForm/LoginForm';
 import Dashboard from '../Dashboard/Dashboard';
 import StudentInterviewContainer from '../StudentInterviewContainer/StudentInterviewContainer';
-import AdminSearchStudentContainer from '../AdminSearchStudentContainer/AdminSearchStudentContainer';
-import SelectStudentContainer from '../SelectStudentContainer/SelectStudentContainer';
-import AdminAllQuestionsContainer from '../AdminAllQuestionsContainer/AdminAllQuestionsContainer';
+import StudentSearch from '../StudentSearch/StudentSearch';
+import AdminQuestions from '../AdminQuestions/AdminQuestions';
 import { InterviewsContext, UserContext, QuestionsContext } from '../../Context';
 import { Route, Redirect } from 'react-router-dom';
 import Interview from '../Interview/Interview';
-import StudentQuestionContainer from '../StudentQuestionContainer/StudentQuestionContainer';
+import StudentQuestions from '../StudentQuestions/StudentQuestions';
 
 // Apollo
 import ApolloClient from 'apollo-boost';
@@ -36,15 +35,14 @@ export const App = () => {
             <UserContext.Provider value={userInfo}>
               <NavBar />
               <Route exact path='/'><HomePage /></Route>
-              <Route exact path='/login' render={() => user ? (<Redirect to='/dashboard'/>) : <LoginForm /> } />
+              <Route exact path='/login' render={() => user ? (<Redirect to='/dashboard'/>) : <LoginForm />}/>
               <Route exact path='/dashboard' render={() => !user ? (<Redirect to='/login'/>) : <Dashboard /> } />
               <Route exact path='/student-interviews' render={() => !user ? (<Redirect to='/login'/>) : <StudentInterviewContainer /> } />
-              <Route exact path='/student-questions' render={() => !user ? (<Redirect to='/login'/>) : <StudentQuestionContainer /> } />
+              <Route exact path='/student-questions' render={() => !user ? (<Redirect to='/login'/>) : <StudentQuestions /> } />
               <Route exact path='/interview' render={() => !user.currentInterview ? (<Redirect to='/login'/>) : <Interview /> } />
-              <Route exact path='/students' render={() => user.role !== 2 ? (<Redirect to='/login'/>) : <AdminSearchStudentContainer />} />
-              <Route exact path='/all-questions' render={() => !user ? (<Redirect to='/login'/>) : <AdminAllQuestionsContainer /> } />
-              <Route exact path='/select-student' render={() => user.currentInterview ? (<Redirect to='/interview'/>) : 
-                !user ? (<Redirect to='/login'/>) : <SelectStudentContainer /> }/>
+              <Route exact path='/students' render={() => user.role !== 2 ? (<Redirect to='/login'/>) : <StudentSearch />} />
+              <Route exact path='/all-questions' render={() => !user ? (<Redirect to='/login'/>) : <AdminQuestions /> } />
+              <Route exact path='/select-student' render={() => user.currentInterview ? (<Redirect to='/interview'/>) : <StudentSearch />}/>
             </UserContext.Provider>
           </InterviewsContext.Provider>
         </QuestionsContext.Provider>

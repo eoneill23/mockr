@@ -7,26 +7,27 @@ export const NavBar = () => {
 
   return (
     <nav className='nav shadow'>
-      {!user && <><Link to='/'>Mockr</Link> <Link to='/login'>Log in</Link></>}
+      {!user && <><Link to='/'>Mockr</Link> <Link to='/login'>Log In</Link></>}
       {user.role === 0  && <>
         <Link to='/dashboard'>Mockr</Link>
-        <Link to='/student-interviews'>Interviews</Link> 
+        <Link to='/student-interviews'>Interviews</Link>
         <Link to='/student-questions'>Questions</Link>
-        <Link to='/' onClick={() => setUser('')}>Log out</Link></>
+      </>
       }
       {user.role === 1 && <>
         <Link to='/dashboard'>Mockr</Link>
-        <Link to='/select-student'>Interview a student</Link>
+        <Link to='/select-student'>Start Interview</Link>
         {/* <Link to='/student-interviews'>Interviews</Link>
         <Link to='/student-questions'>Questions</Link> */}
-        <Link to='/' onClick={() => setUser('')}>Log out</Link></>
+      </>
       }
       {user.role === 2 && <>
         <Link to='/dashboard'>Mockr</Link>
-        <Link to='/students'>View all students</Link>
-        <Link to='/all-questions'>View all questions</Link>
-        <Link to='/' onClick={() => setUser('')}>Log out</Link></>
+        <Link to='/students'>All Students</Link>
+        <Link to='/all-questions'>All Questions</Link>
+      </>
       }
+      {user && <Link to='/' onClick={() => setUser('')}>Log Out</Link>}
     </nav>
   )
 }

@@ -1,0 +1,50 @@
+.dropdown-container {
+  width: 100%;
+  height: auto;
+  padding: 2rem; padding-top: 4rem;
+}
+
+.cohort-search {
+  position: absolute;
+  right: 0;
+}
+
+.select-program-btn {
+  background: $highlight-bg;
+  border-radius: 0.2rem;
+  border: 0;
+  color: $highlight-fg;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.select-program-btn:focus {outline: 0;}
+.select-program-btn:hover {background: $highlight-hover;}
+
+.cohort-dropdown {
+  position: absolute;
+  left: 0;
+  width: 300px;
+  z-index: 2;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+
+  display: none;
+}
+.cohort-dropdown.focused {
+  display: block;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 8px 12px;
+}
+
+li:hover {
+  background-color: rgba(0, 0, 0, 0.14);
+  cursor: pointer;
+}
