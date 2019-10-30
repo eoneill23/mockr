@@ -4,7 +4,6 @@ import { QuestionsContext } from '../../Context';
 import { UserContext } from '../../Context';
 
 export const StudentQuestions = () => {
-  // const { questions } = useContext(QuestionsContext);
   const { user } = useContext(UserContext);
   const [cur, setCur] = useState(0);
   const [identifiedQuestionId, identifyQuestion] = useState(null);
