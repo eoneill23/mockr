@@ -23,6 +23,7 @@ export const StudentInterviewContainer = () => {
   return (
     <div className='main-container'>
       <div className='side-margins'>
+        <h3>Click on a specific Interview to see your scores</h3>
         {interviewList}
       </div>
     </div>
