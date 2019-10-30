@@ -14,7 +14,7 @@ export const LoginForm = () => {
   if(data) {
     console.log(data.login)
     setUser(data.login);
-    sessionStorage.setItem('user', JSON.stringify(data.login));
+    sessionStorage.setItem('userId', data.login.id);
   }
 
   const handleSubmit = async (e) => {

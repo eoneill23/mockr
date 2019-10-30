@@ -48,7 +48,7 @@ export const getQuestions = async () => {
   ]
 }
 
-export const userQuery = gql`
+export const USER = gql`
   query User($id: Int!){
     user(id: $id) {
       id
