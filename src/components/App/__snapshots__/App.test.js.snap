@@ -20,8 +20,9 @@ Object {
           <a
             href="/login"
           >
-            Log in
+            Log In
           </a>
+          
         </nav>
         <section
           class="welcome-info"
@@ -55,8 +56,9 @@ Object {
         <a
           href="/login"
         >
-          Log in
+          Log In
         </a>
+        
       </nav>
       <section
         class="welcome-info"

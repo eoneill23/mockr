@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import StudentProgramSearchForm from './StudentProgramSearchForm';
+import StudentSearch from './StudentSearch';
 import { MockedProvider } from '@apollo/react-testing';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -17,7 +17,7 @@ describe('StudentProgramSearchForm', () => {
     ]
     wrapper = render(
       <MockedProvider addTypeName={false}>
-        <StudentProgramSearchForm students={mockStudents} collapsed={true} collapseModal={jest.fn()} identifyStudent={jest.fn()} />
+        <StudentSearch students={mockStudents} collapsed={true} collapseModal={jest.fn()} identifyStudent={jest.fn()} />
       </MockedProvider>
     );
   });
