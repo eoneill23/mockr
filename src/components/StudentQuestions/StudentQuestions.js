@@ -1,19 +1,15 @@
 import React, { useContext, useState } from 'react';
 import Question from '../Question/Question';
-import { QuestionsContext } from '../../Context';
 import { UserContext } from '../../Context';
 
 export const StudentQuestions = () => {
-  // const { questions } = useContext(QuestionsContext);
   const { user } = useContext(UserContext);
   const [cur, setCur] = useState(0);
   const [identifiedQuestionId, identifyQuestion] = useState(null);
-
   const showDetails = id => {setCur(id);}
-
   const questions = user.interviews.reduce((acc, interview) => {
     interview.notes.forEach(note => {
-      if(!acc.map(q => q.id).includes(note.question.id)) {
+      if(note.score && !acc.map(q => q.id).includes(note.question.id)) {
         acc.push(note.question)
       }
     })
@@ -40,11 +36,12 @@ export const StudentQuestions = () => {
   const questionList = questionNotes.map(question => {
     return <Question key={question.id} details={question} id={question.id} showDetails={showDetails} detailed={(cur === question.id)}/>
   });
-  let foundQuestion;
+  
+  // let foundQuestion;
 
-  if (identifiedQuestionId) {
-    foundQuestion = questions.find(question => question.id === identifiedQuestionId)
-  }
+  // if (identifiedQuestionId) {
+  //   foundQuestion = questions.find(question => question.id === identifiedQuestionId)
+  // }
 
   return (
     <section className='main-container'>
