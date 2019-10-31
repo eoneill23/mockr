@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { ALL_STUDENTS } from '../../util/apiCalls';
 import FoundStudent from '../FoundStudent/FoundStudent';
+import { UserContext } from '../../Context';
 
 export const StudentSearch = () => {
+  const { user } = useContext(UserContext);
   const { loading, error, data } = useQuery(ALL_STUDENTS);
   const [cohortDropdown, toggleCohortDropdown] = useState(false);
   const [cohortInput, setCohortInput] = useState('');
@@ -50,7 +52,8 @@ export const StudentSearch = () => {
   return (
     <div className='main-container'>
       <div className='side-margins'>
-      <h3>Select a student to interview!</h3>
+      { user.role === 1 && <h3>Select a student to interview!</h3> }
+      { user.role === 2 && <h3>Filter to a specific student.</h3> }
         <div className='dropdown-container'>
           <form className='student-search-form'>
             <button className='select-program-btn' onClick={(e) => handleClick(e)}>Select Program</button>

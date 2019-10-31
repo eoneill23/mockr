@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 import { UserContext } from '../../Context';
 import { LOGIN } from '../../util/apiCalls';
 import { useLazyQuery } from '@apollo/react-hooks';
-import { Link } from 'react-router-dom';
 
 export const LoginForm = () => {
   const { setUser } = useContext(UserContext);
@@ -18,9 +17,7 @@ export const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await loginUser( { variables: { email: emailInput, password: passwordInput } });
-    setEmailInput('');
-    setPasswordInput('');
+    await loginUser( { variables: { email: emailInput, password: passwordInput } });  
   }
 
   return (

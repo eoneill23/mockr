@@ -27,7 +27,7 @@ export const Question = ({ id, fs, details, showDetails, detailed }) => {
   if (user.role === 0) {
     eachNote = notes.filter(note => note.score).map(note => {
       return (
-        <div className='each-note' key={note.noteId} className="note-summary">
+        <div key={note.noteId} className="note-summary">
           <p>Score: <br/>{rubric[note.score]} </p>
           <p>Summary: <br/>{note.summary} </p>
           <p>Interviewer: <br/>{note.interviewer} </p>
@@ -46,7 +46,7 @@ export const Question = ({ id, fs, details, showDetails, detailed }) => {
         {eachNote}
       </div>
       </div>}
-      {(user.role === 2) && <button onClick={(e) => toggleQuestion(e)}>{activeBtn}</button>}
+      {(user.role === 2) && <button className='admin-btn' onClick={(e) => toggleQuestion(e)}>{activeBtn}</button>}
     </section>
   )
 }

@@ -74,10 +74,6 @@ export const Interview = () => {
     setFocus(1);
   }
 
-  const neverMind = () => {
-    setFocus(0);
-  }
-
   const endInterview = (event) => {
     const formData = new FormData(event.target);
     for (let id in notes) {
