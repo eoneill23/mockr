@@ -77,10 +77,10 @@
   left: calc(100% - 8rem);
   bottom: 3rem;
   width: 5rem; height: 5rem;
-  background: $accent-bg;
+  background: #FFFFFF;
   border: 0;
   border-radius: 5rem;
-  color: $accent-fg;
+  color: $card-bg;
   font-size: 4.5rem;
   line-height: 2rem;
   margin: 0; padding: 0;
@@ -89,7 +89,7 @@
   display: none;
 }
 .interview-card-next-btn:focus {outline: 0;}
-.interview-card-next-btn:hover {background: $accent-hover;}
+.interview-card-next-btn:hover {background: #FFFFFF; color: $card-bg;}
 .interview-card-next-btn:hover .question-btn-guide-next {
   display: block;
 }
@@ -148,9 +148,6 @@
 @media only screen and (min-width: 1400px) {
   .interview-card {left: 30%; right: 30%;}
 }
-
-
-
 
 .interview-card-focused {
   z-index: 0;

@@ -1,7 +1,33 @@
 .found-student {
   background: $card-bg;
-  padding: 1rem;
+  padding: .3rem;
   margin-top: 2rem;
   border-radius: 1rem;
 }
 
+.found-student h3 {
+  margin: 0;
+  color: #FFFFFF;
+  padding-right: 25px;
+}
+
+.student-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 3px;
+}
+
+.create-interview-btn {
+  background: #faaf05;
+  border-radius: 0.2rem;
+  border: 0;
+  color: #965f0a;
+  font-size:.9rem;
+  cursor: pointer;
+}
+
+.create-interview-btn:hover {
+  background: #FFFFFF;
+  color: green;
+}
