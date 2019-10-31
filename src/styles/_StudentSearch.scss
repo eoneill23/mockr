@@ -1,12 +1,16 @@
 .dropdown-container {
-  width: 100%;
-  height: auto;
-  padding: 2rem; padding-top: 4rem;
+  // height: auto;
+  padding-bottom:5rem; 
+  padding-top: 1rem;
 }
 
 .cohort-search {
-  position: absolute;
-  right: 0;
+  border: 2px solid $card-bg;
+  font-size: 15px;
+}
+
+.cohort-search::placeholder {
+  text-align: center;
 }
 
 .select-program-btn {
@@ -22,14 +26,13 @@
 
 .cohort-dropdown {
   position: absolute;
-  left: 0;
   width: 300px;
   z-index: 2;
   border: 1px solid rgba(0, 0, 0, 0.04);
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
-
   display: none;
 }
+
 .cohort-dropdown.focused {
   display: block;
 }
@@ -42,9 +45,22 @@ ul {
 
 li {
   padding: 8px 12px;
+  color: $card-bg;
 }
 
 li:hover {
   background-color: rgba(0, 0, 0, 0.14);
   cursor: pointer;
+}
+
+.select-program {
+  color: $card-bg;
+  padding-left: 5px;
+  margin: 0;
+}
+
+.student-search-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
