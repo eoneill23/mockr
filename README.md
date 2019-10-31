@@ -42,7 +42,39 @@ The back end of Mockr is built with:
 * GraphQL
 
 ## Images
-<<<<<<< HEAD
 
-=======
->>>>>>> dba141ddb243bb57cb716ad9a72ea190d913eb6d
+### Home page
+![Homepage view](./src/images/mockr-homepage.png)
+
+### Log in form
+![Log in form](./src/images/mockr-login.png)
+
+### Log in form
+![Log in form](./src/images/mockr-login.png)
+
+### Student dashboard
+![Student dashboard](./src/images/mockr-student-dashboard.png)
+
+### A student's past questions
+![Student questions](./src/images/mockr-student-questions.png)
+
+### A student's past interviews
+![Student interviews](./src/images/mockr-student-interviews.png)
+
+### An interviewer's dashboard
+![Interviewer dashboard](./src/images/mockr-interviewer-dashboard.png)
+
+### Selecting a student to interview
+![Select a student to interview](./src/images/mockr-select-student.png)
+
+### Interview question
+![Select a student to interview](./src/images/mockr-interview-question1.png)
+
+### Interview final remarks
+![Select a student to interview](./src/images/mockr-interview-final-remarks.png)
+
+### Admin view of all questions in the database
+![Select a student to interview](./src/images/mockr-admin-all-questions.png)
+
+### Admin view of filtered questions
+![Select a student to interview](./src/images/mockr-admin-filter-questions.png)
