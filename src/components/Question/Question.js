@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import { UserContext } from '../../Context';
 import { useMutation } from '@apollo/react-hooks';
 import { ACTIVATE_QUESTION, DEACTIVATE_QUESTION } from '../../util/apiCalls';
+import PropTypes from 'prop-types';
 
 export const Question = ({ id, fs, details, showDetails, detailed }) => {
   let {body, notes, active} = details;
@@ -51,3 +52,11 @@ export const Question = ({ id, fs, details, showDetails, detailed }) => {
 }
 
 export default Question;
+
+Question.propTypes = {
+  id: PropTypes.number,
+  fs: PropTypes.object,
+  details: PropTypes.object,
+  showDetails: PropTypes.func,
+  detailed: PropTypes.bool
+}

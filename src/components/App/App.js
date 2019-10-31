@@ -5,9 +5,8 @@ import LoginForm from '../LoginForm/LoginForm';
 import Dashboard from '../Dashboard/Dashboard';
 import StudentSearch from '../StudentSearch/StudentSearch';
 import AdminQuestions from '../AdminQuestions/AdminQuestions';
-import { InterviewsContext, UserContext, QuestionsContext } from '../../Context';
+import { UserContext } from '../../Context';
 import { Route, Redirect } from 'react-router-dom';
-import { useLazyQuery } from '@apollo/react-hooks';
 import { USER } from '../../util/apiCalls';
 import Interview from '../Interview/Interview';
 import StudentQuestions from '../StudentQuestions/StudentQuestions';
@@ -22,12 +21,8 @@ const client = new ApolloClient({
 
 export const App = () => {
   const [user, setUser] = useState('');
-  const [interviews, setInterviews] = useState([]);
-  const [questions, setQuestions] = useState([]);
 
   const userInfo = useMemo(() => ({ user, setUser }), [user, setUser]);
-  const fetchedInterviews = useMemo(() => ({ interviews, setInterviews }), [interviews, setInterviews]);
-  const fetchedQuestions = useMemo(() => ({ questions, setQuestions }), [questions, setQuestions]);
 
   useEffect(() => {
     if (sessionStorage.getItem('userId')) {
@@ -45,6 +40,7 @@ export const App = () => {
           <NavBar />
           <Route exact path='/'><HomePage /></Route>
           <Route exact path='/login' render={() => userExists ? (<Redirect to='/dashboard'/>) : <LoginForm />}/>
+          <Route exact path='/signup'></Route>
           <Route exact path='/dashboard' render={() => !userExists ? (<Redirect to='/login'/>) : <Dashboard /> } />
           <Route exact path='/student-interviews' render={() => !userExists ? (<Redirect to='/login'/>) : <StudentInterviews /> } />
           <Route exact path='/student-questions' render={() => !userExists ? (<Redirect to='/login'/>) : <StudentQuestions /> } />

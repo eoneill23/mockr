@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { UserContext } from '../../Context';
 import { useMutation } from '@apollo/react-hooks';
 import { CREATE_INTERVIEW } from '../../util/apiCalls';
+import PropTypes from 'prop-types';
 
 export const FoundStudent = ({ student }) => {
   const { user, setUser } = useContext(UserContext);
@@ -17,13 +18,13 @@ export const FoundStudent = ({ student }) => {
   return (
     <section className='found-student'>
       <h3>{student.firstName} {student.lastName}</h3>
-      <div className='student-info'>
-      <h3>Cohort: {student.cohort}</h3>
-      <h3>Program: {student.program}</h3>
-      <button className='create-interview-btn' onClick={createInterview}>Interview</button>
-      </div>
+        <button onClick={createInterview}>Interview this student</button>
     </section>
   )
 }
 
 export default FoundStudent;
+
+FoundStudent.propTypes = {
+  student: PropTypes.object
+}

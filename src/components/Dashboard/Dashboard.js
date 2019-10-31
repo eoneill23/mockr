@@ -9,7 +9,7 @@ export const Dashboard = () => {
   return (
   <section className='main-container'>
     <section className='profile-container'>
-      <img id='profile-pic' src={profilePic} alt='Profile Picture'/>
+      <img id='profile-pic' src={profilePic} alt='Profile headshot'/>
       <h3 id='first-name'>{user.firstName}</h3> <i id='last-name'>{user.lastName}</i>
       <i id='user-email'>{user.email}</i>
       {(user.role !== 2) && <button id='role-request-btn'>{buttonText}</button>}
