@@ -23,11 +23,13 @@ export const AdminAddQuestionForm = ({ createNewQuestion }) => {
         name='questionInput'
         value={questionInput}
         onChange={e => setQuestionInput(e.target.value)}
+        className='admin-input'
         placeholder='Enter your question...'
       />
       <button
         disabled={isDisabled}
         onClick={(e) => createQuestion(e)}
+        className='admin-btn'
       >Add Question</button>
     </form>
   )
