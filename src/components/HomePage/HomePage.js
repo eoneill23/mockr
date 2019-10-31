@@ -10,7 +10,7 @@ export const HomePage = () => {
         It also allows interviewers to email interviewees with their notes from the interview to provide a record of their feedback.
       </p>
       <p>
-        Click log in at the top right corner of the page to log in an begin the mock interview process!
+        Click log in at the top right corner of the page to log in and begin the mock interview process!
       </p>
     </section>
   )
