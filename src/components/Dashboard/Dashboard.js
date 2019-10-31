@@ -19,7 +19,7 @@ export const Dashboard = () => {
       <h2 id='pending-approvals-header'>Pending approvals:</h2>
       <div className='approvals-container'>
         <div className='approvals-interviewer-card'>
-          <h4>I am an Interviewer!</h4>
+          <h4>Name: </h4>
         </div>
 
         <div className='approvals-admin-card'>
