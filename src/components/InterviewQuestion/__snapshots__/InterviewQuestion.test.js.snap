@@ -244,6 +244,7 @@ exports[`Question should match the snapshot with all data passed in correctly 1`
         />
         <h3
           className="header-notes"
+          id="notes-h3"
         >
           Notes:
         </h3>
@@ -299,23 +300,13 @@ exports[`Question should match the snapshot with all data passed in correctly 1`
           className="interview-card-next-btn shadow"
           onClick={[Function]}
         >
-          🠚
-          <div
-            className="question-btn-guide-next"
-          >
-            Next
-          </div>
+          Next
         </button>
         <button
           className="interview-card-skip-btn"
           onClick={[Function]}
         >
-          ↷
-          <div
-            className="question-btn-guide-skip"
-          >
-            Skip
-          </div>
+          Skip
         </button>
       </div>
     </Question>

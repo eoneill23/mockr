@@ -19,7 +19,7 @@
 }
 
 .interview-card-question {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 300;
   width: 90%;
   max-height: 35%;
@@ -40,8 +40,12 @@
   color: white;
   font-size: 2rem;
   font-weight: 300;
-  position: absolute;
   bottom: calc(30% + 6rem); left: 2rem;
+  margin: 4em 0 0 0;
+}
+
+#notes-h3 {
+  text-align: left;
 }
 
 .interview-card-response {
@@ -52,11 +56,10 @@
   border-top: 0.2rem solid white;
   border-bottom: 0.2rem solid white;
   border-left: none; border-right: none;
-
   position: absolute;
   bottom: 2rem; left: 2rem;
   width: calc(100% - 20rem);
-  height: 40%;
+  height: 48%;
 }
 .interview-card-response:hover {background: rgba(255,255,255,0.1);}
 .interview-card-response:focus {outline: none; background: rgba(50,50,50,0.2);}
@@ -65,7 +68,7 @@
   font-size: 1.2rem;
 
   position: absolute;
-  bottom: 10rem; right: 1.5rem;
+  bottom: 11rem; right: 1.5rem;
   height: calc(40% - 8rem);
 }
 .interview-card-score input {
@@ -81,7 +84,7 @@
   border: 0;
   border-radius: 5rem;
   color: $card-bg;
-  font-size: 4.5rem;
+  font-size: 1.5rem;
   line-height: 2rem;
   margin: 0; padding: 0;
   cursor: pointer;
@@ -96,7 +99,6 @@
 
 .question-btn-guide-next {
   display: none;
-
   position: absolute;
   top: 5rem; left: 1.25rem;
   font-size: 1.2rem;
@@ -110,8 +112,8 @@
   background: #f03750;
   border: 0;
   border-radius: 5rem;
-  color: #9b0528;
-  font-size: 4.5rem;
+  color: white;
+  font-size: 1.5rem;
   line-height: 2rem;
   margin: 0; padding: 0;
   cursor: pointer;
@@ -140,7 +142,7 @@
 
 
 @media only screen and (min-width: 800px) {
-  .interview-card {left: 20%; right: 20%;}
+  .interview-question-card {left: 20%; right: 20%;}
   .interview-card-response {width: calc(100% - 13rem);}
   .interview-card-next-btn {display: block;}
   .interview-card-skip-btn {display: block;}
