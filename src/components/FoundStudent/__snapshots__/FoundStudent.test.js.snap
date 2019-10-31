@@ -239,22 +239,11 @@ exports[`FoundStudent should match the snapshot with all data passed in correctl
            
           O'Neill
         </h3>
-        <div
-          className="student-info"
+        <button
+          onClick={[Function]}
         >
-          <h3>
-            Cohort: 
-          </h3>
-          <h3>
-            Program: 
-          </h3>
-          <button
-            className="create-interview-btn"
-            onClick={[Function]}
-          >
-            Interview
-          </button>
-        </div>
+          Interview this student
+        </button>
       </section>
     </FoundStudent>
   </ApolloProvider>

@@ -231,7 +231,7 @@ exports[`Dashboard should match the snapshot with all data passed in correctly 1
           className="profile-container"
         >
           <img
-            alt="Profile Picture"
+            alt="Profile headshot"
             id="profile-pic"
             src="profile.jpg"
           />
