@@ -46,7 +46,7 @@ export const StudentQuestions = () => {
   return (
     <section className='main-container'>
       <section className='side-margins'>
-        <h3>Click on a specific Question to see your scores</h3>
+        <h3>Click on a specific question to see your scores</h3>
         {questionList}
       </section>
     </section>
