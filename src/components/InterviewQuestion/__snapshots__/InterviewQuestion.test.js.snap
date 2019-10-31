@@ -258,34 +258,42 @@ exports[`Question should match the snapshot with all data passed in correctly 1`
           id="score-form-undefined"
           onChange={[Function]}
         >
-          <input
-            name="score"
-            type="radio"
-            value="1"
-          />
-          Unsatisfactory
-          <br />
-          <input
-            name="score"
-            type="radio"
-            value="2"
-          />
-          Needs Work
-          <br />
-          <input
-            name="score"
-            type="radio"
-            value="3"
-          />
-          Good
-          <br />
-          <input
-            name="score"
-            type="radio"
-            value="4"
-          />
-          Exceptional
-          <br />
+          <label>
+            <input
+              name="score"
+              type="radio"
+              value="1"
+            />
+            Unsatisfactory
+            <br />
+          </label>
+          <label>
+            <input
+              name="score"
+              type="radio"
+              value="2"
+            />
+            Needs Work
+            <br />
+          </label>
+          <label>
+            <input
+              name="score"
+              type="radio"
+              value="3"
+            />
+            Good
+            <br />
+          </label>
+          <label>
+            <input
+              name="score"
+              type="radio"
+              value="4"
+            />
+            Exceptional
+            <br />
+          </label>
         </form>
         <button
           className="interview-card-next-btn shadow"
