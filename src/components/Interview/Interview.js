@@ -105,7 +105,7 @@ export const Interview = () => {
             <Swipeable onSwipedLeft={event => nextCard()} onSwipedRight={event => prevCard()} preventDefaultTouchmoveEvent={true}>
               {populateCards()}
             </Swipeable>
-            <div className='deck-btn-panel shadow'>
+            <div className='deck-btn-panel'>
               {/* <button className='back-btn' onClick={event => prevCard()}>🠘</button> */}
               <button className='end-btn' onClick={event => endCard()}>End</button>
             </div>

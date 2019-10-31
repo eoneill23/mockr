@@ -31,7 +31,7 @@ export const Question = props => {
       <h1 className='interview-card-question'>Q: {props.question}</h1>
       <h1 className='interview-card-position'>{props.pos}</h1>
 
-      <h3 className='header-notes'>Notes:</h3>
+      <h3 className='header-notes' id='notes-h3'>Notes:</h3>
       <textarea name='response' form={'interview-card-response-' + props.pos} className='box-fix interview-card-response' onChange={event => props.fs.note(props.id, event.target.value)}></textarea>
 
       <form id={'score-form-' + props.id} className='interview-card-score' onChange={event => props.fs.score(props.id, event.target.value)}>
@@ -41,12 +41,12 @@ export const Question = props => {
         <label><input type='radio' name='score' value='4'/>Exceptional<br/></label>
       </form>
       <button className='interview-card-next-btn shadow' onClick={event => props.fs.next(props.id)}>
-        🠚
-        <div className='question-btn-guide-next'>Next</div>
+        Next
+        {/* <div className='question-btn-guide-next'>Next</div> */}
       </button>
       <button className={'interview-card-skip-btn' + skipBtnScored()} onClick={event => props.fs.skip(props.id)}>
-        ↷
-        <div className='question-btn-guide-skip'>Skip</div>
+         Skip
+        {/* <div className='question-btn-guide-skip'>Skip</div> */}
       </button>
 
     </div>
