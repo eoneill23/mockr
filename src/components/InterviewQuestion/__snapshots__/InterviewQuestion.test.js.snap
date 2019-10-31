@@ -232,7 +232,7 @@ exports[`Question should match the snapshot with all data passed in correctly 1`
       }
     >
       <div
-        className="interview-card shadow interview-card-hidden"
+        className="interview-question-card shadow interview-card-hidden"
       >
         <h1
           className="interview-card-question"

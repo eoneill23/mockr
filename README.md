@@ -1,68 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MOCKR
 
-## Available Scripts
+## Overview
+Mockr is a web app that improves the mock interview process. Interviewers can ask students questions, leave notes about the interviewees' responses to those questions, rate their responses on a scale from 1-4, rate the interview as a whole on a scale from 1-4, provide final notes on the interview, and email the results of the interview to the student.
 
-In the project directory, you can run:
+## Authors
+* Eric O'Neill
+* Djavan Munroe
+* Sejin Kim
+* Aurie Gochenour
 
-### `npm start`
+## Successes
+* **React Hooks** - This was the team's first deep dive into using React Hooks. We were able to implement a number of different hooks, including useState, useEffect, and more.
+* **React Context** - Since our team felt fairly comfortable using Redux to help manage a global state, we decided to challenge ourselves and use React Context.
+* **Apollo** - This was our team's first attempt at using Apollo client to query our backend. Before this project, we had almost exclusively used the Fetch API to CRUD data, but implementing Apollo client streamlined our CRUD process on the frontend and made everything easy to interface with.
+* **GraphQL** - 
+* **Planning** - We didn't write a single line of code other than setting up our two repositories on GitHub and integrating Travis CI for the first four days of the project. We took that time to really think through our user stories and what technologies we wanted to use, which really helped the rest of the project go smoothly. 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Challenges
+* **Front-end testing** - Because we were fairly amibitious with the new technologies we wanted to use on the front end, testing those new technologies was definitely a challenge. We definitely would have liked to have more time to dedicate to testing and improve our overall test coverage.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Project management
+We utilized GitHub projects and GitHub issues to keep track of the status of our project.
+()[]
 
-### `npm test`
+## Built with
+The front end of Mockr is built with:
+* React
+* React Hooks
+* React Context
+* React Router
+* Sass
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The back end of Mockr is built with:
+* Node.js
+* Express
+* Sequelize
+* GraphQL
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Images

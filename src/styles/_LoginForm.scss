@@ -1,14 +1,41 @@
-.login-form-container {
-  display: flex;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
+.login-form {
+  background: $card-bg;
+  border-radius: 1rem;
+  width: 40%;
+  margin: auto;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+  margin-top: 4rem;
 }
 
-.login-form {
-  display: flex;
-  flex-direction: column;
-  height: 100px;
-  justify-content: space-around;
-  width: 20%;
+.login-form h3 {color: white;}
+
+.login-input {
+  display: block;
+  margin: 0 auto;
+  color: white;
+  margin-bottom: 2rem;
+  resize: none;
+  font-size: 1.2rem;
+  color: $card-fg;
+  background: transparent;
+  border-top: 0.1rem solid white;
+  border-bottom: 0.1rem solid white;
+  border-left: none; border-right: none;
 }
+.login-input:hover {background: rgba(255,255,255,0.1);}
+.login-input:focus {outline: none; background: rgba(50,50,50,0.2);}
+
+
+.login-submit {
+  height: 2rem;
+  background: $highlight-bg;
+  border-radius: 0.2rem;
+  border: 0;
+  color: $highlight-fg;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 35%;
+}
+.login-submit:focus {outline: 0;}
+.login-submit:hover {background: $highlight-hover;}

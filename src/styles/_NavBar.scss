@@ -1,19 +1,37 @@
-.shadow {box-shadow: 0 16px 24px 2px rgba(0,0,0,0.15), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -7px rgba(0,0,0,0.2);}
 
 $nav-height: 3rem;
 
 .nav {
   align-items: center;
   background: $card-bg;
+  color: #FFFFFF;
   display: flex;
   height: $nav-height;
   justify-content: space-between;
   z-index: 999;
+  box-shadow: rgba(0,0,0,0.2) 0 0 3px 1px;
 }
 
 .nav a {
-  color: $card-fg;
-  font-size: 2rem;
+  color: #FFFFFF;
+  font-size: 1.3rem;
   margin: 0 2rem;
   text-decoration: none;
+  padding: 0 3px;
+  border-radius: 3px;
+  border-bottom: 2px solid transparent;
 }
+
+.nav a:hover {
+  background: #FFFFFF;
+  border-radius: 3px;
+  color: $card-bg;
+  transition: .3s ease-in;
+}
+
+.nav a.active {
+  border-bottom: 2px solid #FFFFFF;
+  border-radius: 0px;
+}
+
+
