@@ -83,7 +83,8 @@ export const Interview = () => {
     for (let id in notes) {
       addNote({variables: {...notes[id], ...interviewData, questionId: parseInt(id)}});
     }
-    finaliseInterview({variables: {id: interviewData.interviewId, score: parseInt(formData.get('score')), body: formData.get('remarks')}});
+    finaliseInterview({variables: {id: interviewData.interviewId, score: parseInt(formData.get('score')), body: formData.get('remarks')}})
+      .then(fetch(`https://aqueous-crag-29295.herokuapp.com/interviews/${interviewData.interviewId}`));
     setEnded(true);
   }
 
