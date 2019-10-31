@@ -9,7 +9,7 @@ export const StudentInterview = ({ interview, id, showDetails, detailed }) => {
   let eachNote = []
   eachNote = interview.notes.filter(note => note.score).map(note => {
     return (
-      <div className='note-summary' key={note.noteId}>
+      <div className='note-summary' key={note.id}>
         <p>Question: <br />{note.question.body}</p>
         <p>Score: <br />{rubric[note.score]} </p>
         <p>Summary: <br />{note.body} </p>
