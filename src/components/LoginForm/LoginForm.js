@@ -47,7 +47,6 @@ export const LoginForm = () => {
           >
           </input>
           <button className='login-submit' onClick={(e) => handleSubmit(e)}>Submit</button>
-          <p className='sign-up-link'>New user? Sign up <Link to='/signup'>here.</Link></p>
         </form>
       </div>
     </div>

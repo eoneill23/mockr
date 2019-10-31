@@ -50,20 +50,24 @@ export const StudentSearch = () => {
   return (
     <div className='main-container'>
       <div className='side-margins'>
+      <h3>Select a student to interview!</h3>
         <div className='dropdown-container'>
-          <form>
+          <form className='student-search-form'>
             <button className='select-program-btn' onClick={(e) => handleClick(e)}>Select Program</button>
+            { !selectedProgram && <p className='select-program'>Program Filter: All Students</p> }
+            { selectedProgram && <p className='select-program'>Program Filter: { selectedProgram }</p> }
             <input
               type='number'
               name='cohortInput'
               className='cohort-search'
               value={cohortInput}
               onChange={e => setCohortInput(e.target.value)}
-              placeholder='cohort'
+              placeholder='cohort #'
             />
           </form>
           <div className={'cohort-dropdown' + isFocused()}>
             <ul>
+              <li name='' onClick={(e) => { handleClick(e); setSelectedProgram('')}}>ALL</li>
               <li name='FE' onClick={(e) => { handleClick(e); setSelectedProgram('FE')}}>FE</li>
               <li name='BE' onClick={(e) => { handleClick(e); setSelectedProgram('BE')}}>BE</li>
             </ul>

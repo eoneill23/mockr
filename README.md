@@ -1,5 +1,7 @@
 # MOCKR
 
+### See the app here: https://sleepy-sierra-43686.herokuapp.com/
+
 ## Overview
 Mockr is a web app that improves the mock interview process. Interviewers can ask students questions, leave notes about the interviewees' responses to those questions, rate their responses on a scale from 1-4, rate the interview as a whole on a scale from 1-4, provide final notes on the interview, and email the results of the interview to the student.
 
@@ -40,4 +42,7 @@ The back end of Mockr is built with:
 * GraphQL
 
 ## Images
+<<<<<<< HEAD
 
+=======
+>>>>>>> dba141ddb243bb57cb716ad9a72ea190d913eb6d

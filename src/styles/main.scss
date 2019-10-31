@@ -22,12 +22,10 @@ body {
   color: black;
   width: 100vw;
   height: 100vh;
-  // position: fixed; top: 0; left: 0;
 }
 
 .side-margins {
-  padding: 0 20%;
-  padding-top: $nav-height;
+  padding: 0 20% 5% 20%;
   -ms-overflow-style: none;  // IE 10+
   scrollbar-width: none;  // Firefox
 }

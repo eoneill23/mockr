@@ -110,7 +110,7 @@ export const Interview = () => {
               {populateCards()}
             </Swipeable>
             <div className='deck-btn-panel shadow'>
-              <button className='back-btn' onClick={event => prevCard()}>🠘</button>
+              {/* <button className='back-btn' onClick={event => prevCard()}>🠘</button> */}
               <button className='end-btn' onClick={event => endCard()}>End</button>
             </div>
           </div>
@@ -123,16 +123,14 @@ export const Interview = () => {
           <textarea name='remarks' form='interview-response' className='box-fix interview-remarks'></textarea>
 
           <form id='interview-response' className='interview-score' onSubmit={event => {event.preventDefault(); endInterview(event)}}>
-            <input type='radio' name='score' value='1'/>Unsatisfactory<br/>
-            <input type='radio' name='score' value='2'/>Needs Work<br/>
-            <input type='radio' name='score' value='3'/>Good<br/>
-            <input type='radio' name='score' value='4'/>Exceptional<br/>
+            <label><input type='radio' name='score' value='1'/>Unsatisfactory</label><br/>
+            <label> <input type='radio' name='score' value='2'/>Needs Work</label><br/>
+            <label><input type='radio' name='score' value='3'/>Good</label><br/>
+            <label><input type='radio' name='score' value='4'/>Exceptional</label><br/>
 
             <input type='submit' className='interview-submit' value='✓'/>
           </form>
         </div>
-
-        <button style={{position: 'fixed', top: '4rem'}} onClick={neverMind}>Nope</button>
       </div>
     );
   };
