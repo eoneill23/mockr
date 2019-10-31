@@ -17,7 +17,11 @@ export const FoundStudent = ({ student }) => {
   return (
     <section className='found-student'>
       <h3>{student.firstName} {student.lastName}</h3>
-        <button onClick={createInterview}>Yes</button>
+      <div className='student-info'>
+      <h3>Cohort: {student.cohort}</h3>
+      <h3>Program: {student.program}</h3>
+      <button className='create-interview-btn' onClick={createInterview}>Interview</button>
+      </div>
     </section>
   )
 }
