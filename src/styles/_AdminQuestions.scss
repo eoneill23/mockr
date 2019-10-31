@@ -1,0 +1,23 @@
+.admin-btn {
+  background: #faaf05;
+  border-radius: 0.2rem;
+  border: 0;
+  color: #965f0a;
+  font-size: .9rem;
+  cursor: pointer;
+}
+
+.admin-btn:hover {
+  color: #FFFFFF;
+}
+
+.admin-btn:disabled {
+  background: $card-bg;
+  color: #DBDBD9
+}
+
+.admin-input {
+  margin-right: 5px;
+  border: 2px solid #48a5a0;
+  font-size: 15px;
+}
