@@ -12,7 +12,6 @@ export const LoginForm = () => {
   const [loginUser, { loading, error, data }] = useLazyQuery(LOGIN);
   if (loading) return <p>Loading...</p>;
   if(data) {
-    console.log(data.login)
     setUser(data.login);
     sessionStorage.setItem('userId', data.login.id);
   }
