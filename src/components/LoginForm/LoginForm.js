@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { UserContext } from '../../Context';
 import { LOGIN } from '../../util/apiCalls';
 import { useLazyQuery } from '@apollo/react-hooks';
-
+import { Link } from 'react-router-dom';
 
 export const LoginForm = () => {
   const { setUser } = useContext(UserContext);
@@ -12,7 +12,6 @@ export const LoginForm = () => {
   const [loginUser, { loading, error, data }] = useLazyQuery(LOGIN);
   if (loading) return <p>Loading...</p>;
   if(data) {
-    console.log(data.login)
     setUser(data.login);
     sessionStorage.setItem('userId', data.login.id);
   }
@@ -48,6 +47,7 @@ export const LoginForm = () => {
           >
           </input>
           <button className='login-submit' onClick={(e) => handleSubmit(e)}>Submit</button>
+          <p className='sign-up-link'>New user? Sign up <Link to='/signup'>here.</Link></p>
         </form>
       </div>
     </div>

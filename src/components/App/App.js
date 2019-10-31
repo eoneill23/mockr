@@ -40,6 +40,7 @@ export const App = () => {
           <NavBar />
           <Route exact path='/'><HomePage /></Route>
           <Route exact path='/login' render={() => userExists ? (<Redirect to='/dashboard'/>) : <LoginForm />}/>
+          <Route exact path='/signup'></Route>
           <Route exact path='/dashboard' render={() => !userExists ? (<Redirect to='/login'/>) : <Dashboard /> } />
           <Route exact path='/student-interviews' render={() => !userExists ? (<Redirect to='/login'/>) : <StudentInterviews /> } />
           <Route exact path='/student-questions' render={() => !userExists ? (<Redirect to='/login'/>) : <StudentQuestions /> } />

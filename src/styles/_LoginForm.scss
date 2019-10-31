@@ -6,6 +6,7 @@
   padding-bottom: 2rem;
   padding-top: 1rem;
   margin-top: 4rem;
+  text-align: center;
 }
 
 .login-form h3 {color: white;}
@@ -35,7 +36,10 @@
   color: $highlight-fg;
   font-size: 1.5rem;
   cursor: pointer;
-  margin-left: 35%;
 }
 .login-submit:focus {outline: 0;}
 .login-submit:hover {background: $highlight-hover;}
+
+.sign-up-link {
+  color: white;
+}
