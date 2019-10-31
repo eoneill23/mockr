@@ -25,40 +25,32 @@ export const LoginForm = () => {
   }
 
   return (
-    <section className='login-form-container'>
-      {error && <p>There was an issue with your email or password.</p>}
-      <form className='login-form'>
-        <input
-          type='text'
-          name='emailInput'
-          value={emailInput}
-          onChange={e => setEmailInput(e.target.value)}
-          placeholder='Email'
-        >
-        </input>
-        <input
-          type='password'
-          name='passwordInput'
-          value={passwordInput}
-          onChange={e => setPasswordInput(e.target.value)}
-          placeholder='Password'
-        >
-        </input>
-        <div className='rb-container'>
-          Role:
-          <input name='role' type='radio' />Admin
-          <input name='role' type='radio' />Interviewer 1
-          <input name='role' type='radio' />Interviewer 2
-          <input name='role' type='radio' />Student 1
-          <input name='role' type='radio' />Student 2
-        </div>
-        <button
-          onClick={(e) => handleSubmit(e)}
-        >
-          Submit
-        </button>
-      </form>
-    </section>
+    <div className='main-container'>
+      <div className='side-margins'>
+        {error && <p>There was an issue with your email or password.</p>}
+        <form className='login-form box-fix'>
+          <h3>Email:</h3>
+          <input
+            type='text'
+            name='emailInput'
+            className='login-input'
+            value={emailInput}
+            onChange={e => setEmailInput(e.target.value)}
+          >
+          </input>
+          <h3>Password:</h3>
+          <input
+            type='password'
+            name='passwordInput'
+            className='login-input'
+            value={passwordInput}
+            onChange={e => setPasswordInput(e.target.value)}
+          >
+          </input>
+          <button className='login-submit' onClick={(e) => handleSubmit(e)}>Submit</button>
+        </form>
+      </div>
+    </div>
   )
 }
 
