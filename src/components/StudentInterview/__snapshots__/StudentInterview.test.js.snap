@@ -6,27 +6,109 @@ Object {
   "baseElement": <body>
     <div>
       <section
-        class="student-interview"
+        class="interview-card "
       >
-        <p>
-          Great job
-        </p>
-        <button>
-          Expand
-        </button>
+        <h3>
+          On 
+          slkdjalskdfj
+           with 
+          Eric
+           
+          Oneezy
+        </h3>
+        <div
+          class="details "
+        >
+          <p
+            class="takeaways"
+          >
+            Score: 
+             
+            <br />
+             Takeaways: 
+            <br />
+             
+          </p>
+          <br />
+          <div
+            class="note-container"
+          >
+            <div
+              class="note-summary"
+            >
+              <p>
+                Question: 
+                <br />
+                hi
+              </p>
+              <p>
+                Score: 
+                <br />
+                Unsatisfactory 🥺
+                 
+              </p>
+              <p>
+                Summary: 
+                <br />
+                 
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   </body>,
   "container": <div>
     <section
-      class="student-interview"
+      class="interview-card "
     >
-      <p>
-        Great job
-      </p>
-      <button>
-        Expand
-      </button>
+      <h3>
+        On 
+        slkdjalskdfj
+         with 
+        Eric
+         
+        Oneezy
+      </h3>
+      <div
+        class="details "
+      >
+        <p
+          class="takeaways"
+        >
+          Score: 
+           
+          <br />
+           Takeaways: 
+          <br />
+           
+        </p>
+        <br />
+        <div
+          class="note-container"
+        >
+          <div
+            class="note-summary"
+          >
+            <p>
+              Question: 
+              <br />
+              hi
+            </p>
+            <p>
+              Score: 
+              <br />
+              Unsatisfactory 🥺
+               
+            </p>
+            <p>
+              Summary: 
+              <br />
+               
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   </div>,
   "debug": [Function],

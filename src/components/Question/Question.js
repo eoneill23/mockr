@@ -21,15 +21,15 @@ export const Question = ({ id, fs, details, showDetails, detailed }) => {
     }
   };
 
-  const rubric = ['Skipped', 'Unsatisfactory', 'Needs Work', 'Good', 'Exceptional'];
+  const rubric = ['Skipped 🤡', 'Unsatisfactory 🥺', 'Needs Work 🤨', 'Good 😁', 'Exceptional 🥳'];
   let eachNote = [];
   if (user.role === 0) {
     eachNote = notes.filter(note => note.score).map(note => {
       return (
-        <div key={note.noteId} className="note-summary">
-          <p>Score: {rubric[note.score]} </p>
-          <p>Summary: {note.summary} </p>
-          <p>Interviewer: {note.interviewer} </p>
+        <div className='each-note' key={note.noteId} className="note-summary">
+          <p>Score: <br/>{rubric[note.score]} </p>
+          <p>Summary: <br/>{note.summary} </p>
+          <p>Interviewer: <br/>{note.interviewer} </p>
         </div>
       )
     });
@@ -38,9 +38,12 @@ export const Question = ({ id, fs, details, showDetails, detailed }) => {
   const isDetailed = () => {if (detailed) {return ' shown'} else {return ''}}
   return (
     <section className={`question-card ${isDetailed()}`} onClick={e => showDetails(id)}>
+
       <h3>{body}</h3>
       {(user.role === 0) && <div className={'details' + isDetailed()}>
+      <div className='note-container'>
         {eachNote}
+      </div>
       </div>}
       {(user.role === 2) && <button onClick={(e) => toggleQuestion(e)}>{activeBtn}</button>}
     </section>
