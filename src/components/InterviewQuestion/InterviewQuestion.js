@@ -34,10 +34,10 @@ export const Question = props => {
       <textarea name='response' form={'interview-card-response-' + props.pos} className='box-fix interview-card-response' onChange={event => props.fs.note(props.id, event.target.value)}></textarea>
 
       <form id={'score-form-' + props.id} className='interview-card-score' onChange={event => props.fs.score(props.id, event.target.value)}>
-        <input type='radio' name='score' value='1'/>Unsatisfactory<br/>
-        <input type='radio' name='score' value='2'/>Needs Work<br/>
-        <input type='radio' name='score' value='3'/>Good<br/>
-        <input type='radio' name='score' value='4'/>Exceptional<br/>
+        <label><input type='radio' name='score' value='1'/>Unsatisfactory<br/></label>
+        <label><input type='radio' name='score' value='2'/>Needs Work<br/></label>
+        <label><input type='radio' name='score' value='3'/>Good<br/></label>
+        <label><input type='radio' name='score' value='4'/>Exceptional<br/></label>
       </form>
       <button className='interview-card-next-btn shadow' onClick={event => props.fs.next(props.id)}>
         🠚
