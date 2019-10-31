@@ -9,12 +9,14 @@ Object {
         class="admin-add-question-form"
       >
         <input
+          class="admin-input"
           name="questionInput"
           placeholder="Enter your question..."
           type="text"
           value=""
         />
         <button
+          class="admin-btn"
           disabled=""
         >
           Add Question
@@ -27,12 +29,14 @@ Object {
       class="admin-add-question-form"
     >
       <input
+        class="admin-input"
         name="questionInput"
         placeholder="Enter your question..."
         type="text"
         value=""
       />
       <button
+        class="admin-btn"
         disabled=""
       >
         Add Question
