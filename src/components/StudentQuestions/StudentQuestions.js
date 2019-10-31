@@ -5,7 +5,6 @@ import { UserContext } from '../../Context';
 export const StudentQuestions = () => {
   const { user } = useContext(UserContext);
   const [cur, setCur] = useState(0);
-  const [identifiedQuestionId, identifyQuestion] = useState(null);
   const showDetails = id => {setCur(id);}
   const questions = user.interviews.reduce((acc, interview) => {
     interview.notes.forEach(note => {
@@ -37,12 +36,6 @@ export const StudentQuestions = () => {
     return <Question key={question.id} details={question} id={question.id} showDetails={showDetails} detailed={(cur === question.id)}/>
   });
   
-  // let foundQuestion;
-
-  // if (identifiedQuestionId) {
-  //   foundQuestion = questions.find(question => question.id === identifiedQuestionId)
-  // }
-
   return (
     <section className='main-container'>
       <section className='side-margins'>
