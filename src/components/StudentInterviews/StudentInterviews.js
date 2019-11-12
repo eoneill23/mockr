@@ -6,21 +6,22 @@ import StudentInterview from '../StudentInterview/StudentInterview';
 export const StudentInterviewContainer = () => {
   const { user } = useContext(UserContext)
   const { interviews } = user;
-  const [ cur, setCur ] = useState(0);
-
-  const showDetails = id => {setCur(id);}
+  const [ collapsed, collapseModal ] = useState(true);
 
   const interviewList = interviews.map(interview => {
-    return <StudentInterview key={interview.id} interview={interview} id={interview.id} showDetails={showDetails} detailed={(cur === interview.id)}/>
+    return <StudentInterview key={interview.id} interview={interview} id={interview.id} collapseModal={collapseModal} collapsed={collapsed}/>
   });
   
   return (
-    <div className='main-container'>
-      <div className='side-margins'>
+    <section className='main-container'>
+      <section className='student-interview-list'>
         <h3>Click on a specific Interview to see your scores</h3>
         {interviewList}
-      </div>
-    </div>
+      </section>
+      <section className='student-interview-modal'>
+        {!collapsed && <p>Hello</p>}
+      </section>
+    </section>
   );
 }
 

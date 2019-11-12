@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const StudentInterview = ({ interview, id, showDetails, detailed }) => {
+export const StudentInterview = ({ interview, id, collapseModal, collapsed }) => {
   const interviewer = interview.users.find(user => user.role !== 0)
-  const isDetailed = detailed ? 'shown' : '';
 
   const rubric = ['Skipped 🤡', 'Unsatisfactory 🥺', 'Needs Work 🤨', 'Good 😁', 'Exceptional 🥳'];
   let eachNote = []
@@ -18,9 +17,9 @@ export const StudentInterview = ({ interview, id, showDetails, detailed }) => {
   });
 
   return (
-    <section className={`interview-card ${isDetailed}`} onClick={e => showDetails(id)}>
+    <section className='interview-card' onClick={() => collapseModal(!collapsed)}>
       <h3>On {interview.createdAt.split('T')[0]} with {interviewer.firstName} {interviewer.lastName}</h3>
-      <div className={`details ${isDetailed}`}>
+      <div className='details'>
         <p className='takeaways' >Score: {rubric[interview.score]} <br/> Takeaways: <br/> {interview.summary}</p><br/>
        <div className='note-container'>
         {eachNote}
