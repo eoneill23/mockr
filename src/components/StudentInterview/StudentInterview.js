@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const StudentInterview = ({ interview, id, collapseModal, collapsed }) => {
+export const StudentInterview = ({ interview, id, identifyInterview }) => {
   const interviewer = interview.users.find(user => user.role !== 0)
 
   const rubric = ['Skipped 🤡', 'Unsatisfactory 🥺', 'Needs Work 🤨', 'Good 😁', 'Exceptional 🥳'];
@@ -17,14 +17,14 @@ export const StudentInterview = ({ interview, id, collapseModal, collapsed }) =>
   });
 
   return (
-    <section className='interview-card' onClick={() => collapseModal(!collapsed)}>
+    <section className='interview-card' onClick={() => identifyInterview(id)}>
       <h3>On {interview.createdAt.split('T')[0]} with {interviewer.firstName} {interviewer.lastName}</h3>
-      <div className='details'>
+      {/* <div className='details'>
         <p className='takeaways' >Score: {rubric[interview.score]} <br/> Takeaways: <br/> {interview.summary}</p><br/>
        <div className='note-container'>
         {eachNote}
        </div> 
-      </div>
+      </div> */}
     </section>
   )
 }
