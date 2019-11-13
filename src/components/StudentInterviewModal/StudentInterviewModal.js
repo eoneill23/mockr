@@ -7,9 +7,9 @@ export const StudentInterviewModal = ({ interview }) => {
   eachNote = interview.notes.filter(note => note.score).map(note => {
     return (
       <div className='note-summary' key={note.id}>
-        <p className='note-question'>Question: <br />{note.question.body}</p>
-        <p className='note-score'>Score: <br />{rubric[note.score]} </p>
-        <p className='note-notes'>Notes: <br />{note.body} </p>
+        <p className='note-question'><span className='highlight'>Question:</span> <br />{note.question.body}</p>
+        <p className='note-score'><span className='highlight'>Score:</span> <br />{rubric[note.score]} </p>
+        <p className='note-notes'><span className='highlight'>Notes:</span> <br />{note.body} </p>
       </div>
     )
   });

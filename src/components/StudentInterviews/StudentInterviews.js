@@ -20,10 +20,11 @@ export const StudentInterviewContainer = () => {
   return (
     <section className='main-container'>
       <section className='student-interview-list'>
-        <h3>Click on a specific Interview to see your scores</h3>
+        <h3 className='interview-lable'>Your interviews:</h3>
         {interviewList}
       </section>
       <section className='student-interview-modal'>
+        {!identifiedInterviewId && <h2 className='interview-prompt'>Click on a specific interview to the left to see your scores.</h2>}
         {identifiedInterviewId && <StudentInterviewModal interview={{...foundInterview}}/>}
       </section>
     </section>
