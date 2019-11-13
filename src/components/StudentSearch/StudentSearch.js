@@ -17,24 +17,12 @@ export const StudentSearch = () => {
   let students = data.users;
 
   const filterStudents = (cohort, program, students) => {
-    if (!cohort && !program) {
-      return students.map(student => <FoundStudent key={student.id} student={student}/>);
-    }
-    if (!program && cohort) {
-      return students.filter(student => {
-        return student.cohort.toString().includes(cohort)
-      }).map(student => <FoundStudent key={student.id} student={student}/>);
-    }
-    if (!cohort && program) {
-      return students.filter(student => {
-        return student.program === program
-      }).map(student => <FoundStudent key={student.id} student={student}/>);
-    }
-    if (cohort && program) {
-      return students.filter(student => {
-        return student.program === program && student.cohort.toString().includes(cohort)
-      }).map(student => <FoundStudent key={student.id} student={student}/>);
-    }
+    return students.filter(student => {
+      if (cohort || program) {
+        return (cohort ? student.cohort.toString().includes(cohort) : true)
+          && (program ? student.program === program : true)
+      } else {return true}
+    }).map(student => <FoundStudent key={student.id} student={student}/>);
   }
 
   const handleClick = (e) => {
