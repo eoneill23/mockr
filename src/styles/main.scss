@@ -12,6 +12,7 @@
 @import "FoundStudent";
 @import "StudentInterview";
 @import "Question";
+@import "StudentInterviewModal";
 
 body {
   background: #FFFFFF;
@@ -26,6 +27,11 @@ body {
 }
 
 .student-interview-list {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  padding: 1rem;
   width: 40%;
 }
 

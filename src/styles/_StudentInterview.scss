@@ -9,6 +9,7 @@
   margin-top: 2rem;
   cursor: pointer;
   box-shadow: -1px 4px 5px 0px rgba(0,0,0,0.75);
+  width: 80%;
 }
 
 .interview-card:hover {
@@ -42,4 +43,8 @@
   width: 30%;
   text-align: center;
   padding: 0 15px;
+}
+
+.student-interview-modal {
+ padding: 0 1rem 0 1rem;
 }
