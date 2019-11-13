@@ -2,9 +2,10 @@ import React, {useState, useContext} from 'react';
 import {Redirect} from 'react-router';
 import {UserContext} from '../../Context';
 import {Swipeable} from 'react-swipeable';
+import Carousel from 'react-items-carousel';
 import InterviewQuestion from '../InterviewQuestion/InterviewQuestion';
-import {useQuery, useMutation} from '@apollo/react-hooks';
-import {RANDOM_QUESTIONS, ADD_NOTE, FINALISE_INTERVIEW} from '../../util/apiCalls';
+import {useMutation} from '@apollo/react-hooks';
+import {ADD_NOTE, FINALISE_INTERVIEW} from '../../util/apiCalls';
 
 export const Interview = () => {
   const {user, setUser} = useContext(UserContext);
@@ -14,16 +15,13 @@ export const Interview = () => {
   const [ended, setEnded] = useState(false);
   const [push, setPush] = useState(false);
   const interviewData = {interviewId: user.currentInterview.id, studentId: user.currentInterview.student, interviewerId: user.id};
+  const questions = user.currentInterview.questions
 
-  const {loading, error, data} = useQuery(RANDOM_QUESTIONS);
   const [addNote] = useMutation(ADD_NOTE);
   const [finaliseInterview] = useMutation(FINALISE_INTERVIEW);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error...</p>;
-
   const populateCards = () => {
-    return data.randomQuestions.map(({id, body}, index) => {
+    return questions.map(({id, body}, index) => {
       let scored = false;
       if (notes[id]) {scored = notes[id].score >= 1};
       return <InterviewQuestion cur={cur} id={id} key={id} pos={index + 1} question={body} scored={scored} fs={{note: updateNote, score: updateScore, next: nextCard, skip: skipCard}}/>

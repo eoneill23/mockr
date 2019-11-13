@@ -1,18 +1,19 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../../Context';
-import { useMutation } from '@apollo/react-hooks';
-import { CREATE_INTERVIEW } from '../../util/apiCalls';
+import { useMutation, useQuery } from '@apollo/react-hooks';
+import { CREATE_INTERVIEW, RANDOM_QUESTIONS } from '../../util/apiCalls';
 import PropTypes from 'prop-types';
 
 export const FoundStudent = ({ student }) => {
   const { user, setUser } = useContext(UserContext);
   const [ startInterview ] = useMutation(CREATE_INTERVIEW);
+  const {loading, error, data} = useQuery(RANDOM_QUESTIONS);
 
   const createInterview = async (e) => {
     e.preventDefault();
     const response = await startInterview({ variables: { studentId: student.id, interviewerId: user.id }});
     const newInterview = response.data.addInterview;
-    setUser({...user, currentInterview: { id: newInterview.id, student: student.id }});
+    setUser({...user, currentInterview: { id: newInterview.id, student: student.id, questions: data.randomQuestions}});
   }
 
   return (
