@@ -12,6 +12,7 @@ export const Interview = () => {
   const {user, setUser} = useContext(UserContext);
   const [focus, setFocus] = useState(0);
   const [cur, setCur] = useState(1);
+  const [carouselCur, setCarouselCur] = useState(0);
   const [notes] = useState({});
   const [ended, setEnded] = useState(false);
   const [push, setPush] = useState(false);
@@ -122,9 +123,11 @@ export const Interview = () => {
         </div>
 
         <div className={'end-container shadow' + isFocusedEndCard()}>
-          <div></div>
           <div style={{margin: '2rem'}}>
+            <Carousel requestToChangeActive={setCarouselCur} activeItemIndex={carouselCur}
+              rightChevron={'>'} leftChevron={'<'} gutter={32}>
               {populateNotes()}
+            </Carousel>
           </div>
 
           <h3 id='header-final-remarks'>Final Remarks:</h3>
