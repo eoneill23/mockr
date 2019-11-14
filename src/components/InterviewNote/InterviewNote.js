@@ -7,7 +7,7 @@ export const Note = props => {
         <h1 className='interview-note-question'>Q: {props.question}</h1>
 
         <h3 className=''>Notes:</h3>
-        <textarea name='response' form={'interview-note-response-' + props.id} className='interview-note-response' onChange={event => props.fs.note(props.id, event.target.value)} value={props.note.body}></textarea>
+        <textarea name='response' form={'interview-note-response-' + props.id} className='interview-note-response' onChange={event => props.fs.note(props.id, event.target.value)} defaultValue={props.note.body}></textarea>
 
         <form id={'score-form-' + props.id} className='' onChange={event => props.fs.score(props.id, event.target.value)}>
           <label><input type='radio' name='score' value='1'/>Unsatisfactory<br/></label>
