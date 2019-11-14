@@ -15,6 +15,7 @@ export const StudentInterviewModal = ({ question }) => {
 
   return (
     <section className='student-question-modal-content'>
+      <header className='question-header'><span className='highlight'>Question:</span> {question.body}</header>
       {eachNote}
     </section>
   )

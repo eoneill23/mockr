@@ -46,10 +46,11 @@ export const StudentQuestions = () => {
   return (
     <section className='main-container'>
       <section className='student-question-list'>
+        <h3 className='interview-lable'>Your questions:</h3>
         {questionList}
       </section>
       <section className='student-question-modal'>
-        {!identifiedQuestionId && <h2>Click on a specific question to see your scores</h2>}
+        {!identifiedQuestionId && <h2 className='interview-prompt'>Click on a specific question to see your scores.</h2>}
         {identifiedQuestionId && <StudentQuestionModal question={{ ...foundQuestion }}/>}
       </section>
     </section>
