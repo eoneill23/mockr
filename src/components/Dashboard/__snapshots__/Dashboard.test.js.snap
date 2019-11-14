@@ -247,8 +247,9 @@ exports[`Dashboard should match the snapshot with all data passed in correctly 1
           />
           <button
             id="role-request-btn"
+            onClick={[Function]}
           >
-            Become an Admin
+            Request Sent!
           </button>
         </section>
       </section>
