@@ -18,6 +18,8 @@ export const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await loginUser( { variables: { email: emailInput, password: passwordInput } });  
+    setEmailInput('');
+    setPasswordInput('');
   }
 
   return (
@@ -42,7 +44,7 @@ export const LoginForm = () => {
         >
         </input>
         <button className='login-submit' onClick={(e) => handleSubmit(e)}>Submit</button>
-        {error && <p>There was an issue with your email or password.</p>}
+        {error && <p className='login-error'>There was an issue with your email or password. Please try again.</p>}
       </form>
     </div>
   )
