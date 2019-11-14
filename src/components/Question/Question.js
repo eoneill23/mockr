@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/react-hooks';
 import { ACTIVATE_QUESTION, DEACTIVATE_QUESTION } from '../../util/apiCalls';
 import PropTypes from 'prop-types';
 
-export const Question = ({ id, fs, details, showDetails, detailed }) => {
+export const Question = ({ id, fs, details, identifyQuestion, detailed }) => {
   let {body, notes, active} = details;
   const { user } = useContext(UserContext);
   const [activateQuestion] = useMutation(ACTIVATE_QUESTION);
@@ -38,7 +38,7 @@ export const Question = ({ id, fs, details, showDetails, detailed }) => {
 
   const isDetailed = () => {if (detailed) {return ' shown'} else {return ''}}
   return (
-    <section className={`question-card ${isDetailed()}`} onClick={e => showDetails(id)}>
+    <section className={`question-card ${isDetailed()}`} onClick={() => identifyQuestion(id)}>
 
       <h3>{body}</h3>
       {(user.role === 0) && <div className={'details' + isDetailed()}>
