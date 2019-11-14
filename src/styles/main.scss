@@ -12,6 +12,7 @@
 @import "FoundStudent";
 @import "StudentInterview";
 @import "Question";
+@import "StudentInterviewModal";
 
 body {
   background: #FFFFFF;
@@ -20,17 +21,23 @@ body {
 
 .main-container {
   color: black;
+  display: flex;
   width: 100vw;
   height: 100vh;
 }
 
-.side-margins {
-  padding: 0 20% 5% 20%;
-  -ms-overflow-style: none;  // IE 10+
-  scrollbar-width: none;  // Firefox
+.student-interview-list {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  padding: 1rem;
+  width: 40%;
 }
-.side-margins::-webkit-scrollbar {
-  display: none;  // Safari and Chrome
+
+.student-interview-modal {
+  border-left: 3px solid $card-bg;
+  width: 60%;
 }
 
 .shadow {box-shadow: 0 16px 24px 2px rgba(0,0,0,0.15), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -7px rgba(0,0,0,0.2);}

@@ -1,26 +1,33 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../../Context';
 import StudentInterview from '../StudentInterview/StudentInterview';
-
+import StudentInterviewModal from '../StudentInterviewModal/StudentInterviewModal';
 
 export const StudentInterviewContainer = () => {
   const { user } = useContext(UserContext)
   const { interviews } = user;
-  const [ cur, setCur ] = useState(0);
-
-  const showDetails = id => {setCur(id);}
+  const [identifiedInterviewId, identifyInterview] = useState(null);
 
   const interviewList = interviews.map(interview => {
-    return <StudentInterview key={interview.id} interview={interview} id={interview.id} showDetails={showDetails} detailed={(cur === interview.id)}/>
+    return <StudentInterview key={interview.id} interview={interview} id={interview.id} identifyInterview={identifyInterview}/>
   });
+  let foundInterview;
+
+  if (identifiedInterviewId) {
+    foundInterview = interviews.find(interview => interview.id === identifiedInterviewId)
+  }
   
   return (
-    <div className='main-container'>
-      <div className='side-margins'>
-        <h3>Click on a specific Interview to see your scores</h3>
+    <section className='main-container'>
+      <section className='student-interview-list'>
+        <h3 className='interview-lable'>Your interviews:</h3>
         {interviewList}
-      </div>
-    </div>
+      </section>
+      <section className='student-interview-modal'>
+        {!identifiedInterviewId && <h2 className='interview-prompt'>Click on a specific interview to the left to see your scores.</h2>}
+        {identifiedInterviewId && <StudentInterviewModal interview={{...foundInterview}}/>}
+      </section>
+    </section>
   );
 }
 
