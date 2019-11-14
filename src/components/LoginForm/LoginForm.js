@@ -22,30 +22,28 @@ export const LoginForm = () => {
 
   return (
     <div className='main-container'>
-      <div className='side-margins'>
+      <form className='login-form box-fix'>
+        <h3>Email:</h3>
+        <input
+          type='text'
+          name='emailInput'
+          className='login-input'
+          value={emailInput}
+          onChange={e => setEmailInput(e.target.value)}
+        >
+        </input>
+        <h3>Password:</h3>
+        <input
+          type='password'
+          name='passwordInput'
+          className='login-input'
+          value={passwordInput}
+          onChange={e => setPasswordInput(e.target.value)}
+        >
+        </input>
+        <button className='login-submit' onClick={(e) => handleSubmit(e)}>Submit</button>
         {error && <p>There was an issue with your email or password.</p>}
-        <form className='login-form box-fix'>
-          <h3>Email:</h3>
-          <input
-            type='text'
-            name='emailInput'
-            className='login-input'
-            value={emailInput}
-            onChange={e => setEmailInput(e.target.value)}
-          >
-          </input>
-          <h3>Password:</h3>
-          <input
-            type='password'
-            name='passwordInput'
-            className='login-input'
-            value={passwordInput}
-            onChange={e => setPasswordInput(e.target.value)}
-          >
-          </input>
-          <button className='login-submit' onClick={(e) => handleSubmit(e)}>Submit</button>
-        </form>
-      </div>
+      </form>
     </div>
   )
 }
