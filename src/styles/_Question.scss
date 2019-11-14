@@ -10,6 +10,7 @@ h3 {
   margin-top: 2rem;
   cursor: pointer;
   box-shadow: -1px 4px 5px 0px rgba(0,0,0,0.75);
+  width: 80%;
 }
 
 .question-card:hover {
@@ -51,4 +52,8 @@ h3 {
   min-width: 250px;
   text-align: center;
   padding: 0 15px;
+}
+
+.activate-btn {
+  margin-left: 45%;
 }

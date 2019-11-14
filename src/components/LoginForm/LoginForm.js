@@ -18,34 +18,34 @@ export const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await loginUser( { variables: { email: emailInput, password: passwordInput } });  
+    setEmailInput('');
+    setPasswordInput('');
   }
 
   return (
     <div className='main-container'>
-      <div className='side-margins'>
-        {error && <p>There was an issue with your email or password.</p>}
-        <form className='login-form box-fix'>
-          <h3>Email:</h3>
-          <input
-            type='text'
-            name='emailInput'
-            className='login-input'
-            value={emailInput}
-            onChange={e => setEmailInput(e.target.value)}
-          >
-          </input>
-          <h3>Password:</h3>
-          <input
-            type='password'
-            name='passwordInput'
-            className='login-input'
-            value={passwordInput}
-            onChange={e => setPasswordInput(e.target.value)}
-          >
-          </input>
-          <button className='login-submit' onClick={(e) => handleSubmit(e)}>Submit</button>
-        </form>
-      </div>
+      <form className='login-form box-fix'>
+        <h3>Email:</h3>
+        <input
+          type='text'
+          name='emailInput'
+          className='login-input'
+          value={emailInput}
+          onChange={e => setEmailInput(e.target.value)}
+        >
+        </input>
+        <h3>Password:</h3>
+        <input
+          type='password'
+          name='passwordInput'
+          className='login-input'
+          value={passwordInput}
+          onChange={e => setPasswordInput(e.target.value)}
+        >
+        </input>
+        <button className='login-submit' onClick={(e) => handleSubmit(e)}>Submit</button>
+        {error && <p className='login-error'>There was an issue with your email or password. Please try again.</p>}
+      </form>
     </div>
   )
 }

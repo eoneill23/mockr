@@ -13,6 +13,8 @@
 @import "StudentInterview";
 @import "Question";
 @import "StudentInterviewModal";
+@import "StudentQuestionModal";
+@import "StudentQuestions";
 
 body {
   background: #FFFFFF;
@@ -48,4 +50,10 @@ body {
   box-sizing: border-box;
 }
 
+.side-margins {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 0 auto;
+}
 

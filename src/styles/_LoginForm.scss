@@ -1,7 +1,7 @@
 .login-form {
   background: $card-bg;
   border-radius: 1rem;
-  width: 40%;
+  width: 30%;
   margin: auto;
   padding-bottom: 2rem;
   padding-top: 1rem;
@@ -9,7 +9,9 @@
   text-align: center;
 }
 
-.login-form h3 {color: white;}
+.login-form h3 {
+  color: white;
+}
 
 .login-input {
   display: block;
@@ -23,6 +25,7 @@
   border-top: 0.1rem solid white;
   border-bottom: 0.1rem solid white;
   border-left: none; border-right: none;
+  width: 80%;
 }
 .login-input:hover {background: rgba(255,255,255,0.1);}
 .login-input:focus {outline: none; background: rgba(50,50,50,0.2);}
@@ -42,4 +45,8 @@
 
 .sign-up-link {
   color: white;
+}
+
+.login-error {
+  color: red;
 }
