@@ -82,14 +82,18 @@
   border-top: 0.2rem solid white;
   border-bottom: 0.2rem solid white;
   border-left: none; border-right: none;
-
   position: absolute;
   bottom: 2rem; left: 2rem;
   width: calc(100% - 13rem);
   height: 40%;
 }
-.interview-remarks:hover {background: rgba(255,255,255,0.1);}
-.interview-remarks:focus {outline: none; background: rgba(50,50,50,0.2);}
+.interview-remarks:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.interview-remarks:focus {
+  outline: none; background: rgba(50,50,50,0.2);
+}
 
 .interview-score {
   color: $card-fg;

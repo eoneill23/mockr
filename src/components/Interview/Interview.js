@@ -121,24 +121,20 @@ export const Interview = () => {
             </div>
           </div>
         </div>
-
         <div className={'end-container shadow' + isFocusedEndCard()}>
-          <div style={{margin: '2rem'}}>
+          <div style={{margin: '1.5rem'}}>
             <Carousel requestToChangeActive={setCarouselCur} activeItemIndex={carouselCur}
               rightChevron={'>'} leftChevron={'<'} gutter={32}>
               {populateNotes()}
             </Carousel>
           </div>
-
           <h3 id='header-final-remarks'>Final Remarks:</h3>
           <textarea name='remarks' form='interview-response' className='box-fix interview-remarks'></textarea>
-
           <form id='interview-response' className='interview-score' onSubmit={event => {event.preventDefault(); endInterview(event)}}>
             <label><input type='radio' name='score' value='1'/>Unsatisfactory</label><br/>
             <label> <input type='radio' name='score' value='2'/>Needs Work</label><br/>
             <label><input type='radio' name='score' value='3'/>Good</label><br/>
             <label><input type='radio' name='score' value='4'/>Exceptional</label><br/>
-
             <input type='submit' className='interview-submit' value='✓'/>
           </form>
         </div>
