@@ -4,6 +4,7 @@ import {UserContext} from '../../Context';
 import {Swipeable} from 'react-swipeable';
 import Carousel from 'react-items-carousel';
 import InterviewQuestion from '../InterviewQuestion/InterviewQuestion';
+import InterviewNote from '../InterviewNote/InterviewNote';
 import {useMutation} from '@apollo/react-hooks';
 import {ADD_NOTE, FINALISE_INTERVIEW} from '../../util/apiCalls';
 
@@ -25,6 +26,16 @@ export const Interview = () => {
       let scored = false;
       if (notes[id]) {scored = notes[id].score >= 1};
       return <InterviewQuestion cur={cur} id={id} key={id} pos={index + 1} question={body} scored={scored} fs={{note: updateNote, score: updateScore, next: nextCard, skip: skipCard}}/>
+    });
+  }
+
+  const populateNotes = () => {
+    return questions.map(({id,body}, index) => {
+      if (notes[id]) {
+        return <InterviewNote key={index} id={id} question={body} note={notes[id]} fs={{note: updateNote, score: updateScore}}/>
+      } else {
+        return <InterviewNote key={index} id={id} question={body}/>
+      }
     });
   }
 
@@ -112,6 +123,9 @@ export const Interview = () => {
 
         <div className={'end-container shadow' + isFocusedEndCard()}>
           <div></div>
+          <div style={{margin: '2rem'}}>
+              {populateNotes()}
+          </div>
 
           <h3 id='header-final-remarks'>Final Remarks:</h3>
           <textarea name='remarks' form='interview-response' className='box-fix interview-remarks'></textarea>
