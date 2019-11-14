@@ -69,10 +69,10 @@ export const Note = props => {
     );
   } else {
     return (
-      <div className={'interview-note-card shadow'}>
+      <div className={'interview-note-card'}>
         <h1 className='interview-note-question'>Q: {props.question}</h1>
 
-        <h3 className=''>Skippet</h3>
+        <h3 className=''>Skipped</h3>
       </div>
     );
 
