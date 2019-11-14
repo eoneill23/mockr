@@ -51,6 +51,9 @@ body {
 }
 
 .side-margins {
-  margin: auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 0 auto;
 }
 

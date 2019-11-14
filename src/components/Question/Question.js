@@ -46,7 +46,7 @@ export const Question = ({ id, fs, details, identifyQuestion, detailed }) => {
         {eachNote}
       </div>
       </div>}
-      {(user.role === 2) && <button className='admin-btn' onClick={(e) => toggleQuestion(e)}>{activeBtn}</button>}
+      {(user.role === 2) && <button className='admin-btn activate-btn' onClick={(e) => toggleQuestion(e)}>{activeBtn}</button>}
     </section>
   )
 }

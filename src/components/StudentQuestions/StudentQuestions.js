@@ -46,7 +46,7 @@ export const StudentQuestions = () => {
   return (
     <section className='main-container'>
       <section className='student-question-list'>
-        <h3 className='interview-lable'>Your questions:</h3>
+        <h3 className='interview-lable'>Question you have been asked:</h3>
         {questionList}
       </section>
       <section className='student-question-modal'>
