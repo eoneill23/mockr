@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
-import { Redirect } from 'react-router-dom';
-import { UserContext } from '../../Context';
-import { CURRENT_USER } from '../../util/apiCalls';
-import { useLazyQuery } from '@apollo/react-hooks';
+import React, {useContext} from 'react';
+import {Redirect} from 'react-router-dom';
+import {UserContext} from '../../Context';
+import {CURRENT_USER} from '../../util/apiCalls';
+import {useLazyQuery} from '@apollo/react-hooks';
 
 export const LoginHandler = () => {
-  const { setUser } = useContext(UserContext);
+  const {setUser} = useContext(UserContext);
 
-  const [currentUser, { loading, error, data }] = useQuery(CURRENT_USER);
+  const {loading, error, data} = useQuery(CURRENT_USER);
   if(data) {
     setUser(data.login);
     sessionStorage.setItem('userId', data.login.id);
