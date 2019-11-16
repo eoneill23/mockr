@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import HomePage from '../HomePage/HomePage';
 import NavBar from '../NavBar/NavBar';
 import LoginForm from '../LoginForm/LoginForm';
+import LoginHandler from '../LoginHandler/LoginHandler';
 import Dashboard from '../Dashboard/Dashboard';
 import StudentSearch from '../StudentSearch/StudentSearch';
 import AdminQuestions from '../AdminQuestions/AdminQuestions';
@@ -50,6 +51,7 @@ export const App = () => {
           <Route exact path='/all-questions' render={() => !userExists ? (<Redirect to='/login'/>) : <AdminQuestions /> } />
           <Route exact path='/select-student' render={() => user.currentInterview ? (<Redirect to='/interview'/>) : <StudentSearch />}/>
           <Route exact path='/signup'render={() => userExists ? (<Redirect to='/dashboard'/>) : <SignupForm />}/>
+          <Route exact path='/auth/success' render={() => <LoginHandler/>}/>
         </UserContext.Provider>
       </main>
     </ApolloProvider>
