@@ -123,6 +123,38 @@ query Login($email: String!, $password: String!){
 }
 `;
 
+export const CURRENT_USER = gql`
+query {
+  currentUser {
+    id
+    firstName
+    lastName
+    email
+    role
+    interviews {
+      id
+      score
+      summary
+      createdAt
+      users {
+        firstName
+        lastName
+        role
+      }
+      notes {
+        id
+        body
+        score
+        question {
+          id
+          body
+        }
+      }
+    }
+  }
+}
+`;
+
 export const ALL_STUDENTS = gql`
 query {
   users(role: 0) {
