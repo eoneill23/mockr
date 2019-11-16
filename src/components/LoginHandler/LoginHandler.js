@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {Redirect} from 'react-router-dom';
 import {UserContext} from '../../Context';
 import {CURRENT_USER} from '../../util/apiCalls';
-import {useLazyQuery} from '@apollo/react-hooks';
+import {useQuery} from '@apollo/react-hooks';
 
 export const LoginHandler = () => {
   const {setUser} = useContext(UserContext);
