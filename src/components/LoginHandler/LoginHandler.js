@@ -15,7 +15,7 @@ export const LoginHandler = () => {
     sessionStorage.setItem('userId', data.login.id);
     return <Redirect to='/dashboard'/>
   } else {
-    return loading ? <p>Loading...</p> : <p>Error: {error}</p>;
+    return loading ? <p>Loading...</p> : <p>Error!</p>;
   };
 }
 
