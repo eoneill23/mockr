@@ -17,8 +17,14 @@ import SignupForm from '../SignupForm/SignupForm';
 // Apollo
 import ApolloClient from 'apollo-boost';
 import {ApolloProvider} from '@apollo/react-hooks';
+let uri = '';
+if (process.env.NODE_ENV === 'development') {
+  uri = 'http://localhost:3000/graphql';
+} else {
+  uri = 'https://thawing-wave-76846.herokuapp.com/graphql';
+}
 const client = new ApolloClient({
-  uri: 'https://thawing-wave-76846.herokuapp.com/graphql'
+  uri: uri
 });
 
 export const App = () => {
