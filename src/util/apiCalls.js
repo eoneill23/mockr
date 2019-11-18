@@ -124,8 +124,8 @@ query Login($email: String!, $password: String!){
 `;
 
 export const CURRENT_USER = gql`
-query {
-  currentUser {
+query CurrentUser($token: !String) {
+  currentUser(token: $token) {
     id
     firstName
     lastName
