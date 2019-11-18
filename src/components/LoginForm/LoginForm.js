@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { UserContext } from '../../Context';
 import { LOGIN } from '../../util/apiCalls';
 import { useLazyQuery } from '@apollo/react-hooks';
+import { Link } from "react-router-dom";
 
 export const LoginForm = () => {
   const { setUser } = useContext(UserContext);
@@ -44,6 +45,7 @@ export const LoginForm = () => {
         >
         </input>
         <button className='login-submit' onClick={(e) => handleSubmit(e)}>Submit</button>
+        <p>New to Mockr? Sign up <Link to='/signup'>here.</Link></p>
         {error && <p className='login-error'>There was an issue with your email or password. Please try again.</p>}
       </form>
     </div>
