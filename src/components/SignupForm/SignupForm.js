@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { UserContext } from "../../Context";
-import { useLazyQuery } from "@apollo/react-hooks";
+import { useMutation } from "@apollo/react-hooks";
 import { SIGNUP } from "../../util/apiCalls";
 
 export const SignupForm = () => {
@@ -13,17 +13,18 @@ export const SignupForm = () => {
   const [programType, setProgramType] = useState('');
   const [cohortInput, setCohortInput] = useState('');
 
-  const [loginUser, { loading, error, data }] = useLazyQuery(SIGNUP);
+  const [loginUser, { loading, error, data }] = useMutation(SIGNUP);
   if (loading) return <p>Loading...</p>;
   if (data) {
-    setUser(data.login);
-    sessionStorage.setItem("userId", data.login.id);
+    console.log(data)
+    setUser(data.addUser);
+    sessionStorage.setItem("userId", data.addUser.id);
   }
 
   const handleSubmit = async e => {
     e.preventDefault();
     await loginUser({
-      variables: { firstName: firstNameInput, lastName: lastNameInput, email: emailInput, password: passwordInput, passwordConfirmation: confirmPasswordInput, program: programType, cohort: cohortInput }
+      variables: { firstName: firstNameInput, lastName: lastNameInput, email: emailInput, password: passwordInput, passwordConfirmation: confirmPasswordInput, program: programType, cohort: parseInt(cohortInput) }
     });
   };
 
@@ -54,6 +55,29 @@ export const SignupForm = () => {
           value={emailInput}
           onChange={e => setEmailInput(e.target.value)}
         ></input>
+        <div className="program-radio-btns">
+          <h3>Program:</h3>
+          <input
+            name="programType"
+            type="radio"
+            onChange={() => setProgramType("FE")}
+          />
+          FE
+          <input
+            name="programType"
+            type="radio"
+            onChange={() => setProgramType("BE")}
+          />
+          BE
+        </div>
+        <h3>Cohort:</h3>
+        <input
+          type="number"
+          name="cohortInput"
+          className="login-input"
+          value={cohortInput}
+          onChange={e => setCohortInput(e.target.value)}
+        ></input>
         <h3>Password:</h3>
         <input
           type="password"
@@ -69,27 +93,6 @@ export const SignupForm = () => {
           className="login-input"
           value={confirmPasswordInput}
           onChange={e => setConfirmPasswordInput(e.target.value)}
-        ></input>
-        <div className="program-radio-btns">
-          <h3>Program:</h3>
-          <input
-            name="programType"
-            type="radio"
-            onChange={() => setProgramType("FE")}
-          />
-          <input
-            name="programType"
-            type="radio"
-            onChange={() => setProgramType("BE")}
-          />
-        </div>
-        <h3>Cohort:</h3>
-        <input
-          type="number"
-          name="cohortInput"
-          className="login-input"
-          value={cohortInput}
-          onChange={e => setCohortInput(e.target.value)}
         ></input>
         <button className="login-submit" onClick={e => handleSubmit(e)}>
           Submit

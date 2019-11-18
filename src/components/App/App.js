@@ -49,7 +49,7 @@ export const App = () => {
           <Route exact path='/students' render={() => user.role !== 2 ? (<Redirect to='/login'/>) : <StudentSearch />} />
           <Route exact path='/all-questions' render={() => !userExists ? (<Redirect to='/login'/>) : <AdminQuestions /> } />
           <Route exact path='/select-student' render={() => user.currentInterview ? (<Redirect to='/interview'/>) : <StudentSearch />}/>
-          <Route exact path='/signup'><SignupForm /></Route>
+          <Route exact path='/signup'render={() => userExists ? (<Redirect to='/dashboard'/>) : <SignupForm />}/>
         </UserContext.Provider>
       </main>
     </ApolloProvider>

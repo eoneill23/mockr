@@ -213,8 +213,8 @@ export const DEACTIVATE_QUESTION = gql`
 `;
 
 export const SIGNUP = gql`
-  mutation AddUser($firstName: String!, $lastName: !String, $email: String!,  $password: String!, $passwordConfirmation: String!, $program: String!, $cohort: Int!) {
-    addUser (firstname: $firstName, lastName: $lastName, email: $email, password: $password, passwordConfirmation: $passwordConfirmation, program: $program, cohort: $cohort) {
+  mutation AddUser($firstName: String!, $lastName: String!, $email: String!,  $password: String!, $passwordConfirmation: String!, $program: String!, $cohort: Int!) {
+    addUser (firstName: $firstName, lastName: $lastName, email: $email, password: $password, passwordConfirmation: $passwordConfirmation, program: $program, cohort: $cohort) {
       id
       firstName
       lastName
