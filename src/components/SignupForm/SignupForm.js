@@ -16,7 +16,6 @@ export const SignupForm = () => {
   const [loginUser, { loading, error, data }] = useMutation(SIGNUP);
   if (loading) return <p>Loading...</p>;
   if (data) {
-    console.log(data)
     setUser(data.addUser);
     sessionStorage.setItem("userId", data.addUser.id);
   }
