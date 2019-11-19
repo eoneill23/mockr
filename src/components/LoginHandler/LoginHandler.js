@@ -8,7 +8,6 @@ export const LoginHandler = () => {
   const {token} = useParams();
   const {setUser} = useContext(UserContext);
 
-  console.log(token);
   const {loading, error, data} = useQuery(CURRENT_USER, {variables: {token: token}});
   if(data) {
     setUser(data.currentUser);
