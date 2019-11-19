@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { UserContext } from '../../Context';
 import { LOGIN } from '../../util/apiCalls';
 import { useLazyQuery } from '@apollo/react-hooks';
+import { Link } from "react-router-dom";
 
 export const LoginForm = () => {
   const { setUser } = useContext(UserContext);
@@ -11,6 +12,7 @@ export const LoginForm = () => {
   const [loginUser, { loading, error, data }] = useLazyQuery(LOGIN);
   if (loading) return <p>Loading...</p>;
   if(data) {
+    console.log("AHHHHH", data)
     setUser(data.login);
     sessionStorage.setItem('userId', data.login.id);
   }
@@ -44,6 +46,7 @@ export const LoginForm = () => {
         >
         </input>
         <button className='login-submit' onClick={(e) => handleSubmit(e)}>Submit</button>
+        <p className='signup-link'>New to Mockr? Sign up <Link to='/signup'>here.</Link></p>
         {error && <p className='login-error'>There was an issue with your email or password. Please try again.</p>}
       </form>
     </div>
