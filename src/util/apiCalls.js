@@ -81,24 +81,15 @@ export const USER = gql`
   }
 `;
 
-export const USER_ROLE_REQUEST = gql`
-  mutation UserRoleRequest($id: Int!, $role: Int!){
-    updateUser(id: $id, roleRequest: $role) {
-      id
-      roleRequest
-    }
-  }
-`;
-
-
-export const LOGIN = gql`
-query Login($email: String!, $password: String!){
-  login(email: $email, password: $password) {
+export const CURRENT_USER = gql`
+query CurrentUser($token: String!) {
+  currentUser(token: $token) {
     id
     firstName
     lastName
     email
     role
+    roleRequest
     interviews {
       id
       score
@@ -123,9 +114,19 @@ query Login($email: String!, $password: String!){
 }
 `;
 
-export const CURRENT_USER = gql`
-query CurrentUser($token: String!) {
-  currentUser(token: $token) {
+export const USER_ROLE_REQUEST = gql`
+  mutation UserRoleRequest($id: Int!, $role: Int!){
+    updateUser(id: $id, roleRequest: $role) {
+      id
+      roleRequest
+    }
+  }
+`;
+
+
+export const LOGIN = gql`
+query Login($email: String!, $password: String!){
+  login(email: $email, password: $password) {
     id
     firstName
     lastName

@@ -11,8 +11,8 @@ export const LoginHandler = () => {
   console.log(token);
   const {loading, error, data} = useQuery(CURRENT_USER, {variables: {token: token}});
   if(data) {
-    setUser(data.login);
-    sessionStorage.setItem('userId', data.login.id);
+    setUser(data.currentUser);
+    sessionStorage.setItem('userId', data.currentUser.id);
     return <Redirect to='/dashboard'/>
   } else {
     return loading ? <p>Loading...</p> : <p>Error!</p>;
