@@ -39,6 +39,7 @@
   color: $highlight-fg;
   font-size: 1.5rem;
   cursor: pointer;
+  text-decoration: none;
 }
 .login-submit:focus {outline: 0;}
 .login-submit:hover {background: $highlight-hover;}
