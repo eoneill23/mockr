@@ -96,6 +96,11 @@ export const SignupForm = () => {
         <button className="login-submit" onClick={e => handleSubmit(e)}>
           Submit
         </button>
+        {error && (
+          <p className="login-error">
+            There was an issue creating your account. Please try again.
+          </p>
+        )}
       </form>
     </div>
   );
