@@ -37,7 +37,7 @@ export const Dashboard = () => {
   const populateReqs = (type, data) => {
     return data.map(({id, firstName, lastName}, i) => {
       return (
-        <div key={i} className={type ? 'approvals-admin-card' : 'approvals-interviewer-card'}>
+        <div key={i} className={'approvals-card ' + (type ? 'admin-app' : 'int-app')}>
           <h4>{firstName} {lastName}</h4>
           <button onClick={e => approveRequest(e, id, type)}>Approve</button>
           <button onClick={e => denyRequest(e, id)}>Deny</button>
