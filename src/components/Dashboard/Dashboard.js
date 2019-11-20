@@ -3,8 +3,6 @@ import {useMutation} from '@apollo/react-hooks';
 import {USER_ROLE_REQUEST} from '../../util/apiCalls';
 import { UserContext } from '../../Context';
 
-// import profilePic from './profile.jpg';
-
 export const Dashboard = () => {
   const [roleReq] = useMutation(USER_ROLE_REQUEST);
   const { user } = useContext(UserContext);
