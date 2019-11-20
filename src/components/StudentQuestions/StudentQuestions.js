@@ -5,7 +5,6 @@ import StudentQuestionModal from '../StudentQuestionModal/StudentQuestionModal';
 
 export const StudentQuestions = () => {
   const { user } = useContext(UserContext);
-  const [cur, setCur] = useState(0);
   const [identifiedQuestionId, identifyQuestion] = useState(null);
 
   const questions = user.interviews.reduce((acc, interview) => {
