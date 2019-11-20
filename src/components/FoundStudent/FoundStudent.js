@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 export const FoundStudent = ({ student }) => {
   const { user, setUser } = useContext(UserContext);
   const [ startInterview ] = useMutation(CREATE_INTERVIEW);
-  const {loading, error, data} = useQuery(RANDOM_QUESTIONS);
+  const {data} = useQuery(RANDOM_QUESTIONS);
 
   const createInterview = async (e) => {
     e.preventDefault();

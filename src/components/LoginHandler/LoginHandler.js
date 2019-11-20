@@ -8,7 +8,7 @@ export const LoginHandler = () => {
   const {token} = useParams();
   const {setUser} = useContext(UserContext);
 
-  const {loading, error, data} = useQuery(CURRENT_USER, {variables: {token: token}});
+  const {loading, data} = useQuery(CURRENT_USER, {variables: {token: token}});
   if(data) {
     setUser(data.currentUser);
     sessionStorage.setItem('userId', data.currentUser.id);

@@ -115,10 +115,13 @@ query CurrentUser($token: String!) {
 }
 `;
 
-export const USER_ROLE_REQUEST = gql`
-  mutation UserRoleRequest($id: Int!, $role: Int!){
-    updateUser(id: $id, roleRequest: $role) {
+export const UPDATE_USER = gql`
+  mutation UpdateUser($id: Int!, $role: Int, $roleRequest: Int){
+    updateUser(id: $id, role: $role, roleRequest: $roleRequest) {
       id
+      firstName
+      lastName
+      role
       roleRequest
     }
   }
@@ -261,3 +264,23 @@ export const SIGNUP = gql`
     }
   }
 `
+
+export const INTERVIEWER_REQUESTS = gql`
+  query {
+    users(roleRequest: 1) {
+      id
+      firstName
+      lastName
+    }
+  }
+`;
+
+export const ADMIN_REQUESTS = gql`
+  query {
+    users(roleRequest: 2) {
+      id
+      firstName
+      lastName
+    }
+  }
+`;

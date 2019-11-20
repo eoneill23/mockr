@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Note = props => {
   const getChecked = val => {
-    return val == props.note.score ? 'checked' : '';
+    return val === props.note.score ? 'checked' : '';
   }
 
   if (props.note) {

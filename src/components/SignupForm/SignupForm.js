@@ -13,7 +13,7 @@ export const SignupForm = () => {
   const [programType, setProgramType] = useState('');
   const [cohortInput, setCohortInput] = useState('');
 
-  const [loginUser, { loading, error, data }] = useMutation(SIGNUP);
+  const [loginUser, { loading, data }] = useMutation(SIGNUP);
   if (loading) return <p>Loading...</p>;
   if (data) {
     setUser(data.addUser);
