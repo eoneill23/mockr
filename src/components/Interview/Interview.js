@@ -124,7 +124,7 @@ export const Interview = () => {
         <div className={'end-container shadow' + isFocusedEndCard()}>
           <div style={{margin: '1.5rem'}}>
             <Carousel requestToChangeActive={setCarouselCur} activeItemIndex={carouselCur}
-              rightChevron={React.createElement('h1', {}, '>')} leftChevron={React.createElement('h1', {}, '<')} gutter={32}>
+              rightChevron={React.createElement('h1', {className: 'caret'}, '>')} leftChevron={React.createElement('h1', {className: 'caret'}, '<')} gutter={32}>
               {populateNotes()}
             </Carousel>
           </div>
