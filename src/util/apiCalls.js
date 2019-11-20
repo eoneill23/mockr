@@ -81,6 +81,39 @@ export const USER = gql`
   }
 `;
 
+export const CURRENT_USER = gql`
+query CurrentUser($token: String!) {
+  currentUser(token: $token) {
+    id
+    firstName
+    lastName
+    email
+    role
+    roleRequest
+    interviews {
+      id
+      score
+      summary
+      createdAt
+      users {
+        firstName
+        lastName
+        role
+      }
+      notes {
+        id
+        body
+        score
+        question {
+          id
+          body
+        }
+      }
+    }
+  }
+}
+`;
+
 export const USER_ROLE_REQUEST = gql`
   mutation UserRoleRequest($id: Int!, $role: Int!){
     updateUser(id: $id, roleRequest: $role) {

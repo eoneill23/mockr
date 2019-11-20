@@ -9,6 +9,10 @@ export const LoginForm = () => {
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
 
+  // const uri = 'http://localhost:3000';
+  const uri = 'https://thawing-wave-76846.herokuapp.com';
+  // Thanks React.
+
   const [loginUser, { loading, error, data }] = useLazyQuery(LOGIN);
   if (loading) return <p>Loading...</p>;
   if(data) {
@@ -19,7 +23,7 @@ export const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await loginUser( { variables: { email: emailInput, password: passwordInput } });  
+    await loginUser( { variables: { email: emailInput, password: passwordInput } });
     setEmailInput('');
     setPasswordInput('');
   }
@@ -27,6 +31,7 @@ export const LoginForm = () => {
   return (
     <div className='main-container'>
       <form className='login-form box-fix'>
+        <a href={uri + '/oauth/github'} className='login-submit'>Login with GitHub</a>
         <h3>Email:</h3>
         <input
           type='text'

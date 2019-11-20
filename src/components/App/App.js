@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import HomePage from '../HomePage/HomePage';
 import NavBar from '../NavBar/NavBar';
 import LoginForm from '../LoginForm/LoginForm';
+import LoginHandler from '../LoginHandler/LoginHandler';
 import Dashboard from '../Dashboard/Dashboard';
 import StudentSearch from '../StudentSearch/StudentSearch';
 import AdminQuestions from '../AdminQuestions/AdminQuestions';
@@ -16,8 +17,13 @@ import SignupForm from '../SignupForm/SignupForm';
 // Apollo
 import ApolloClient from 'apollo-boost';
 import {ApolloProvider} from '@apollo/react-hooks';
+
+// const uri = 'http://localhost:3000';
+const uri = 'https://thawing-wave-76846.herokuapp.com';
+// Thanks React.
+
 const client = new ApolloClient({
-  uri: 'https://thawing-wave-76846.herokuapp.com/graphql'
+  uri: uri + '/graphql'
 });
 
 export const App = () => {
@@ -50,6 +56,7 @@ export const App = () => {
           <Route exact path='/all-questions' render={() => !userExists ? (<Redirect to='/login'/>) : <AdminQuestions /> } />
           <Route exact path='/select-student' render={() => user.currentInterview ? (<Redirect to='/interview'/>) : <StudentSearch />}/>
           <Route exact path='/signup'render={() => userExists ? (<Redirect to='/dashboard'/>) : <SignupForm />}/>
+          <Route exact path='/auth/success/:token' render={() => <LoginHandler/>}/>
         </UserContext.Provider>
       </main>
     </ApolloProvider>
