@@ -17,7 +17,12 @@ describe('Interview', () => {
         name: 'Eric',
         role: 1,
         currentInterview: {
-          id: 1
+          id: 1,
+          questions: [
+            {id: 1, body: "Question 1"},
+            {id: 2, body: "Question 2"},
+            {id: 3, body: "Question 3"}
+          ]
         }
       },
       setUser: jest.fn()

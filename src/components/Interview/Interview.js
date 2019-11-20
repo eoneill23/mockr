@@ -2,31 +2,41 @@ import React, {useState, useContext} from 'react';
 import {Redirect} from 'react-router';
 import {UserContext} from '../../Context';
 import {Swipeable} from 'react-swipeable';
+import Carousel from 'react-items-carousel';
 import InterviewQuestion from '../InterviewQuestion/InterviewQuestion';
-import {useQuery, useMutation} from '@apollo/react-hooks';
-import {RANDOM_QUESTIONS, ADD_NOTE, FINALISE_INTERVIEW} from '../../util/apiCalls';
+import InterviewNote from '../InterviewNote/InterviewNote';
+import {useMutation} from '@apollo/react-hooks';
+import {ADD_NOTE, FINALISE_INTERVIEW} from '../../util/apiCalls';
 
 export const Interview = () => {
   const {user, setUser} = useContext(UserContext);
   const [focus, setFocus] = useState(0);
   const [cur, setCur] = useState(1);
+  const [carouselCur, setCarouselCur] = useState(0);
   const [notes] = useState({});
   const [ended, setEnded] = useState(false);
   const [push, setPush] = useState(false);
   const interviewData = {interviewId: user.currentInterview.id, studentId: user.currentInterview.student, interviewerId: user.id};
+  const questions = user.currentInterview.questions
 
-  const {loading, error, data} = useQuery(RANDOM_QUESTIONS);
   const [addNote] = useMutation(ADD_NOTE);
   const [finaliseInterview] = useMutation(FINALISE_INTERVIEW);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error...</p>;
-
   const populateCards = () => {
-    return data.randomQuestions.map(({id, body}, index) => {
+    return questions.map(({id, body}, index) => {
       let scored = false;
       if (notes[id]) {scored = notes[id].score >= 1};
       return <InterviewQuestion cur={cur} id={id} key={id} pos={index + 1} question={body} scored={scored} fs={{note: updateNote, score: updateScore, next: nextCard, skip: skipCard}}/>
+    });
+  }
+
+  const populateNotes = () => {
+    return questions.map(({id,body}, index) => {
+      if (notes[id]) {
+        return <InterviewNote key={index} id={id} question={body} note={notes[id]} fs={{note: updateNote, score: updateScore}}/>
+      } else {
+        return <InterviewNote key={index} id={id} question={body}/>
+      }
     });
   }
 
@@ -111,19 +121,20 @@ export const Interview = () => {
             </div>
           </div>
         </div>
-
         <div className={'end-container shadow' + isFocusedEndCard()}>
-          <div></div>
-
+          <div style={{margin: '1.5rem'}}>
+            <Carousel requestToChangeActive={setCarouselCur} activeItemIndex={carouselCur}
+              rightChevron={React.createElement('h1', {className: 'caret'}, '>')} leftChevron={React.createElement('h1', {className: 'caret'}, '<')} gutter={32}>
+              {populateNotes()}
+            </Carousel>
+          </div>
           <h3 id='header-final-remarks'>Final Remarks:</h3>
           <textarea name='remarks' form='interview-response' className='box-fix interview-remarks'></textarea>
-
           <form id='interview-response' className='interview-score' onSubmit={event => {event.preventDefault(); endInterview(event)}}>
             <label><input type='radio' name='score' value='1'/>Unsatisfactory</label><br/>
             <label> <input type='radio' name='score' value='2'/>Needs Work</label><br/>
             <label><input type='radio' name='score' value='3'/>Good</label><br/>
             <label><input type='radio' name='score' value='4'/>Exceptional</label><br/>
-
             <input type='submit' className='interview-submit' value='✓'/>
           </form>
         </div>
