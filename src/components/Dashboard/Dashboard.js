@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import {useQuery,useMutation} from '@apollo/react-hooks';
-import {USER_ROLE_REQUEST, INTERVIEWER_REQUESTS, ADMIN_REQUESTS, UPDATE_USER} from '../../util/apiCalls';
+import {UPDATE_USER, INTERVIEWER_REQUESTS, ADMIN_REQUESTS} from '../../util/apiCalls';
 import { UserContext } from '../../Context';
 
 export const Dashboard = () => {
-  const [roleReq] = useMutation(USER_ROLE_REQUEST);
   const [updateUser] = useMutation(UPDATE_USER);
+  // const [updateUser] = useMutation(UPDATE_USER);
   const {loading: intLoading, error: intError, data: intData} = useQuery(INTERVIEWER_REQUESTS);
   const {loading: adLoading, error: adError, data: adData} = useQuery(ADMIN_REQUESTS);
   const { user } = useContext(UserContext);
@@ -14,35 +14,33 @@ export const Dashboard = () => {
   const request = e => {
     e.preventDefault();
     if (user.roleRequest === 0) {
-      let role = user.role === 0 ? 1 : 2
-      roleReq({variables: {id: user.id, role: role}});
-      user.roleRequest = role;
+      let roleRequest = user.role === 0 ? 1 : 2
+      updateUser({variables: {id: user.id, roleRequest: roleRequest}});
+      user.roleRequest = roleRequest;
     }
   }
 
   const approveRequest = (e, id, type) => {
     e.preventDefault();
     if (type) {
-      updateUser({variables: {id: id, role: 2}});
-      roleReq({variables: {id: id, role: 0}});
+      updateUser({variables: {id: id, role: 2, roleRequest: 0}});
     } else {
-      updateUser({variables: {id: id, role: 1}});
-      roleReq({variables: {id: id, role: 0}});
+      updateUser({variables: {id: id, role: 1, roleRequest: 0}});
     }
   }
 
   const denyRequest = (e, id) => {
     e.preventDefault();
-    roleReq({variables: {id: id, role: 0}});
+    updateUser({variables: {id: id, roleRequest: 0}});
   }
 
   const populateReqs = (type, data) => {
     return data.map(({id, firstName, lastName}, i) => {
       return (
-        <div className={type ? 'approvals-admin-card' : 'approvals-interviewer-card'}>
+        <div key={i} className={type ? 'approvals-admin-card' : 'approvals-interviewer-card'}>
           <h4>{firstName} {lastName}</h4>
-          <button> onClick={e => approveRequest(e, id, type)}>Approve</button>
-          <button> onClick={e => denyRequest(e, id)}>Deny</button>
+          <button onClick={e => approveRequest(e, id, type)}>Approve</button>
+          <button onClick={e => denyRequest(e, id)}>Deny</button>
         </div>
       );
     });
