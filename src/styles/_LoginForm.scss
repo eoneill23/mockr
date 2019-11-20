@@ -27,9 +27,14 @@
   border-left: none; border-right: none;
   width: 80%;
 }
-.login-input:hover {background: rgba(255,255,255,0.1);}
-.login-input:focus {outline: none; background: rgba(50,50,50,0.2);}
 
+.login-input:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.login-input:focus {
+  outline: none; background: rgba(50,50,50,0.2);
+}
 
 .login-submit {
   height: 2rem;
@@ -39,10 +44,17 @@
   color: $highlight-fg;
   font-size: 1.5rem;
   cursor: pointer;
+  padding: 0 .4rem .2rem .4rem;
   text-decoration: none;
 }
-.login-submit:focus {outline: 0;}
-.login-submit:hover {background: $highlight-hover;}
+
+.login-submit:focus {
+  outline: 0;
+}
+
+.login-submit:hover {
+  background: $highlight-hover;
+}
 
 .sign-up-link {
   color: white;
@@ -53,5 +65,21 @@
 }
 
 .signup-link {
+  color: white;
+}
+
+.gh-logo {
+  height: 1.4rem;
+}
+
+.gh-submit {
+  align-items: center;
+  display: flex;
+  margin: 0 auto 0 auto;
+  justify-content: space-around;
+  width: 15rem;
+}
+
+.white-p {
   color: white;
 }
