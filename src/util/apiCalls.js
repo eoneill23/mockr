@@ -261,3 +261,23 @@ export const SIGNUP = gql`
     }
   }
 `
+
+export const INTERVIEWER_REQUESTS = gql`
+  query {
+    users(roleRequest: 1) {
+      id
+      firstName
+      lastName
+    }
+  }
+`;
+
+export const ADMIN_REQUESTS = gql`
+  query {
+    users(roleRequest: 2) {
+      id
+      firstName
+      lastName
+    }
+  }
+`;
