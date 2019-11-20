@@ -3,20 +3,18 @@ import { UserContext } from '../../Context';
 import { LOGIN } from '../../util/apiCalls';
 import { useLazyQuery } from '@apollo/react-hooks';
 import { Link } from "react-router-dom";
+import GHlogo from '../../images/gh-logo.svg';
 
 export const LoginForm = () => {
   const { setUser } = useContext(UserContext);
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
 
-  // const uri = 'http://localhost:3000';
   const uri = 'https://thawing-wave-76846.herokuapp.com';
-  // Thanks React.
 
   const [loginUser, { loading, error, data }] = useLazyQuery(LOGIN);
   if (loading) return <p>Loading...</p>;
   if(data) {
-    console.log("AHHHHH", data)
     setUser(data.login);
     sessionStorage.setItem('userId', data.login.id);
   }
@@ -29,33 +27,43 @@ export const LoginForm = () => {
   }
 
   return (
-    <div className='main-container'>
-      <form className='login-form box-fix'>
-        <a href={uri + '/oauth/github'} className='login-submit'>Login with GitHub</a>
+    <div className="main-container">
+      <form className="login-form box-fix">
         <h3>Email:</h3>
         <input
-          type='text'
-          name='emailInput'
-          className='login-input'
+          type="text"
+          name="emailInput"
+          className="login-input"
           value={emailInput}
           onChange={e => setEmailInput(e.target.value)}
-        >
-        </input>
+        ></input>
         <h3>Password:</h3>
         <input
-          type='password'
-          name='passwordInput'
-          className='login-input'
+          type="password"
+          name="passwordInput"
+          className="login-input"
           value={passwordInput}
           onChange={e => setPasswordInput(e.target.value)}
-        >
-        </input>
-        <button className='login-submit' onClick={(e) => handleSubmit(e)}>Submit</button>
-        <p className='signup-link'>New to Mockr? Sign up <Link to='/signup'>here.</Link></p>
-        {error && <p className='login-error'>There was an issue with your email or password. Please try again.</p>}
+        ></input>
+        <button className="login-submit" onClick={e => handleSubmit(e)}>
+          Submit
+        </button>
+        <p className="signup-link">
+          New to Mockr? Sign up <Link to="/signup">here.</Link>
+        </p>
+        <p className='white-p'>Or</p>
+        <a href={uri + "/oauth/github"} className="login-submit gh-submit">
+          Login with GitHub
+          <img src={GHlogo} alt="GitHub octocat logo" className='gh-logo'/>
+        </a>
+        {error && (
+          <p className="login-error">
+            There was an issue with your email or password. Please try again.
+          </p>
+        )}
       </form>
     </div>
-  )
+  );
 }
 
 export default LoginForm;

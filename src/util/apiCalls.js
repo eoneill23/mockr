@@ -90,6 +90,7 @@ query CurrentUser($token: String!) {
     email
     role
     roleRequest
+    image
     interviews {
       id
       score
@@ -132,6 +133,7 @@ query Login($email: String!, $password: String!){
     lastName
     email
     role
+    image
     interviews {
       id
       score
@@ -255,6 +257,7 @@ export const SIGNUP = gql`
       program
       cohort
       role
+      image
     }
   }
 `

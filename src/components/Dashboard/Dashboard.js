@@ -3,8 +3,6 @@ import {useMutation} from '@apollo/react-hooks';
 import {USER_ROLE_REQUEST} from '../../util/apiCalls';
 import { UserContext } from '../../Context';
 
-import profilePic from './profile.jpg';
-
 export const Dashboard = () => {
   const [roleReq] = useMutation(USER_ROLE_REQUEST);
   const { user } = useContext(UserContext);
@@ -19,8 +17,10 @@ export const Dashboard = () => {
   return (
   <section className='main-container'>
     <section className='profile-container'>
-      <img id='profile-pic' src={profilePic} alt='Profile headshot'/>
-      <h3 id='first-name'>{user.firstName}</h3> <i id='last-name'>{user.lastName}</i>
+      <img id='profile-pic' src={user.image} alt='Profile headshot'/>
+      <div className='name-container'>
+        <h3 id='first-name'>{user.firstName}</h3> <i id='last-name'>{user.lastName}</i>
+      </div>
       <i id='user-email'>{user.email}</i>
       {(user.role !== 2) && <button onClick={e => {e.preventDefault(); request()}} id='role-request-btn'>{buttonText}</button>}
     </section>
@@ -31,9 +31,7 @@ export const Dashboard = () => {
         <div className='approvals-interviewer-card'>
           <h4>Name: </h4>
         </div>
-
         <div className='approvals-admin-card'>
-
         </div>
       </div>
     </section>}

@@ -233,15 +233,18 @@ exports[`Dashboard should match the snapshot with all data passed in correctly 1
           <img
             alt="Profile headshot"
             id="profile-pic"
-            src="profile.jpg"
           />
-          <h3
-            id="first-name"
-          />
-           
-          <i
-            id="last-name"
-          />
+          <div
+            className="name-container"
+          >
+            <h3
+              id="first-name"
+            />
+             
+            <i
+              id="last-name"
+            />
+          </div>
           <i
             id="user-email"
           />
