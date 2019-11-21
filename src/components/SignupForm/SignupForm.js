@@ -30,6 +30,11 @@ export const SignupForm = () => {
   return (
     <div className="main-container">
       <form className="login-form box-fix">
+        {error && (
+          <p className="login-error">
+            There was an issue creating your account. Please try again.
+          </p>
+        )}
         <h3>First name:</h3>
         <input
           type="text"
@@ -96,11 +101,6 @@ export const SignupForm = () => {
         <button className="login-submit" onClick={e => handleSubmit(e)}>
           Submit
         </button>
-        {error && (
-          <p className="login-error">
-            There was an issue creating your account. Please try again.
-          </p>
-        )}
       </form>
     </div>
   );
