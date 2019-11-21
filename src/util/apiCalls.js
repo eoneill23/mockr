@@ -57,6 +57,7 @@ export const USER = gql`
       email
       role
       roleRequest
+      image
       interviews {
         id
         score

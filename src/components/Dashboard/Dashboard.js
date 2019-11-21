@@ -44,9 +44,11 @@ export const Dashboard = () => {
     return data.map(({id, firstName, lastName}, i) => {
       return (
         <div key={i} className={'approvals-card ' + (type ? 'admin-app' : 'int-app')}>
-          <h4>{firstName} {lastName}</h4>
-          <button onClick={e => approveRequest(e, id, type)}>Approve</button>
-          <button onClick={e => denyRequest(e, id)}>Deny</button>
+          <h4 className='approval-name'>{firstName} {lastName}</h4>
+          <div className='approval-btn-container'>
+            <button className='approval-btn' onClick={e => approveRequest(e, id, type)}>Approve</button>
+            <button className='approval-btn' onClick={e => denyRequest(e, id)}>Deny</button>
+          </div>
         </div>
       );
     });
